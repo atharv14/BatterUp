@@ -1,3 +1,28 @@
+# Minimum Viable Product features (MVP) features:
+1. Core Systems:
+    - User preferences for teams/players
+    - Basic highlight detection
+    - Simple digest generation
+    - Support for 2 languages initially (English/Spanish)
+
+2. Technical Stack:
+    - Frontend:
+        - React 
+        - TailwindCSS 
+
+    - Backend:
+        - Google Cloud Functions (serverless)
+        - Vertex AI (highlight detection)
+        - Gemini (commentary generation)
+        - Cloud Translation API
+        - Cloud Storage (media)
+
+3. APIs
+    - MLB GUMBO API for live game data
+    - Google Cloud Translation API
+    - Vertex AI APIs
+    - Gemini API
+
 ## Step 1. Initial Setup
 - ```brew install google-cloud-sdk```
 - ```gcloud auth login```
@@ -54,10 +79,12 @@ EOL```
 ## Step 3. Writing and deploying basic cloud functions for highlight-detection and digest-generator
 
 ## Step 4. Testing the basic deployment  with curl and CLI commands
-- #curl for highlight ```curl -X POST https://us-central1-[$PROJECT_ID].cloudfunctions.net/highlight-detection \
-  -H "Content-Type: application/json" \
-  -d '{"game_pk": "123", "play_id": "456"}'```
-    - response: ```{"success": true, "message": "Processed successfully"}```
+- #curl for highlight ```curl -X POST https://us-central1-batterup-mlb-hack.cloudfunctions.net/highlight-detection \
+                            -H "Content-Type: application/json" \
+                            -d '{
+                                "game_pk": "716465"
+                            }'```
+    - response: ```{"success": true, "highlights_created": 1, "highlights": [{"highlight_id": "24TZUYa28rq0HoeZw7cM", "importance_score": 0.8}]}```
 - #command for digest ```gcloud pubsub topics publish generate-digest --message="generate_digest_test"```
     - response: ```messageIds:'13398670210125928'```
 
