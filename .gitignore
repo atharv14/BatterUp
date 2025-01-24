@@ -1,2 +1,3 @@
 functions/backend_env/
 /functions/.env
+functions/firestore-database/firebase-service-account-key.json
