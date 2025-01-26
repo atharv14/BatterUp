@@ -130,23 +130,38 @@ def calculate_fielding_abilities(fielding_data: Dict[str, Any]) -> Dict[str, flo
     except Exception as e:
         print(f"Error calculating fielding abilities: {e}")
         return {"defense": 0, "range": 0, "reliability": 0}
-
-
+    
 def get_position_type(player_info: Dict) -> str:
-    """Determine player's primary position type."""
-    position = (player_info.get('primaryPosition', {}).get('type', ''))
-
-    if any(pos in str(position) for pos in ['P', 'Pitcher']):
-        return 'Pitcher'
-    elif any(pos in str(position) for pos in ['C', 'Catcher']):
-        return 'Catcher'
-    elif any(pos in str(position) for pos in ['1B', '2B', '3B', 'SS', 'Infielder']):
-        return 'Infielder'
-    elif any(pos in str(position) for pos in ['LF', 'CF', 'RF', 'OF', 'Outfielder']):
-        return 'Outfielder'
-    else:
+    """
+    Determine player's primary position type from the API position data.
+    Returns the standardized position type.
+    """
+    try:
+        position_data = player_info.get('primaryPosition', {})
+        position_type = position_data.get('type', '')
+        
+        # API returns standardized types: 'Pitcher', 'Catcher', 'Infielder', 'Outfielder', 'Hitter'
+        if position_type in ['Pitcher', 'Catcher', 'Infielder', 'Outfielder', 'Hitter']:
+            return position_type
+            
+        # Fallback logic if type is not available
+        position_code = position_data.get('code', '')
+        position_mapping = {
+            '1': 'Pitcher',
+            '2': 'Catcher',
+            '3': 'Infielder',  # 1B
+            '4': 'Infielder',  # 2B
+            '5': 'Infielder',  # 3B
+            '6': 'Infielder',  # SS
+            '7': 'Outfielder', # LF
+            '8': 'Outfielder', # CF
+            '9': 'Outfielder', # RF
+            '10': 'Hitter'     # DH
+        }
+        return position_mapping.get(position_code, 'Hitter')
+    except Exception as e:
+        print(f"Error determining position type: {e}")
         return 'Hitter'
-
 
 def calculate_position_based_abilities(position_type: str, batting_data: Dict,
                                        pitching_data: Dict, fielding_data: Dict) -> Dict[str, Dict[str, float]]:
@@ -182,6 +197,45 @@ def calculate_position_based_abilities(position_type: str, batting_data: Dict,
 
     return abilities
 
+def determine_player_specialization(player_card: Dict) -> Dict[str, Any]:
+    """
+    Determine player's specialized role based on their abilities and position.
+    """
+    position_type = player_card['basic_info']['primary_position']
+    batting = player_card['batting_abilities']
+    pitching = player_card['pitching_abilities']
+    
+    specialization = {
+        "primary_role": position_type,
+        "secondary_roles": []
+    }
+    
+    if position_type == 'Pitcher':
+        # Determine pitching style
+        styles = []
+        if pitching['velocity'] > 70:
+            styles.append("Fastballs")
+        if pitching['control'] > 70:
+            styles.append("Breaking Balls")
+        if pitching['effectiveness'] > 70:
+            styles.append("Changeups")
+        specialization["pitching_styles"] = styles if styles else ["Fastballs"]
+        
+    elif position_type == 'Hitter':
+        # Determine hitting style
+        styles = []
+        if batting['power'] > 70:
+            styles.append("Power Hitter")
+        if player_card['basic_info']['bats'] == 'Switch':
+            styles.append("Switch Hitter")
+        if batting['contact'] > 70 and batting['discipline'] > 65:
+            styles.append("Designated Hitter")
+        specialization["hitting_styles"] = styles if styles else ["Designated Hitter"]
+        
+    elif position_type in ['Infielder', 'Outfielder', 'Catcher']:
+        specialization["fielding_type"] = position_type.lower()
+        
+    return specialization
 
 def create_player_card(batting_data: Dict, pitching_data: Dict,
                        fielding_data: Dict, player_info: Dict) -> Dict:
@@ -224,6 +278,8 @@ def create_player_card(batting_data: Dict, pitching_data: Dict,
                        fielding_data.get('Awards', ''))
         }
     }
+
+    player_card["role_info"] = determine_player_specialization(player_card)
 
     return player_card
 

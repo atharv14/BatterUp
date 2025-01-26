@@ -15,6 +15,22 @@
         { "fieldPath": "basic_info.team", "order": "ASCENDING" },
         { "fieldPath": "basic_info.primary_position", "order": "ASCENDING" }
       ]
+    },
+    {
+      "collectionGroup": "players",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "role_info.primary_role", "order": "ASCENDING" },
+        { "fieldPath": "basic_info.team", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "players",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "role_info.primary_role", "order": "ASCENDING" },
+        { "fieldPath": "role_info.fielding_type", "order": "ASCENDING" }
+      ]
     }
   ],
   "fieldOverrides": []
