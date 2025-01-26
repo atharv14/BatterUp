@@ -233,7 +233,7 @@ def determine_player_specialization(player_card: Dict) -> Dict[str, Any]:
         specialization["hitting_styles"] = styles if styles else ["Designated Hitter"]
         
     elif position_type in ['Infielder', 'Outfielder', 'Catcher']:
-        specialization["fielding_type"] = position_type.lower()
+        specialization["fielding_type"] = position_type
         
     return specialization
 
