@@ -7,12 +7,12 @@ import { getFirestore, Firestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDrkg1EYBcWe-BEPceGu_J9lHjvcal99ac",
-  authDomain: "batterup-mlb-hack.firebaseapp.com",
-  projectId: "batterup-mlb-hack",
-  storageBucket: "batterup-mlb-hack.firebasestorage.app",
-  messagingSenderId: "682091179679",
-  appId: "1:682091179679:web:04a553cbff70cf6c1bbcaa"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase

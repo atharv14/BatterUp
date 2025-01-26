@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import "./index.css";
+import LoginScreen from "./LoginScreen";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
   const [image, setImage] = useState("src/assets/MLB.png");
@@ -24,7 +26,7 @@ function App() {
 
   return (
     <div className="App">
-      <AdminPanel />
+      <LoginScreen />
     </div>
   );
 }
