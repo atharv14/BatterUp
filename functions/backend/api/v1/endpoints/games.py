@@ -110,6 +110,42 @@ async def validate_player_selection(player_id: str, selection: PlayerSelection):
         role_info = player_data.get('role_info', {})
 
         # Validate role selection
+        if selection.role == PlayerRole.HITTER:
+            if role_info.get('primary_role') != 'Hitter':
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Selected player cannot be used as a Hitter"
+                )
+
+            # Validate hitting styles
+            valid_styles = role_info.get('hitting_styles', [])
+            selected_styles = selection.role_specific_info.get('hitting_styles', [])
+
+            if not all(style in valid_styles for style in selected_styles):
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Invalid hitting style selection"
+                )
+            
+        # Validate role selection
+        if selection.role == PlayerRole.FIELDER:
+            if role_info.get('primary_role') != 'Fielder':
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Selected player cannot be used as a Fielder"
+                )
+
+            # Validate fielding styles
+            valid_styles = role_info.get('fielding_type', [])
+            selected_styles = selection.role_specific_info.get('fielding_type', [])
+
+            if not all(style in valid_styles for style in selected_styles):
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Invalid fielding_type selection"
+                )
+            
+        # Validate role selection
         if selection.role == PlayerRole.PITCHER:
             if role_info.get('primary_role') != 'Pitcher':
                 raise HTTPException(

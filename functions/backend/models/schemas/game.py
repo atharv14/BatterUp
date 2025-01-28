@@ -30,11 +30,18 @@ class GameCreate(BaseModel):
     player2_id: Optional[str] = None  # Optional for waiting for opponent
     player1_selection: PlayerSelection
 
+class PlayerCards(BaseModel):
+    available_cards: List[str]  # List of player_ids
+    current_card: str  # Current active player_id
+    used_cards: List[str] = []  # Cards that have been used
+
 class GameState(BaseModel):
     game_id: str
     status: GameStatus
     player1: PlayerSelection
     player2: Optional[PlayerSelection] = None
+    player1_cards: PlayerCards
+    player2_cards: PlayerCards
     current_state: Dict = Field(
         default_factory=dict,
         description="Current game state including scores, inning, etc."
