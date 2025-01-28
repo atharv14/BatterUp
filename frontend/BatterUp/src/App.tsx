@@ -1,14 +1,28 @@
+import React from "react";
 import { Routes, Route } from "react-router-dom";
-import HomeScreen from "./HomeScreen"; // Your main/home component
-import LoginScreen from "./LoginScreen"; // or wherever your login component is
+import HomeScreen from "./HomeScreen";
+import LoginScreen from "./LoginScreen";
+import AdminPanel from "./AdminPanel";
+import ProtectedRoute from "./ProtectedRoute";
 
-function App() {
+const App: React.FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<HomeScreen />} />
+      {/* Public routes */}
       <Route path="/login" element={<LoginScreen />} />
+      <Route path="/" element={<HomeScreen />} />
+
+      {/* Protected routes */}
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <AdminPanel />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
-}
+};
 
 export default App;
