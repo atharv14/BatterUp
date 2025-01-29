@@ -3,3 +3,4 @@ functions/backend_env/
 functions/firestore-database/firebase-service-account-key.json
 node_modules/
 MLB StatsAPI - Lookup Values.pdf
+config.js
