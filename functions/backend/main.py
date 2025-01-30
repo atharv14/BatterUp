@@ -3,10 +3,14 @@ from fastapi.middleware.cors import CORSMiddleware
 from core.config import settings
 from api.v1.endpoints import players
 from api.v1.endpoints import games
+from api.v1.endpoints import users
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
-    openapi_url=f"{settings.API_V1_STR}/openapi.json"
+    description="Baseball Card Game API",
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc"
 )
 
 # Set up CORS
@@ -29,6 +33,12 @@ app.include_router(
     games.router,
     prefix=f"{settings.API_V1_STR}/games",
     tags=["games"]
+)
+
+app.include_router(
+    users.router,
+    prefix=f"{settings.API_V1_STR}/users",
+    tags=["users"]
 )
 
 

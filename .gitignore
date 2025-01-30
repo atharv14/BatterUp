@@ -1,6 +1,8 @@
+functions/backend/__pycache__/main.cpython-313.pyc
+functions/backend/**/__pycache__/
+functions/backend/*.py[cod]
+functions/backend/*$py.class
 functions/backend_env/
 /functions/.env
 functions/firestore-database/firebase-service-account-key.json
 node_modules/
-MLB StatsAPI - Lookup Values.pdf
-config.js

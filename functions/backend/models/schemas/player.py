@@ -1,74 +1,49 @@
+from .base import Position, PitchingStyle, HittingStyle
 from pydantic import BaseModel, Field
-from typing import Dict, Optional, List
+from typing import Dict, List, Optional
 
+class BasicInfo(BaseModel):
+    name: str
+    team: str
+    primary_position: Position
+    bats: str
+    throws: str
+    age: int
+    height: str
+    weight: int
+    headshot_url: str
 
-class PlayerBase(BaseModel):
+class Abilities(BaseModel):
+    contact: float = Field(ge=0, le=100)
+    power: float = Field(ge=0, le=100)
+    discipline: float = Field(ge=0, le=100)
+    speed: float = Field(ge=0, le=100)
+
+class PitchingAbilities(BaseModel):
+    control: float = Field(ge=0, le=100)
+    velocity: float = Field(ge=0, le=100)
+    stamina: float = Field(ge=0, le=100)
+    effectiveness: float = Field(ge=0, le=100)
+
+class FieldingAbilities(BaseModel):
+    defense: float = Field(ge=0, le=100)
+    range: float = Field(ge=0, le=100)
+    reliability: float = Field(ge=0, le=100)
+
+class RoleInfo(BaseModel):
+    primary_role: Position
+    secondary_roles: List[Position] = []
+    pitching_styles: Optional[List[PitchingStyle]] = None
+    hitting_styles: Optional[List[HittingStyle]] = None
+
+class PlayerCard(BaseModel):
     player_id: str
-    basic_info: Dict
-    batting_abilities: Dict
-    pitching_abilities: Dict
-    fielding_abilities: Dict
-    role_info: Dict
-
-    class Config:
-        json_schema_extra = {
-            "player_id": 650391,
-            "basic_info": {
-                "name": "Eloy Jiménez",
-                "team": "2TM",
-                "primary_position": "Hitter",
-                "bats": "Right",
-                "throws": "Right",
-                "age": 28,
-                "height": "6' 4\"",
-                "weight": 250,
-                "headshot_url": "https://securea.mlb.com/mlb/images/players/head_shot/650391.jpg"
-            },
-            "batting_abilities": {
-                "contact": 72.6,
-                "power": 50.4,
-                "discipline": 57.8,
-                "speed": 4.5
-            },
-            "pitching_abilities": {
-                "control": 1.0,
-                "velocity": 1.0,
-                "stamina": 1.0,
-                "effectiveness": 1.0
-            },
-            "fielding_abilities": {
-                "defense": 1.6,
-                "range": 4.0,
-                "reliability": 75.7
-            },
-            "additional_info": {
-                "debut_date": "2019-03-28",
-                "birth_place": {
-                    "city": "Santo Domingo",
-                    "state": "",
-                    "country": "Dominican Republic"
-                },
-                "awards": ""
-            },
-            "role_info": {
-                "primary_role": "Hitter",
-                "secondary_roles": [],
-                "hitting_styles": [
-                    "Designated Hitter"
-                ]
-            }
-        }
-
-
-class PlayerQuery(BaseModel):
-    role: Optional[str] = Field(
-        None, description="Player's role (e.g., Pitcher, Hitter)")
-    team: Optional[str] = Field(
-        None, description="Team abbreviation (e.g., NYY)")
-    position: Optional[str] = Field(None, description="Primary position")
-
+    basic_info: BasicInfo
+    batting_abilities: Abilities
+    pitching_abilities: PitchingAbilities
+    fielding_abilities: FieldingAbilities
+    role_info: RoleInfo
 
 class PlayerList(BaseModel):
-    players: List[PlayerBase]
-    total: int = Field(...,
-                       description="Total number of players matching the query")
+    players: List[PlayerCard]
+    total: int

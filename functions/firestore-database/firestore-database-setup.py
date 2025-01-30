@@ -3,11 +3,12 @@ from firebase_admin import credentials, firestore
 import json
 from datetime import datetime
 import os
+from core.config import settings
 
 def initialize_firestore():
     """Initialize Firestore with default database."""
     try:
-        cred_path = 'firebase-service-account-key.json'
+        cred_path = settings.FIREBASE_CREDENTIALS_PATH
 
         if not os.path.exists(cred_path):
             print(f"Error: Credentials file not found at {cred_path}")

@@ -1,50 +1,77 @@
 from pydantic import BaseModel, Field
-from typing import Dict, List, Optional
-from enum import Enum
+from typing import Dict, List, Optional, Union
+from datetime import datetime
+from .base import GameStatus, PitchingStyle, HittingStyle
+from .user import Deck
 
-class PlayerRole(str, Enum):
-    PITCHER = "Pitcher"
-    HITTER = "Hitter"
-    FIELDER = "Fielder"
+class BaseState(BaseModel):
+    first: Optional[str] = None  # player_id of runner
+    second: Optional[str] = None
+    third: Optional[str] = None
 
-class PitchingStyle(str, Enum):
-    FASTBALLS = "Fastballs"
-    BREAKING_BALLS = "Breaking Balls"
-    CHANGEUPS = "Changeups"
+class PlayerGameStats(BaseModel):
+    hits: int = 0
+    outs: int = 0
+    runs: int = 0
+    rbis: int = 0
 
-class GameStatus(str, Enum):
-    WAITING = "waiting"
-    IN_PROGRESS = "in_progress"
-    COMPLETED = "completed"
+class TeamState(BaseModel):
+    user_id: str
+    deck: Deck
+    current_pitcher: str
+    current_batter: str
+    score: int = 0
+    hits: int = 0
+    errors: int = 0
+    player_stats: Dict[str, PlayerGameStats] = Field(default_factory=dict)
 
-class PlayerSelection(BaseModel):
+class Action(BaseModel):
     player_id: str
-    role: PlayerRole
-    role_specific_info: Dict = Field(
-        default_factory=dict,
-        description="Role-specific attributes (e.g., pitching_styles for pitchers)"
-    )
+    timestamp: datetime
+    action_type: str  # "pitch" or "bat"
+    selected_style: Union[PitchingStyle, HittingStyle]
 
-class GameCreate(BaseModel):
-    player1_id: str
-    player2_id: Optional[str] = None  # Optional for waiting for opponent
-    player1_selection: PlayerSelection
-
-class PlayerCards(BaseModel):
-    available_cards: List[str]  # List of player_ids
-    current_card: str  # Current active player_id
-    used_cards: List[str] = []  # Cards that have been used
+class PlayResult(BaseModel):
+    outcome: str  # "single", "double", "triple", "home_run", "out"
+    description: str
+    batting_team_runs: int = 0
+    fielding_team_errors: int = 0
 
 class GameState(BaseModel):
     game_id: str
     status: GameStatus
-    player1: PlayerSelection
-    player2: Optional[PlayerSelection] = None
-    player1_cards: PlayerCards
-    player2_cards: PlayerCards
-    current_state: Dict = Field(
-        default_factory=dict,
-        description="Current game state including scores, inning, etc."
-    )
-    created_at: str
-    updated_at: str
+    inning: int = 1
+    is_top_inning: bool = True
+    outs: int = 0
+    bases: BaseState = Field(default_factory=BaseState)
+    team1: TeamState
+    team2: Optional[TeamState] = None
+    last_action: Optional[Action] = None
+    action_deadline: Optional[datetime] = None
+    created_at: datetime
+    updated_at: datetime
+
+class GameHistory(BaseModel):
+    inning: int
+    is_top_inning: bool
+    timestamp: datetime
+    batting_team: str  # user_id
+    pitching_team: str  # user_id
+    action: Action
+    result: PlayResult
+
+class GameView(BaseModel):
+    game_id: str
+    state: GameState
+    history: List[GameHistory] = []
+
+    class Config:
+        arbitrary_types_allowed = True
+
+class GameCreate(BaseModel):
+    user_id: str
+    deck: Deck
+
+class GameJoin(BaseModel):
+    user_id: str
+    deck: Deck

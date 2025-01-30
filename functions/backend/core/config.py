@@ -18,4 +18,6 @@ class Settings(BaseSettings):
         "http://localhost:8000",  # FastAPI docs
     ]
 
+    DEVELOPMENT_MODE: bool = True
+
 settings = Settings()

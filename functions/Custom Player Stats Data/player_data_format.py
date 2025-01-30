@@ -228,7 +228,7 @@ def determine_player_specialization(player_card: Dict) -> Dict[str, Any]:
             styles.append("Power Hitter")
         if player_card['basic_info']['bats'] == 'Switch':
             styles.append("Switch Hitter")
-        if batting['contact'] > 70 and batting['discipline'] > 65:
+        if batting['contact'] > 70 and batting['discipline'] > 50:
             styles.append("Designated Hitter")
         specialization["hitting_styles"] = styles if styles else ["Designated Hitter"]
         

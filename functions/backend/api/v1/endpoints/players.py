@@ -1,12 +1,12 @@
 from fastapi import APIRouter, HTTPException, Query, status
 from fastapi.responses import JSONResponse
 from typing import List, Optional
-from models.schemas.player import PlayerBase, PlayerQuery, PlayerList
+from models.schemas.player import PlayerCard, PlayerList
 from services.firebase import db
 
 router = APIRouter()
 
-@router.get("/{player_id}", response_model=PlayerBase)
+@router.get("/{player_id}", response_model=PlayerCard)
 async def get_player(player_id: str):
     """Get a specific player by ID"""
     try:
@@ -108,4 +108,31 @@ async def get_player_headshot(player_id: str):
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Error retrieving headshot: {str(e)}"
+        )
+
+@router.get("/deck-selection", response_model=List[PlayerCard])
+async def get_players_for_deck(
+    position: Optional[str] = Query(None, description="Filter by position")
+):
+    """Get players suitable for deck selection"""
+    try:
+        query = db.collection('players')
+        
+        if position:
+            query = query.where('basic_info.primary_position', '==', position)
+            
+        docs = query.stream()
+        players = []
+        
+        for doc in docs:
+            player_data = doc.to_dict()
+            if player_data.get('player_id') != 'metadata':  # Skip metadata document
+                players.append(player_data)
+                
+        return players
+        
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error retrieving players: {str(e)}"
         )
