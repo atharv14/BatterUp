@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import HomeScreen from "./HomeScreen";
-import LoginScreen from "./LoginScreen";
-import AdminPanel from "./AdminPanel";
+import HomeScreen from "./pages/HomeScreen";
+import LoginScreen from "./pages/LoginScreen";
+import AdminPanel from "./pages/AdminPanel";
 import ProtectedRoute from "./ProtectedRoute";
 import PlayerTable from "./PlayerTable";
 

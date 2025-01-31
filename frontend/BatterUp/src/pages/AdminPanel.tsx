@@ -1,5 +1,5 @@
 import React from "react";
-import PlayerTable from "./PlayerTable";
+import PlayerTable from "../PlayerTable";
 
 const AdminPanel: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { useAuth } from "./AuthContext"; // Import useAuth to get user info
-import "./index.css";
+import { useAuth } from "../AuthContext"; // Import useAuth to get user info
+import "../index.css";
 
 function App() {
   const [image, setImage] = useState("src/assets/MLB.png");
