@@ -73,13 +73,13 @@ def calculate_pitching_abilities(pitching_data: Dict[str, Any]) -> Dict[str, flo
         durability_modifier = min(5, (cg/gs if gs > 0 else 1) * 5)
         endurance_factor = min(5, (bf/g)/15)
 
-        stamina = min(100, base + role_modifier +
-                      durability_modifier + endurance_factor)
+        stamina = max(20, min(100, base + role_modifier +
+                      durability_modifier + endurance_factor))
 
         # Effectiveness Rating
         era_plus = float(pitching_data.get('ERA+', 100))
         fip = float(pitching_data.get('Fielding Independent Pitching', 4.0))
-        effectiveness = min(60, (era_plus/2)) + min(40, (40 - (fip * 4)))
+        effectiveness = max(20, min(60, (era_plus/2)) + min(40, (40 - (fip * 4))))
 
         return {
             "control": round(control, 1),

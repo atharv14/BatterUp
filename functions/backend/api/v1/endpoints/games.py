@@ -1,14 +1,19 @@
 from fastapi import APIRouter, HTTPException, Depends, status
 from typing import List, Optional
 from models.schemas.game import (
-    GameCreate, GameJoin, GameState, GameView,
-    Action, GameHistory, PlayResult
+    BaseState, GameCreate, GameJoin, GameState, GameView,
+    Action, GameHistory, PlayResult, TeamLineup, TeamState
 )
 from models.schemas.base import GameStatus, PitchingStyle, HittingStyle
 from core.firebase_auth import get_current_user
+from models.schemas.user import Deck
+from services.base_running import BaseRunningService
 from services.firebase import db
 from datetime import datetime, timedelta
 import uuid
+
+from services.history_service import HistoryService
+from services.lineup_manager import LineupManager
 
 router = APIRouter()
 
@@ -20,34 +25,44 @@ async def create_game(
 ):
     """Create a new game session"""
     try:
+        # Validate user
         if current_user['uid'] != game_data.user_id:
             raise HTTPException(
                 status_code=403,
                 detail="Can only create game for yourself"
             )
 
+        # Validate deck composition
+        validate_deck_composition(game_data.deck)
+
         game_id = str(uuid.uuid4())
         current_time = datetime.utcnow()
 
-        # Initialize first batter and pitcher
-        team1_state = {
-            "user_id": game_data.user_id,
-            "deck": game_data.deck.dict(),
-            "current_pitcher": game_data.deck.pitchers[0],
-            "current_batter": game_data.deck.hitters[0],
-            "score": 0,
-            "hits": 0,
-            "errors": 0,
-            "player_stats": {}
-        }
+        # Initialize team lineup
+        team1_lineup = LineupManager.initialize_lineup(game_data.deck.dict())
 
+        # Initialize bases
+        initial_bases = BaseState().dict()
+
+        # Initialize first team state
+        team1_state = TeamState(
+            user_id=game_data.user_id,
+            deck=game_data.deck,
+            lineup=team1_lineup,
+            score=0,
+            hits=0,
+            errors=0,
+            player_stats={}
+        ).dict()
+
+        # Create initial game state
         game_state = {
             "game_id": game_id,
             "status": GameStatus.WAITING,
             "inning": 1,
             "is_top_inning": True,
             "outs": 0,
-            "bases": {},
+            "bases": initial_bases,
             "team1": team1_state,
             "team2": None,
             "last_action": None,
@@ -59,12 +74,26 @@ async def create_game(
         # Store in Firestore
         db.collection('games').document(game_id).set(game_state)
 
-        return {
-            "game_id": game_id,
-            "state": GameState(**game_state),
-            "history": []
-        }
+        # Initialize game history collection
+        history_ref = db.collection('games').document(
+            game_id).collection('history')
+        history_ref.document('game_start').set({
+            "timestamp": current_time,
+            "event": "game_created",
+            "creator_id": game_data.user_id
+        })
 
+        return GameView(
+            game_id=game_id,
+            state=GameState(**game_state),
+            history=[]
+        )
+
+    except ValueError as ve:
+        raise HTTPException(
+            status_code=400,
+            detail=str(ve)
+        )
     except Exception as e:
         raise HTTPException(
             status_code=500,
@@ -80,11 +109,15 @@ async def join_game(
 ):
     """Join an existing game"""
     try:
+        # Validate user
         if current_user['uid'] != join_data.user_id:
             raise HTTPException(
                 status_code=403,
                 detail="Can only join game for yourself"
             )
+
+        # Validate deck composition
+        validate_deck_composition(join_data.deck)
 
         game_ref = db.collection('games').document(game_id)
         game = game_ref.get()
@@ -103,32 +136,61 @@ async def join_game(
                 detail="Game is not available to join"
             )
 
-        # Initialize second team
-        team2_state = {
-            "user_id": join_data.user_id,
-            "deck": join_data.deck.dict(),
-            "current_pitcher": join_data.deck.pitchers[0],
-            "current_batter": join_data.deck.hitters[0],
-            "score": 0,
-            "hits": 0,
-            "errors": 0,
-            "player_stats": {}
-        }
+        if game_state["team1"]["user_id"] == join_data.user_id:
+            raise HTTPException(
+                status_code=400,
+                detail="Cannot join your own game"
+            )
+
+        # Initialize team lineup for second team
+        team2_lineup = LineupManager.initialize_lineup(join_data.deck.dict())
+
+        # Initialize second team state
+        team2_state = TeamState(
+            user_id=join_data.user_id,
+            deck=join_data.deck,
+            lineup=team2_lineup,
+            score=0,
+            hits=0,
+            errors=0,
+            player_stats={}
+        ).dict()
 
         # Update game state
-        game_state["team2"] = team2_state
-        game_state["status"] = GameStatus.IN_PROGRESS
-        game_state["updated_at"] = datetime.utcnow()
-
-        # Update in Firestore
-        game_ref.update(game_state)
-
-        return {
-            "game_id": game_id,
-            "state": GameState(**game_state),
-            "history": []
+        current_time = datetime.utcnow()
+        update_data = {
+            "team2": team2_state,
+            "status": GameStatus.IN_PROGRESS,
+            "updated_at": current_time,
+            "last_action": None,
+            "action_deadline": current_time + timedelta(seconds=5)
         }
 
+        # Update in Firestore
+        game_ref.update(update_data)
+
+        # Update game state for response
+        game_state.update(update_data)
+
+        # Record join event in history
+        history_ref = game_ref.collection('history')
+        history_ref.document().set({
+            "timestamp": current_time,
+            "event": "player_joined",
+            "player_id": join_data.user_id
+        })
+
+        return GameView(
+            game_id=game_id,
+            state=GameState(**game_state),
+            history=[]
+        )
+
+    except ValueError as ve:
+        raise HTTPException(
+            status_code=400,
+            detail=str(ve)
+        )
     except HTTPException as he:
         raise he
     except Exception as e:
@@ -136,6 +198,29 @@ async def join_game(
             status_code=500,
             detail=f"Error joining game: {str(e)}"
         )
+
+
+def validate_deck_composition(deck: Deck):
+    """Validate deck follows required composition rules"""
+    if len(deck.catchers) != 1:
+        raise ValueError("Deck must contain exactly 1 catcher")
+    if len(deck.pitchers) != 5:
+        raise ValueError("Deck must contain exactly 5 pitchers")
+    if len(deck.infielders) != 4:
+        raise ValueError("Deck must contain exactly 4 infielders")
+    if len(deck.outfielders) != 3:
+        raise ValueError("Deck must contain exactly 3 outfielders")
+    if len(deck.hitters) != 4:
+        raise ValueError("Deck must contain exactly 4 hitters")
+
+    # Check for duplicates across all positions
+    all_players = (
+        deck.catchers + deck.pitchers +
+        deck.infielders + deck.outfielders +
+        deck.hitters
+    )
+    if len(set(all_players)) != len(all_players):
+        raise ValueError("Deck contains duplicate players")
 
 
 @router.post("/{game_id}/pitch")
@@ -199,6 +284,63 @@ async def make_pitch(
         )
 
 
+@router.post("/{game_id}/change-pitcher")
+async def change_pitcher(
+    game_id: str,
+    new_pitcher_id: str,
+    current_user: dict = Depends(get_current_user)
+):
+    """Change current pitcher"""
+    try:
+        game_ref = db.collection('games').document(game_id)
+        game = game_ref.get()
+
+        if not game.exists:
+            raise HTTPException(status_code=404, detail="Game not found")
+
+        game_state = game.to_dict()
+
+        # Determine which team is pitching
+        pitching_team_key = "team2" if game_state["is_top_inning"] else "team1"
+        pitching_team = game_state[pitching_team_key]
+
+        if current_user['uid'] != pitching_team["user_id"]:
+            raise HTTPException(
+                status_code=403, detail="Not your team's turn to pitch")
+
+        # Convert dictionary to TeamState for lineup management
+        pitching_team_lineup = TeamLineup(**pitching_team["lineup"])
+
+        # Validate and perform pitcher change
+        success, message = LineupManager.change_pitcher(
+            pitching_team_lineup, new_pitcher_id)
+
+        if not success:
+            raise HTTPException(status_code=400, detail=message)
+
+        # Update game state with new lineup
+        pitching_team["lineup"] = pitching_team_lineup.dict()
+        game_state[pitching_team_key] = pitching_team
+
+        game_state["updated_at"] = datetime.utcnow().isoformat()
+
+        # Update in Firestore
+        game_ref.update(game_state)
+
+        return {
+            "message": "Pitcher changed successfully",
+            "new_pitcher_id": new_pitcher_id
+        }
+
+    except HTTPException as he:
+        raise he
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error changing pitcher: {str(e)}"
+        )
+
+
 @router.post("/{game_id}/bat")
 async def make_bat(
     game_id: str,
@@ -238,42 +380,28 @@ async def make_bat(
             )
 
         # Validate it's batter's turn
-        current_batter_id = game_state["team1"]["user_id"] if game_state["is_top_inning"] else game_state["team2"]["user_id"]
-        if current_user['uid'] != current_batter_id:
+        batting_team = game_state["team1"] if game_state["is_top_inning"] else game_state["team2"]
+        if current_user['uid'] != batting_team["user_id"]:
             raise HTTPException(
                 status_code=400,
                 detail="Not your turn to bat"
             )
 
+        # Get current batter from lineup
+        current_batter = batting_team["lineup"]["batting_order"][batting_team["lineup"]
+                                                                 ["current_batter_index"]]
+
         # Process the at-bat
-        result = process_at_bat(
-            game_state,
-            hit_style
-        )
+        result = process_at_bat(game_state, current_batter, hit_style)
 
         # Update game state
-        game_state = update_game_state(game_state, result)
-        game_state["updated_at"] = datetime.now().isoformat()
+        updated_state = await update_game_state(game_state, result)
 
-        # # Save state and history
-        # batch = db.batch()
-
-        # # Update game state
-        # batch.update(game_ref, game_state)
-
-        # # Add to history
-        # history_ref = game_ref.collection('history').document()
-        # history_entry = create_history_entry(game_state, result)
-        # batch.set(history_ref, history_entry)
-
-        # # Commit all updates
-        # batch.commit()
-
-        # Save state and history
-        game_ref.update(game_state)
+        # Update in Firestore
+        game_ref.update(updated_state)
 
         return {
-            "game_state": GameState(**game_state),
+            "game_state": updated_state,
             "result": result
         }
 
@@ -284,74 +412,135 @@ async def make_bat(
         )
 
 
-def process_at_bat(game_state: dict, hit_style: HittingStyle) -> PlayResult:
+def process_at_bat(game_state: dict, batter_id: str, hit_style: HittingStyle) -> PlayResult:
     """Process a batting attempt and return the result"""
-    # Simple probability-based outcome
-    import random
+    try:
+        # Get current pitcher's data
+        pitching_team = game_state["team2"] if game_state["is_top_inning"] else game_state["team1"]
+        current_pitcher = pitching_team["lineup"]["available_pitchers"][pitching_team["lineup"]
+                                                                        ["current_pitcher_index"]]
 
-    outcomes = [
-        ("home_run", "Home run! Ball went over the fence!", 1),
-        ("triple", "Triple! Ball hit deep into the outfield!", 0),
-        ("double", "Double! Ball hit into the gap!", 0),
-        ("single", "Single! Ball hit into the outfield!", 0),
-        ("out", "Out! Ball caught by fielder.", 0)
-    ]
+        # Get last pitch style
+        last_action = game_state.get("last_action", {})
+        pitch_style = last_action.get(
+            "selected_style") if last_action else None
 
-    weights = [0.1, 0.1, 0.2, 0.3, 0.3]  # Probabilities for each outcome
-    outcome, description, error = random.choices(outcomes, weights=weights)[0]
+        if not pitch_style:
+            raise ValueError("No pitch action found")
 
-    return PlayResult(
-        outcome=outcome,
-        description=description,
-        batting_team_runs=1 if outcome == "home_run" else 0,
-        fielding_team_errors=error
-    )
+        # Calculate outcome probabilities based on abilities
+        import random
+
+        # # Get current batter ID
+        # current_batter_id = (
+        #     game_state["team1"]["current_batter"]
+        #     if game_state["is_top_inning"]
+        #     else game_state["team2"]["current_batter"]
+        # )
+
+        outcomes = [
+            ("home_run", "Home run! Ball went over the fence!", 1),
+            ("triple", "Triple! Ball hit deep into the outfield!", 0),
+            ("double", "Double! Ball hit into the gap!", 0),
+            ("single", "Single! Ball hit into the outfield!", 0),
+            ("out", "Out! Ball caught by fielder.", 0)
+        ]
+
+        weights = [0.1, 0.1, 0.2, 0.3, 0.3]  # Probabilities for each outcome
+        outcome, description, error = random.choices(
+            outcomes, weights=weights)[0]
+
+        # Process base running if it's a hit
+        if outcome != "out":
+            current_bases = BaseState(**game_state.get("bases", {}))
+            new_bases, advancements, runs_scored = BaseRunningService.advance_runners(
+                current_bases,
+                batter_id,
+                outcome
+            )
+
+            return PlayResult(
+                outcome=outcome,
+                description=description,
+                advancements=advancements,
+                runs_scored=runs_scored,
+                batting_team_runs=runs_scored
+            )
+
+        return PlayResult(
+            outcome=outcome,
+            description=description,
+            advancements=[],
+            runs_scored=0,
+            batting_team_runs=0
+        )
+
+    except Exception as e:
+        raise Exception(f"Error in process_at_bat: {str(e)}")
 
 
-def update_game_state(game_state: dict, result: PlayResult) -> dict:
+TOTAL_OUTS = 0
+
+
+async def update_game_state(game_state: dict, result: PlayResult) -> dict:
     """Update game state based on play result"""
+    global TOTAL_OUTS
     current_time = datetime.utcnow()
 
-    # Update score if there was a home run
-    if result.batting_team_runs > 0:
-        if game_state["is_top_inning"]:
-            game_state["team1"]["score"] += result.batting_team_runs
-        else:
-            game_state["team2"]["score"] += result.batting_team_runs
+    # Update batting team's stats
+    batting_team = game_state["team1"] if game_state["is_top_inning"] else game_state["team2"]
+    if result.outcome != "out":
+        batting_team["hits"] += 1
 
-    # Update outs if the result was an out
+    # Get current pitching team
+    pitching_team = game_state["team2"] if game_state["is_top_inning"] else game_state["team1"]
+
+    # Update outs and inning state
     if result.outcome == "out":
         game_state["outs"] += 1
 
-        # Check if inning is over
         if game_state["outs"] >= 3:
+            # Half-inning is over
+            TOTAL_OUTS += game_state["outs"]    # game_state["total_outs"] += game_state["outs"]
             game_state["outs"] = 0
             game_state["is_top_inning"] = not game_state["is_top_inning"]
-            if not game_state["is_top_inning"]:
+            game_state["bases"] = BaseState().dict()
+
+            # Increment inning after every 6 outs (full inning)
+            if TOTAL_OUTS % 6 == 0:      # if game_state["total_outs"] % 6 == 0:
                 game_state["inning"] += 1
 
-            # Set up next pitcher's turn
-            game_state["last_action"] = None
-            game_state["action_deadline"] = current_time + timedelta(seconds=5)
-        else:
-            # Set up next pitcher's turn for same inning
-            game_state["last_action"] = None
-            game_state["action_deadline"] = current_time + timedelta(seconds=5)
-    else:
-        # If it's a hit, set up next pitcher's turn
-        game_state["last_action"] = None
-        game_state["action_deadline"] = current_time + timedelta(seconds=5)
+            # Update pitching team for next half-inning
+            pitching_team = game_state["team1"] if game_state["is_top_inning"] else game_state["team2"]
 
-    # Check if game should end (9 innings completed)
+    # Update batting order
+    batting_team["lineup"]["current_batter_index"] = (
+        batting_team["lineup"]["current_batter_index"] + 1
+    ) % len(batting_team["lineup"]["batting_order"])
+
+    # Set up next action
+    game_state["last_action"] = None
+    game_state["action_deadline"] = (
+        current_time + timedelta(seconds=5)).isoformat()
+
+    # Update bases if there was a hit
+    if result.outcome != "out":
+        game_state["bases"] = result.advancements[0].dict(
+        ) if result.advancements else {}
+
+    # Check if game should end
     if game_state["inning"] > 9 and not game_state["is_top_inning"]:
-        game_state["status"] = GameStatus.COMPLETED
-        # Determine winner
-        game_state["winner"] = (
-            game_state["team1"]["user_id"]
-            if game_state["team1"]["score"] > game_state["team2"]["score"]
-            else game_state["team2"]["user_id"]
-        )
+        if game_state["team1"]["score"] != game_state["team2"]["score"]:
+            game_state["status"] = GameStatus.COMPLETED
+            game_state["winner"] = (
+                game_state["team1"]["user_id"]
+                if game_state["team1"]["score"] > game_state["team2"]["score"]
+                else game_state["team2"]["user_id"]
+            )
+            # Record complete game history
+            await HistoryService.complete_game(game_state["game_id"], game_state)
 
+    game_state["updated_at"] = current_time.isoformat()
     return game_state
 
 
@@ -447,4 +636,42 @@ async def forfeit_game(
         raise HTTPException(
             status_code=500,
             detail=f"Error forfeiting game: {str(e)}"
+        )
+
+
+@router.get("/{game_id}/history")
+async def get_game_history(
+    game_id: str,
+    current_user: dict = Depends(get_current_user)
+):
+    """Get complete history of a game"""
+    try:
+        # Get game history
+        history_ref = db.collection('game_history').document(game_id)
+        history = history_ref.get()
+        winner = db.collection('games').document(game_id)
+
+        if not history.exists:
+            # Try getting in-progress game history
+            plays = (
+                db.collection('games')
+                .document(game_id)
+                .collection('history')
+                .order_by('timestamp')
+                .stream()
+            )
+
+            return {
+                "game_id": game_id,
+                "status": GameStatus.COMPLETED,
+                "plays": [play.to_dict() for play in plays],
+                # "winner": winner["winner"]
+            }
+
+        return history.to_dict()
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error retrieving game history: {str(e)}"
         )

@@ -3,11 +3,12 @@ from firebase_admin import credentials, firestore
 import json
 from datetime import datetime
 import os
-from core.config import settings
+from backend.core.config import settings
 
 def initialize_firestore():
     """Initialize Firestore with default database."""
     try:
+        print(settings.FIREBASE_CREDENTIALS_PATH)
         cred_path = settings.FIREBASE_CREDENTIALS_PATH
 
         if not os.path.exists(cred_path):
@@ -176,7 +177,7 @@ def main():
     # Load player cards
     print("Loading player cards from file...")
     try:
-        with open('../Custom Player Stats Data/processed_data/player_cards.json', 'r', encoding='utf-8') as f:
+        with open('Custom Player Stats Data/processed_data/player_cards.json', 'r', encoding='utf-8') as f:
             player_cards = json.load(f)
             print(f"Loaded {len(player_cards)} player cards")
     except Exception as e:

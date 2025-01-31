@@ -114,7 +114,7 @@
         "pitching_abilities": {
             "control": 35.7,
             "velocity": 100,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 86.0
         },
         "fielding_abilities": {
@@ -342,7 +342,7 @@
         "pitching_abilities": {
             "control": 41.5,
             "velocity": 99.0,
-            "stamina": 13.2,
+            "stamina": 20,
             "effectiveness": 87.9
         },
         "fielding_abilities": {
@@ -435,7 +435,7 @@
         "pitching_abilities": {
             "control": 27.4,
             "velocity": 100,
-            "stamina": 11.1,
+            "stamina": 20,
             "effectiveness": 72.6
         },
         "fielding_abilities": {
@@ -573,8 +573,8 @@
         "pitching_abilities": {
             "control": 28.8,
             "velocity": 62.0,
-            "stamina": 17.0,
-            "effectiveness": -6.2
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -665,7 +665,7 @@
         "pitching_abilities": {
             "control": 34.5,
             "velocity": 51.0,
-            "stamina": 11.1,
+            "stamina": 20,
             "effectiveness": 47.5
         },
         "fielding_abilities": {
@@ -849,7 +849,7 @@
         "pitching_abilities": {
             "control": 45.8,
             "velocity": 100,
-            "stamina": 14.9,
+            "stamina": 20,
             "effectiveness": 84.5
         },
         "fielding_abilities": {
@@ -942,7 +942,7 @@
         "pitching_abilities": {
             "control": 38.8,
             "velocity": 89.0,
-            "stamina": 13.9,
+            "stamina": 20,
             "effectiveness": 83.4
         },
         "fielding_abilities": {
@@ -1172,7 +1172,7 @@
         "pitching_abilities": {
             "control": 35.5,
             "velocity": 72.0,
-            "stamina": 12.1,
+            "stamina": 20,
             "effectiveness": 84.4
         },
         "fielding_abilities": {
@@ -1453,7 +1453,7 @@
         "pitching_abilities": {
             "control": 30.7,
             "velocity": 100,
-            "stamina": 12.6,
+            "stamina": 20,
             "effectiveness": 85.6
         },
         "fielding_abilities": {
@@ -1546,7 +1546,7 @@
         "pitching_abilities": {
             "control": 12.6,
             "velocity": 100,
-            "stamina": 6.2,
+            "stamina": 20,
             "effectiveness": 27.0
         },
         "fielding_abilities": {
@@ -1638,7 +1638,7 @@
         "pitching_abilities": {
             "control": 32.5,
             "velocity": 92.0,
-            "stamina": 12.7,
+            "stamina": 20,
             "effectiveness": 74.8
         },
         "fielding_abilities": {
@@ -1731,7 +1731,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 90.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 83.3
         },
         "fielding_abilities": {
@@ -1911,7 +1911,7 @@
         "pitching_abilities": {
             "control": 36.8,
             "velocity": 68.0,
-            "stamina": 13.0,
+            "stamina": 20,
             "effectiveness": 54.0
         },
         "fielding_abilities": {
@@ -2138,7 +2138,7 @@
         "pitching_abilities": {
             "control": 35.6,
             "velocity": 98.0,
-            "stamina": 14.6,
+            "stamina": 20,
             "effectiveness": 34.1
         },
         "fielding_abilities": {
@@ -2185,7 +2185,7 @@
         "pitching_abilities": {
             "control": 24.8,
             "velocity": 96.0,
-            "stamina": 12.9,
+            "stamina": 20,
             "effectiveness": 70.1
         },
         "fielding_abilities": {
@@ -2233,7 +2233,7 @@
         "pitching_abilities": {
             "control": 33.2,
             "velocity": 73.0,
-            "stamina": 13.0,
+            "stamina": 20,
             "effectiveness": 72.7
         },
         "fielding_abilities": {
@@ -2281,7 +2281,7 @@
         "pitching_abilities": {
             "control": 36.6,
             "velocity": 65.0,
-            "stamina": 16.7,
+            "stamina": 20,
             "effectiveness": 56.7
         },
         "fielding_abilities": {
@@ -2468,8 +2468,8 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 100,
-            "stamina": 7.8,
-            "effectiveness": -124.7
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -2516,7 +2516,7 @@
         "pitching_abilities": {
             "control": 50.0,
             "velocity": 100,
-            "stamina": 7.4,
+            "stamina": 20,
             "effectiveness": 56.8
         },
         "fielding_abilities": {
@@ -2608,7 +2608,7 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 90.0,
-            "stamina": 9.2,
+            "stamina": 20,
             "effectiveness": 68.8
         },
         "fielding_abilities": {
@@ -2835,7 +2835,7 @@
         "pitching_abilities": {
             "control": 35.5,
             "velocity": 89.0,
-            "stamina": 9.7,
+            "stamina": 20,
             "effectiveness": 67.7
         },
         "fielding_abilities": {
@@ -3019,7 +3019,7 @@
         "pitching_abilities": {
             "control": 38.6,
             "velocity": 100,
-            "stamina": 16.8,
+            "stamina": 20,
             "effectiveness": 88.8
         },
         "fielding_abilities": {
@@ -3162,7 +3162,7 @@
         "pitching_abilities": {
             "control": 42.5,
             "velocity": 100,
-            "stamina": 17.1,
+            "stamina": 20,
             "effectiveness": 48.4
         },
         "fielding_abilities": {
@@ -3209,7 +3209,7 @@
         "pitching_abilities": {
             "control": 33.3,
             "velocity": 89.0,
-            "stamina": 17.7,
+            "stamina": 20,
             "effectiveness": 78.4
         },
         "fielding_abilities": {
@@ -3302,7 +3302,7 @@
         "pitching_abilities": {
             "control": 33.2,
             "velocity": 100,
-            "stamina": 12.7,
+            "stamina": 20,
             "effectiveness": 80.5
         },
         "fielding_abilities": {
@@ -3530,7 +3530,7 @@
         "pitching_abilities": {
             "control": 40.8,
             "velocity": 89.0,
-            "stamina": 15.1,
+            "stamina": 20,
             "effectiveness": 62.9
         },
         "fielding_abilities": {
@@ -3712,7 +3712,7 @@
         "pitching_abilities": {
             "control": 37.0,
             "velocity": 91.0,
-            "stamina": 8.6,
+            "stamina": 20,
             "effectiveness": 85.3
         },
         "fielding_abilities": {
@@ -3760,7 +3760,7 @@
         "pitching_abilities": {
             "control": 38.2,
             "velocity": 97.0,
-            "stamina": 9.5,
+            "stamina": 20,
             "effectiveness": 79.0
         },
         "fielding_abilities": {
@@ -3853,7 +3853,7 @@
         "pitching_abilities": {
             "control": 27.1,
             "velocity": 100,
-            "stamina": 12.2,
+            "stamina": 20,
             "effectiveness": 71.9
         },
         "fielding_abilities": {
@@ -3946,7 +3946,7 @@
         "pitching_abilities": {
             "control": 39.8,
             "velocity": 75.0,
-            "stamina": 13.7,
+            "stamina": 20,
             "effectiveness": 69.0
         },
         "fielding_abilities": {
@@ -3993,7 +3993,7 @@
         "pitching_abilities": {
             "control": 39.0,
             "velocity": 68.0,
-            "stamina": 12.9,
+            "stamina": 20,
             "effectiveness": 56.3
         },
         "fielding_abilities": {
@@ -4040,8 +4040,8 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 3.5,
-            "effectiveness": -8.7
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 49.4,
@@ -4361,7 +4361,7 @@
         "pitching_abilities": {
             "control": 3.0,
             "velocity": 23.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 67.8
         },
         "fielding_abilities": {
@@ -4406,7 +4406,7 @@
         "pitching_abilities": {
             "control": 30.6,
             "velocity": 89.0,
-            "stamina": 13.5,
+            "stamina": 20,
             "effectiveness": 57.7
         },
         "fielding_abilities": {
@@ -4501,7 +4501,7 @@
         "pitching_abilities": {
             "control": 40.5,
             "velocity": 100,
-            "stamina": 14.9,
+            "stamina": 20,
             "effectiveness": 67.2
         },
         "fielding_abilities": {
@@ -4638,7 +4638,7 @@
         "pitching_abilities": {
             "control": 43.1,
             "velocity": 79.0,
-            "stamina": 18.9,
+            "stamina": 20,
             "effectiveness": 84.1
         },
         "fielding_abilities": {
@@ -4686,7 +4686,7 @@
         "pitching_abilities": {
             "control": 30.3,
             "velocity": 91.0,
-            "stamina": 12.7,
+            "stamina": 20,
             "effectiveness": 57.3
         },
         "fielding_abilities": {
@@ -4733,7 +4733,7 @@
         "pitching_abilities": {
             "control": 22.1,
             "velocity": 100,
-            "stamina": 14.0,
+            "stamina": 20,
             "effectiveness": 44.9
         },
         "fielding_abilities": {
@@ -4780,7 +4780,7 @@
         "pitching_abilities": {
             "control": 34.6,
             "velocity": 71.0,
-            "stamina": 13.2,
+            "stamina": 20,
             "effectiveness": 74.0
         },
         "fielding_abilities": {
@@ -4828,7 +4828,7 @@
         "pitching_abilities": {
             "control": 42.9,
             "velocity": 100,
-            "stamina": 15.1,
+            "stamina": 20,
             "effectiveness": 81.0
         },
         "fielding_abilities": {
@@ -5061,7 +5061,7 @@
         "pitching_abilities": {
             "control": 38.4,
             "velocity": 100,
-            "stamina": 12.4,
+            "stamina": 20,
             "effectiveness": 83.8
         },
         "fielding_abilities": {
@@ -5199,7 +5199,7 @@
         "pitching_abilities": {
             "control": 37.1,
             "velocity": 54.0,
-            "stamina": 18.5,
+            "stamina": 20,
             "effectiveness": 38.8
         },
         "fielding_abilities": {
@@ -5246,7 +5246,7 @@
         "pitching_abilities": {
             "control": 33.3,
             "velocity": 99.0,
-            "stamina": 7.4,
+            "stamina": 20,
             "effectiveness": 76.4
         },
         "fielding_abilities": {
@@ -5294,7 +5294,7 @@
         "pitching_abilities": {
             "control": 21.1,
             "velocity": 100,
-            "stamina": 14.3,
+            "stamina": 20,
             "effectiveness": 84.0
         },
         "fielding_abilities": {
@@ -5663,7 +5663,7 @@
         "pitching_abilities": {
             "control": 51.0,
             "velocity": 65.0,
-            "stamina": 13.7,
+            "stamina": 20,
             "effectiveness": 49.0
         },
         "fielding_abilities": {
@@ -5853,7 +5853,7 @@
         "pitching_abilities": {
             "control": 42.5,
             "velocity": 100,
-            "stamina": 7.6,
+            "stamina": 20,
             "effectiveness": 89.0
         },
         "fielding_abilities": {
@@ -5946,7 +5946,7 @@
         "pitching_abilities": {
             "control": 22.6,
             "velocity": 70.0,
-            "stamina": 14.5,
+            "stamina": 20,
             "effectiveness": 69.8
         },
         "fielding_abilities": {
@@ -6040,7 +6040,7 @@
         "pitching_abilities": {
             "control": 44.3,
             "velocity": 68.0,
-            "stamina": 14.9,
+            "stamina": 20,
             "effectiveness": 80.8
         },
         "fielding_abilities": {
@@ -6548,7 +6548,7 @@
         "pitching_abilities": {
             "control": 35.6,
             "velocity": 80.0,
-            "stamina": 19.0,
+            "stamina": 20,
             "effectiveness": 84.0
         },
         "fielding_abilities": {
@@ -6778,7 +6778,7 @@
         "pitching_abilities": {
             "control": 30.6,
             "velocity": 82.0,
-            "stamina": 14.1,
+            "stamina": 20,
             "effectiveness": 63.5
         },
         "fielding_abilities": {
@@ -6825,7 +6825,7 @@
         "pitching_abilities": {
             "control": 36.2,
             "velocity": 91.0,
-            "stamina": 13.2,
+            "stamina": 20,
             "effectiveness": 84.8
         },
         "fielding_abilities": {
@@ -6873,7 +6873,7 @@
         "pitching_abilities": {
             "control": 36.3,
             "velocity": 100,
-            "stamina": 11.5,
+            "stamina": 20,
             "effectiveness": 51.4
         },
         "fielding_abilities": {
@@ -6920,7 +6920,7 @@
         "pitching_abilities": {
             "control": 3.5,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 75.3
         },
         "fielding_abilities": {
@@ -7058,7 +7058,7 @@
             "control": 0,
             "velocity": 100,
             "stamina": 37.5,
-            "effectiveness": -17.7
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -7104,7 +7104,7 @@
         "pitching_abilities": {
             "control": 33.5,
             "velocity": 70.0,
-            "stamina": 10.2,
+            "stamina": 20,
             "effectiveness": 66.2
         },
         "fielding_abilities": {
@@ -7435,7 +7435,7 @@
         "pitching_abilities": {
             "control": 48.6,
             "velocity": 80.0,
-            "stamina": 8.0,
+            "stamina": 20,
             "effectiveness": 81.8
         },
         "fielding_abilities": {
@@ -7483,7 +7483,7 @@
         "pitching_abilities": {
             "control": 30.9,
             "velocity": 89.0,
-            "stamina": 16.0,
+            "stamina": 20,
             "effectiveness": 83.2
         },
         "fielding_abilities": {
@@ -7531,7 +7531,7 @@
         "pitching_abilities": {
             "control": 38.5,
             "velocity": 100,
-            "stamina": 12.8,
+            "stamina": 20,
             "effectiveness": 57.4
         },
         "fielding_abilities": {
@@ -7668,7 +7668,7 @@
         "pitching_abilities": {
             "control": 32.6,
             "velocity": 96.0,
-            "stamina": 15.7,
+            "stamina": 20,
             "effectiveness": 63.0
         },
         "fielding_abilities": {
@@ -7760,7 +7760,7 @@
         "pitching_abilities": {
             "control": 33.0,
             "velocity": 92.0,
-            "stamina": 12.2,
+            "stamina": 20,
             "effectiveness": 83.0
         },
         "fielding_abilities": {
@@ -7808,7 +7808,7 @@
         "pitching_abilities": {
             "control": 42.8,
             "velocity": 60.0,
-            "stamina": 18.9,
+            "stamina": 20,
             "effectiveness": 75.1
         },
         "fielding_abilities": {
@@ -7855,8 +7855,8 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 90.0,
-            "stamina": 11.3,
-            "effectiveness": -47.5
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 0.6,
@@ -8135,7 +8135,7 @@
         "pitching_abilities": {
             "control": 46.2,
             "velocity": 79.0,
-            "stamina": 11.7,
+            "stamina": 20,
             "effectiveness": 44.5
         },
         "fielding_abilities": {
@@ -8182,8 +8182,8 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 54.0,
-            "stamina": 12.2,
-            "effectiveness": -52.6
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 96.6,
@@ -8272,7 +8272,7 @@
         "pitching_abilities": {
             "control": 25.5,
             "velocity": 64.0,
-            "stamina": 12.9,
+            "stamina": 20,
             "effectiveness": 23.3
         },
         "fielding_abilities": {
@@ -8319,7 +8319,7 @@
         "pitching_abilities": {
             "control": 51.7,
             "velocity": 100,
-            "stamina": 14.3,
+            "stamina": 20,
             "effectiveness": 92.2
         },
         "fielding_abilities": {
@@ -8461,7 +8461,7 @@
         "pitching_abilities": {
             "control": 51.5,
             "velocity": 0.0,
-            "stamina": 5.0,
+            "stamina": 20,
             "effectiveness": 74.0
         },
         "fielding_abilities": {
@@ -8508,7 +8508,7 @@
         "pitching_abilities": {
             "control": 39.5,
             "velocity": 100,
-            "stamina": 13.2,
+            "stamina": 20,
             "effectiveness": 89.1
         },
         "fielding_abilities": {
@@ -8556,7 +8556,7 @@
         "pitching_abilities": {
             "control": 9.5,
             "velocity": 100,
-            "stamina": 11.7,
+            "stamina": 20,
             "effectiveness": 78.2
         },
         "fielding_abilities": {
@@ -8649,7 +8649,7 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 90.0,
-            "stamina": 13.5,
+            "stamina": 20,
             "effectiveness": 53.3
         },
         "fielding_abilities": {
@@ -8696,7 +8696,7 @@
         "pitching_abilities": {
             "control": 31.4,
             "velocity": 100,
-            "stamina": 8.3,
+            "stamina": 20,
             "effectiveness": 60.5
         },
         "fielding_abilities": {
@@ -8884,7 +8884,7 @@
         "pitching_abilities": {
             "control": 38.2,
             "velocity": 100,
-            "stamina": 8.0,
+            "stamina": 20,
             "effectiveness": 76.7
         },
         "fielding_abilities": {
@@ -9024,7 +9024,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 68.0,
-            "stamina": 16.1,
+            "stamina": 20,
             "effectiveness": 37.8
         },
         "fielding_abilities": {
@@ -9438,7 +9438,7 @@
         "pitching_abilities": {
             "control": 30.8,
             "velocity": 72.0,
-            "stamina": 12.5,
+            "stamina": 20,
             "effectiveness": 76.0
         },
         "fielding_abilities": {
@@ -9486,8 +9486,8 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 0.0,
-            "stamina": -2.2,
-            "effectiveness": 15.3
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 97.7,
@@ -9756,7 +9756,7 @@
         "pitching_abilities": {
             "control": 36.8,
             "velocity": 81.0,
-            "stamina": 12.0,
+            "stamina": 20,
             "effectiveness": 21.5
         },
         "fielding_abilities": {
@@ -10122,7 +10122,7 @@
         "pitching_abilities": {
             "control": 35.3,
             "velocity": 98.0,
-            "stamina": 12.1,
+            "stamina": 20,
             "effectiveness": 85.3
         },
         "fielding_abilities": {
@@ -10352,7 +10352,7 @@
         "pitching_abilities": {
             "control": 34.8,
             "velocity": 73.0,
-            "stamina": 15.3,
+            "stamina": 20,
             "effectiveness": 39.2
         },
         "fielding_abilities": {
@@ -10856,7 +10856,7 @@
         "pitching_abilities": {
             "control": 34.4,
             "velocity": 61.0,
-            "stamina": 17.3,
+            "stamina": 20,
             "effectiveness": 67.3
         },
         "fielding_abilities": {
@@ -10948,7 +10948,7 @@
         "pitching_abilities": {
             "control": 14.4,
             "velocity": 54.0,
-            "stamina": 16.8,
+            "stamina": 20,
             "effectiveness": 82.5
         },
         "fielding_abilities": {
@@ -10993,7 +10993,7 @@
         "pitching_abilities": {
             "control": 14.4,
             "velocity": 54.0,
-            "stamina": 16.8,
+            "stamina": 20,
             "effectiveness": 82.5
         },
         "fielding_abilities": {
@@ -11088,7 +11088,7 @@
         "pitching_abilities": {
             "control": 42.1,
             "velocity": 53.0,
-            "stamina": 15.3,
+            "stamina": 20,
             "effectiveness": 53.1
         },
         "fielding_abilities": {
@@ -11135,7 +11135,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 0.5,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -11320,7 +11320,7 @@
         "pitching_abilities": {
             "control": 27.3,
             "velocity": 100,
-            "stamina": 12.5,
+            "stamina": 20,
             "effectiveness": 83.8
         },
         "fielding_abilities": {
@@ -11413,7 +11413,7 @@
         "pitching_abilities": {
             "control": 24.5,
             "velocity": 100,
-            "stamina": 12.5,
+            "stamina": 20,
             "effectiveness": 83.3
         },
         "fielding_abilities": {
@@ -11506,7 +11506,7 @@
         "pitching_abilities": {
             "control": 37.8,
             "velocity": 74.0,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 80.4
         },
         "fielding_abilities": {
@@ -11554,7 +11554,7 @@
         "pitching_abilities": {
             "control": 40.1,
             "velocity": 78.0,
-            "stamina": 16.4,
+            "stamina": 20,
             "effectiveness": 82.3
         },
         "fielding_abilities": {
@@ -11694,7 +11694,7 @@
         "pitching_abilities": {
             "control": 39.4,
             "velocity": 80.0,
-            "stamina": 13.7,
+            "stamina": 20,
             "effectiveness": 69.8
         },
         "fielding_abilities": {
@@ -11786,7 +11786,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 90.0,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 95.3
         },
         "fielding_abilities": {
@@ -11835,7 +11835,7 @@
         "pitching_abilities": {
             "control": 25.7,
             "velocity": 70.0,
-            "stamina": 12.2,
+            "stamina": 20,
             "effectiveness": 51.6
         },
         "fielding_abilities": {
@@ -11882,7 +11882,7 @@
         "pitching_abilities": {
             "control": 28.6,
             "velocity": 98.0,
-            "stamina": 13.7,
+            "stamina": 20,
             "effectiveness": 46.1
         },
         "fielding_abilities": {
@@ -11976,7 +11976,7 @@
         "pitching_abilities": {
             "control": 53.1,
             "velocity": 80.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 91.1
         },
         "fielding_abilities": {
@@ -12069,7 +12069,7 @@
         "pitching_abilities": {
             "control": 29.1,
             "velocity": 100,
-            "stamina": 12.3,
+            "stamina": 20,
             "effectiveness": 77.5
         },
         "fielding_abilities": {
@@ -12117,8 +12117,8 @@
         "pitching_abilities": {
             "control": 0.5,
             "velocity": 0.0,
-            "stamina": 3.4,
-            "effectiveness": -5.7
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 46.8,
@@ -12162,7 +12162,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 58.3
         },
         "fielding_abilities": {
@@ -12349,7 +12349,7 @@
         "pitching_abilities": {
             "control": 7.5,
             "velocity": 90.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 83.3
         },
         "fielding_abilities": {
@@ -12577,7 +12577,7 @@
         "pitching_abilities": {
             "control": 38.0,
             "velocity": 90.0,
-            "stamina": 14.9,
+            "stamina": 20,
             "effectiveness": 54.8
         },
         "fielding_abilities": {
@@ -12624,7 +12624,7 @@
         "pitching_abilities": {
             "control": 31.7,
             "velocity": 74.0,
-            "stamina": 11.6,
+            "stamina": 20,
             "effectiveness": 67.9
         },
         "fielding_abilities": {
@@ -12991,7 +12991,7 @@
         "pitching_abilities": {
             "control": 32.6,
             "velocity": 92.0,
-            "stamina": 11.8,
+            "stamina": 20,
             "effectiveness": 34.7
         },
         "fielding_abilities": {
@@ -13038,7 +13038,7 @@
         "pitching_abilities": {
             "control": 51.4,
             "velocity": 97.0,
-            "stamina": 12.4,
+            "stamina": 20,
             "effectiveness": 88.7
         },
         "fielding_abilities": {
@@ -13086,7 +13086,7 @@
         "pitching_abilities": {
             "control": 30.5,
             "velocity": 100,
-            "stamina": 13.5,
+            "stamina": 20,
             "effectiveness": 83.8
         },
         "fielding_abilities": {
@@ -13179,8 +13179,8 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 0.0,
-            "stamina": 6.3,
-            "effectiveness": 10.3
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 35.3,
@@ -13362,7 +13362,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 77.0,
-            "stamina": 16.5,
+            "stamina": 20,
             "effectiveness": 86.8
         },
         "fielding_abilities": {
@@ -13458,7 +13458,7 @@
         "pitching_abilities": {
             "control": 32.6,
             "velocity": 100,
-            "stamina": 17.6,
+            "stamina": 20,
             "effectiveness": 81.6
         },
         "fielding_abilities": {
@@ -13599,7 +13599,7 @@
         "pitching_abilities": {
             "control": 37.1,
             "velocity": 92.0,
-            "stamina": 15.4,
+            "stamina": 20,
             "effectiveness": 81.7
         },
         "fielding_abilities": {
@@ -13647,7 +13647,7 @@
         "pitching_abilities": {
             "control": 22.8,
             "velocity": 100,
-            "stamina": 13.4,
+            "stamina": 20,
             "effectiveness": 85.0
         },
         "fielding_abilities": {
@@ -13740,7 +13740,7 @@
         "pitching_abilities": {
             "control": 30.1,
             "velocity": 100,
-            "stamina": 8.0,
+            "stamina": 20,
             "effectiveness": 72.4
         },
         "fielding_abilities": {
@@ -13833,7 +13833,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 64.0,
-            "stamina": 14.3,
+            "stamina": 20,
             "effectiveness": 93.0
         },
         "fielding_abilities": {
@@ -13881,7 +13881,7 @@
         "pitching_abilities": {
             "control": 23.4,
             "velocity": 94.0,
-            "stamina": 15.5,
+            "stamina": 20,
             "effectiveness": 38.9
         },
         "fielding_abilities": {
@@ -14022,8 +14022,8 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 39.0,
-            "stamina": 11.5,
-            "effectiveness": 3.2
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -14348,7 +14348,7 @@
         "pitching_abilities": {
             "control": 19.0,
             "velocity": 77.0,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 46.2
         },
         "fielding_abilities": {
@@ -14622,7 +14622,7 @@
         "pitching_abilities": {
             "control": 35.4,
             "velocity": 93.0,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 56.2
         },
         "fielding_abilities": {
@@ -14986,7 +14986,7 @@
         "pitching_abilities": {
             "control": 28.0,
             "velocity": 81.0,
-            "stamina": 16.7,
+            "stamina": 20,
             "effectiveness": 40.7
         },
         "fielding_abilities": {
@@ -15260,7 +15260,7 @@
         "pitching_abilities": {
             "control": 17.8,
             "velocity": 100,
-            "stamina": 11.2,
+            "stamina": 20,
             "effectiveness": 51.0
         },
         "fielding_abilities": {
@@ -15399,7 +15399,7 @@
         "pitching_abilities": {
             "control": 26.5,
             "velocity": 90.0,
-            "stamina": 11.6,
+            "stamina": 20,
             "effectiveness": 56.8
         },
         "fielding_abilities": {
@@ -15491,7 +15491,7 @@
         "pitching_abilities": {
             "control": 38.0,
             "velocity": 100,
-            "stamina": 12.7,
+            "stamina": 20,
             "effectiveness": 66.3
         },
         "fielding_abilities": {
@@ -15583,7 +15583,7 @@
         "pitching_abilities": {
             "control": 22.3,
             "velocity": 100,
-            "stamina": 12.9,
+            "stamina": 20,
             "effectiveness": 64.7
         },
         "fielding_abilities": {
@@ -15812,7 +15812,7 @@
         "pitching_abilities": {
             "control": 25.7,
             "velocity": 97.0,
-            "stamina": 12.1,
+            "stamina": 20,
             "effectiveness": 72.6
         },
         "fielding_abilities": {
@@ -15905,7 +15905,7 @@
         "pitching_abilities": {
             "control": 10.7,
             "velocity": 100,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 68.2
         },
         "fielding_abilities": {
@@ -16135,7 +16135,7 @@
             "control": 9.8,
             "velocity": 100,
             "stamina": 24.6,
-            "effectiveness": -9.9
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -16271,7 +16271,7 @@
         "pitching_abilities": {
             "control": 42.9,
             "velocity": 100,
-            "stamina": 12.8,
+            "stamina": 20,
             "effectiveness": 85.6
         },
         "fielding_abilities": {
@@ -16409,7 +16409,7 @@
         "pitching_abilities": {
             "control": 27.4,
             "velocity": 88.0,
-            "stamina": 2.8,
+            "stamina": 20,
             "effectiveness": 77.2
         },
         "fielding_abilities": {
@@ -16457,7 +16457,7 @@
         "pitching_abilities": {
             "control": 38.6,
             "velocity": 100,
-            "stamina": 13.2,
+            "stamina": 20,
             "effectiveness": 83.9
         },
         "fielding_abilities": {
@@ -16550,7 +16550,7 @@
         "pitching_abilities": {
             "control": 37.9,
             "velocity": 74.0,
-            "stamina": 16.1,
+            "stamina": 20,
             "effectiveness": 60.5
         },
         "fielding_abilities": {
@@ -16597,7 +16597,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 3.2,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -16690,7 +16690,7 @@
         "pitching_abilities": {
             "control": 28.5,
             "velocity": 45.0,
-            "stamina": 11.6,
+            "stamina": 20,
             "effectiveness": 73.3
         },
         "fielding_abilities": {
@@ -16782,7 +16782,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 100,
-            "stamina": 5.2,
+            "stamina": 20,
             "effectiveness": 100
         },
         "fielding_abilities": {
@@ -16876,7 +16876,7 @@
         "pitching_abilities": {
             "control": 24.0,
             "velocity": 54.0,
-            "stamina": 14.2,
+            "stamina": 20,
             "effectiveness": 51.3
         },
         "fielding_abilities": {
@@ -17065,7 +17065,7 @@
         "pitching_abilities": {
             "control": 30.4,
             "velocity": 98.0,
-            "stamina": 12.9,
+            "stamina": 20,
             "effectiveness": 78.5
         },
         "fielding_abilities": {
@@ -17158,7 +17158,7 @@
         "pitching_abilities": {
             "control": 33.6,
             "velocity": 61.0,
-            "stamina": 17.2,
+            "stamina": 20,
             "effectiveness": 48.7
         },
         "fielding_abilities": {
@@ -17295,7 +17295,7 @@
         "pitching_abilities": {
             "control": 43.3,
             "velocity": 66.0,
-            "stamina": 15.0,
+            "stamina": 20,
             "effectiveness": 58.3
         },
         "fielding_abilities": {
@@ -17390,7 +17390,7 @@
         "pitching_abilities": {
             "control": 44.3,
             "velocity": 100,
-            "stamina": 13.4,
+            "stamina": 20,
             "effectiveness": 89.9
         },
         "fielding_abilities": {
@@ -17577,7 +17577,7 @@
         "pitching_abilities": {
             "control": 38.4,
             "velocity": 100,
-            "stamina": 13.1,
+            "stamina": 20,
             "effectiveness": 91.7
         },
         "fielding_abilities": {
@@ -17670,7 +17670,7 @@
         "pitching_abilities": {
             "control": 45.9,
             "velocity": 82.0,
-            "stamina": 3.4,
+            "stamina": 20,
             "effectiveness": 87.0
         },
         "fielding_abilities": {
@@ -17763,7 +17763,7 @@
         "pitching_abilities": {
             "control": 30.4,
             "velocity": 86.0,
-            "stamina": 12.8,
+            "stamina": 20,
             "effectiveness": 76.9
         },
         "fielding_abilities": {
@@ -17811,7 +17811,7 @@
         "pitching_abilities": {
             "control": 36.6,
             "velocity": 87.0,
-            "stamina": 13.2,
+            "stamina": 20,
             "effectiveness": 82.0
         },
         "fielding_abilities": {
@@ -17951,7 +17951,7 @@
         "pitching_abilities": {
             "control": 34.8,
             "velocity": 89.0,
-            "stamina": 9.6,
+            "stamina": 20,
             "effectiveness": 84.0
         },
         "fielding_abilities": {
@@ -17999,7 +17999,7 @@
         "pitching_abilities": {
             "control": 37.0,
             "velocity": 0.0,
-            "stamina": 6.1,
+            "stamina": 20,
             "effectiveness": 57.8
         },
         "fielding_abilities": {
@@ -18044,7 +18044,7 @@
         "pitching_abilities": {
             "control": 30.7,
             "velocity": 100,
-            "stamina": 13.4,
+            "stamina": 20,
             "effectiveness": 90.0
         },
         "fielding_abilities": {
@@ -18185,8 +18185,8 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 19.1,
-            "effectiveness": 4.1
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 0.2,
@@ -18280,7 +18280,7 @@
         "pitching_abilities": {
             "control": 32.2,
             "velocity": 100,
-            "stamina": 12.3,
+            "stamina": 20,
             "effectiveness": 69.0
         },
         "fielding_abilities": {
@@ -18327,7 +18327,7 @@
         "pitching_abilities": {
             "control": 32.8,
             "velocity": 100,
-            "stamina": 13.8,
+            "stamina": 20,
             "effectiveness": 80.9
         },
         "fielding_abilities": {
@@ -18465,7 +18465,7 @@
         "pitching_abilities": {
             "control": 31.2,
             "velocity": 96.0,
-            "stamina": 13.9,
+            "stamina": 20,
             "effectiveness": 86.6
         },
         "fielding_abilities": {
@@ -18513,7 +18513,7 @@
         "pitching_abilities": {
             "control": 47.1,
             "velocity": 70.0,
-            "stamina": 13.5,
+            "stamina": 20,
             "effectiveness": 89.0
         },
         "fielding_abilities": {
@@ -18607,7 +18607,7 @@
         "pitching_abilities": {
             "control": 38.8,
             "velocity": 91.0,
-            "stamina": 15.3,
+            "stamina": 20,
             "effectiveness": 62.0
         },
         "fielding_abilities": {
@@ -18654,7 +18654,7 @@
         "pitching_abilities": {
             "control": 31.4,
             "velocity": 74.0,
-            "stamina": 14.1,
+            "stamina": 20,
             "effectiveness": 37.7
         },
         "fielding_abilities": {
@@ -18701,7 +18701,7 @@
         "pitching_abilities": {
             "control": 36.0,
             "velocity": 85.0,
-            "stamina": 3.1,
+            "stamina": 20,
             "effectiveness": 78.0
         },
         "fielding_abilities": {
@@ -18796,7 +18796,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 51.3
         },
         "fielding_abilities": {
@@ -18889,7 +18889,7 @@
         "pitching_abilities": {
             "control": 31.1,
             "velocity": 49.0,
-            "stamina": 10.4,
+            "stamina": 20,
             "effectiveness": 73.5
         },
         "fielding_abilities": {
@@ -19163,7 +19163,7 @@
         "pitching_abilities": {
             "control": 42.7,
             "velocity": 63.0,
-            "stamina": 13.6,
+            "stamina": 20,
             "effectiveness": 80.0
         },
         "fielding_abilities": {
@@ -19210,7 +19210,7 @@
         "pitching_abilities": {
             "control": 38.3,
             "velocity": 69.0,
-            "stamina": 12.2,
+            "stamina": 20,
             "effectiveness": 84.7
         },
         "fielding_abilities": {
@@ -19392,7 +19392,7 @@
         "pitching_abilities": {
             "control": 16.8,
             "velocity": 54.0,
-            "stamina": 9.2,
+            "stamina": 20,
             "effectiveness": 75.3
         },
         "fielding_abilities": {
@@ -19989,7 +19989,7 @@
         "pitching_abilities": {
             "control": 15.6,
             "velocity": 100,
-            "stamina": 12.4,
+            "stamina": 20,
             "effectiveness": 33.8
         },
         "fielding_abilities": {
@@ -20036,7 +20036,7 @@
         "pitching_abilities": {
             "control": 31.3,
             "velocity": 84.0,
-            "stamina": 19.4,
+            "stamina": 20,
             "effectiveness": 72.5
         },
         "fielding_abilities": {
@@ -20084,7 +20084,7 @@
         "pitching_abilities": {
             "control": 32.3,
             "velocity": 83.0,
-            "stamina": 15.7,
+            "stamina": 20,
             "effectiveness": 53.8
         },
         "fielding_abilities": {
@@ -20131,7 +20131,7 @@
         "pitching_abilities": {
             "control": 48.4,
             "velocity": 80.0,
-            "stamina": 12.9,
+            "stamina": 20,
             "effectiveness": 88.7
         },
         "fielding_abilities": {
@@ -20179,7 +20179,7 @@
         "pitching_abilities": {
             "control": 29.7,
             "velocity": 91.0,
-            "stamina": 13.2,
+            "stamina": 20,
             "effectiveness": 47.1
         },
         "fielding_abilities": {
@@ -20364,7 +20364,7 @@
         "pitching_abilities": {
             "control": 31.8,
             "velocity": 75.0,
-            "stamina": 12.1,
+            "stamina": 20,
             "effectiveness": 60.8
         },
         "fielding_abilities": {
@@ -20501,7 +20501,7 @@
         "pitching_abilities": {
             "control": 43.6,
             "velocity": 100,
-            "stamina": 11.9,
+            "stamina": 20,
             "effectiveness": 78.5
         },
         "fielding_abilities": {
@@ -20594,7 +20594,7 @@
         "pitching_abilities": {
             "control": 14.6,
             "velocity": 96.0,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 49.0
         },
         "fielding_abilities": {
@@ -20686,7 +20686,7 @@
         "pitching_abilities": {
             "control": 42.7,
             "velocity": 81.0,
-            "stamina": 13.1,
+            "stamina": 20,
             "effectiveness": 67.3
         },
         "fielding_abilities": {
@@ -20731,7 +20731,7 @@
         "pitching_abilities": {
             "control": 42.7,
             "velocity": 81.0,
-            "stamina": 13.1,
+            "stamina": 20,
             "effectiveness": 67.3
         },
         "fielding_abilities": {
@@ -20778,7 +20778,7 @@
         "pitching_abilities": {
             "control": 41.9,
             "velocity": 100,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 83.1
         },
         "fielding_abilities": {
@@ -20826,7 +20826,7 @@
         "pitching_abilities": {
             "control": 9.6,
             "velocity": 100,
-            "stamina": 12.4,
+            "stamina": 20,
             "effectiveness": 66.8
         },
         "fielding_abilities": {
@@ -20965,7 +20965,7 @@
         "pitching_abilities": {
             "control": 29.6,
             "velocity": 100,
-            "stamina": 14.0,
+            "stamina": 20,
             "effectiveness": 79.3
         },
         "fielding_abilities": {
@@ -21337,7 +21337,7 @@
         "pitching_abilities": {
             "control": 27.0,
             "velocity": 45.0,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 82.8
         },
         "fielding_abilities": {
@@ -21528,7 +21528,7 @@
         "pitching_abilities": {
             "control": 41.2,
             "velocity": 43.0,
-            "stamina": 16.5,
+            "stamina": 20,
             "effectiveness": 80.6
         },
         "fielding_abilities": {
@@ -21575,8 +21575,8 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 0.0,
-            "stamina": 7.9,
-            "effectiveness": -43.2
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -21622,7 +21622,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 56.0,
-            "stamina": 15.4,
+            "stamina": 20,
             "effectiveness": 51.5
         },
         "fielding_abilities": {
@@ -21762,7 +21762,7 @@
         "pitching_abilities": {
             "control": 46.5,
             "velocity": 99.0,
-            "stamina": 13.0,
+            "stamina": 20,
             "effectiveness": 88.6
         },
         "fielding_abilities": {
@@ -22180,7 +22180,7 @@
         "pitching_abilities": {
             "control": 27.0,
             "velocity": 42.0,
-            "stamina": 12.2,
+            "stamina": 20,
             "effectiveness": 70.2
         },
         "fielding_abilities": {
@@ -22502,7 +22502,7 @@
         "pitching_abilities": {
             "control": 41.1,
             "velocity": 83.0,
-            "stamina": 7.0,
+            "stamina": 20,
             "effectiveness": 29.5
         },
         "fielding_abilities": {
@@ -22641,7 +22641,7 @@
         "pitching_abilities": {
             "control": 43.5,
             "velocity": 86.0,
-            "stamina": 13.6,
+            "stamina": 20,
             "effectiveness": 91.7
         },
         "fielding_abilities": {
@@ -22876,7 +22876,7 @@
         "pitching_abilities": {
             "control": 42.7,
             "velocity": 78.0,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 82.8
         },
         "fielding_abilities": {
@@ -23197,7 +23197,7 @@
         "pitching_abilities": {
             "control": 40.2,
             "velocity": 95.0,
-            "stamina": 10.8,
+            "stamina": 20,
             "effectiveness": 62.5
         },
         "fielding_abilities": {
@@ -23244,7 +23244,7 @@
         "pitching_abilities": {
             "control": 54.4,
             "velocity": 51.0,
-            "stamina": 15.2,
+            "stamina": 20,
             "effectiveness": 89.6
         },
         "fielding_abilities": {
@@ -23291,7 +23291,7 @@
         "pitching_abilities": {
             "control": 47.6,
             "velocity": 81.0,
-            "stamina": 14.2,
+            "stamina": 20,
             "effectiveness": 92.1
         },
         "fielding_abilities": {
@@ -23384,7 +23384,7 @@
         "pitching_abilities": {
             "control": 18.5,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 23.5
         },
         "fielding_abilities": {
@@ -23659,7 +23659,7 @@
         "pitching_abilities": {
             "control": 39.8,
             "velocity": 100,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 78.0
         },
         "fielding_abilities": {
@@ -23799,7 +23799,7 @@
         "pitching_abilities": {
             "control": 51.1,
             "velocity": 95.0,
-            "stamina": 13.5,
+            "stamina": 20,
             "effectiveness": 84.4
         },
         "fielding_abilities": {
@@ -23892,7 +23892,7 @@
         "pitching_abilities": {
             "control": 36.9,
             "velocity": 98.0,
-            "stamina": 13.9,
+            "stamina": 20,
             "effectiveness": 81.9
         },
         "fielding_abilities": {
@@ -23940,7 +23940,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 75.3
         },
         "fielding_abilities": {
@@ -24032,7 +24032,7 @@
         "pitching_abilities": {
             "control": 46.0,
             "velocity": 71.0,
-            "stamina": 11.6,
+            "stamina": 20,
             "effectiveness": 87.6
         },
         "fielding_abilities": {
@@ -24445,7 +24445,7 @@
         "pitching_abilities": {
             "control": 30.6,
             "velocity": 70.0,
-            "stamina": 20.0,
+            "stamina": 20,
             "effectiveness": 48.9
         },
         "fielding_abilities": {
@@ -24492,7 +24492,7 @@
         "pitching_abilities": {
             "control": 24.0,
             "velocity": 54.0,
-            "stamina": 18.9,
+            "stamina": 20,
             "effectiveness": 44.5
         },
         "fielding_abilities": {
@@ -24539,7 +24539,7 @@
         "pitching_abilities": {
             "control": 40.0,
             "velocity": 98.0,
-            "stamina": 13.6,
+            "stamina": 20,
             "effectiveness": 71.9
         },
         "fielding_abilities": {
@@ -24772,8 +24772,8 @@
         "pitching_abilities": {
             "control": 23.0,
             "velocity": 68.0,
-            "stamina": 16.1,
-            "effectiveness": 16.8
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 1.0,
@@ -24819,7 +24819,7 @@
         "pitching_abilities": {
             "control": 30.5,
             "velocity": 0.0,
-            "stamina": 11.4,
+            "stamina": 20,
             "effectiveness": 81.3
         },
         "fielding_abilities": {
@@ -24909,7 +24909,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -24954,7 +24954,7 @@
         "pitching_abilities": {
             "control": 28.3,
             "velocity": 100,
-            "stamina": 17.6,
+            "stamina": 20,
             "effectiveness": 40.0
         },
         "fielding_abilities": {
@@ -25046,7 +25046,7 @@
         "pitching_abilities": {
             "control": 39.1,
             "velocity": 100,
-            "stamina": 3.4,
+            "stamina": 20,
             "effectiveness": 90.4
         },
         "fielding_abilities": {
@@ -25186,8 +25186,8 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 0.0,
-            "stamina": 18.2,
-            "effectiveness": -113.7
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -25233,7 +25233,7 @@
         "pitching_abilities": {
             "control": 26.4,
             "velocity": 100,
-            "stamina": 14.2,
+            "stamina": 20,
             "effectiveness": 92.1
         },
         "fielding_abilities": {
@@ -25281,7 +25281,7 @@
         "pitching_abilities": {
             "control": 42.1,
             "velocity": 70.0,
-            "stamina": 10.0,
+            "stamina": 20,
             "effectiveness": 83.8
         },
         "fielding_abilities": {
@@ -25375,7 +25375,7 @@
         "pitching_abilities": {
             "control": 27.5,
             "velocity": 0.0,
-            "stamina": 11.7,
+            "stamina": 20,
             "effectiveness": 44.8
         },
         "fielding_abilities": {
@@ -25420,7 +25420,7 @@
         "pitching_abilities": {
             "control": 47.5,
             "velocity": 100,
-            "stamina": 12.8,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -25468,7 +25468,7 @@
         "pitching_abilities": {
             "control": 44.6,
             "velocity": 100,
-            "stamina": 7.8,
+            "stamina": 20,
             "effectiveness": 74.2
         },
         "fielding_abilities": {
@@ -25516,7 +25516,7 @@
         "pitching_abilities": {
             "control": 43.1,
             "velocity": 71.0,
-            "stamina": 18.4,
+            "stamina": 20,
             "effectiveness": 85.9
         },
         "fielding_abilities": {
@@ -25609,7 +25609,7 @@
         "pitching_abilities": {
             "control": 16.4,
             "velocity": 68.0,
-            "stamina": 11.3,
+            "stamina": 20,
             "effectiveness": 74.6
         },
         "fielding_abilities": {
@@ -25656,7 +25656,7 @@
         "pitching_abilities": {
             "control": 54.9,
             "velocity": 100,
-            "stamina": 18.3,
+            "stamina": 20,
             "effectiveness": 35.8
         },
         "fielding_abilities": {
@@ -25703,7 +25703,7 @@
         "pitching_abilities": {
             "control": 28.2,
             "velocity": 81.0,
-            "stamina": 14.2,
+            "stamina": 20,
             "effectiveness": 86.0
         },
         "fielding_abilities": {
@@ -25751,7 +25751,7 @@
         "pitching_abilities": {
             "control": 28.8,
             "velocity": 100,
-            "stamina": 14.3,
+            "stamina": 20,
             "effectiveness": 91.6
         },
         "fielding_abilities": {
@@ -25799,7 +25799,7 @@
         "pitching_abilities": {
             "control": 38.0,
             "velocity": 46.0,
-            "stamina": 14.4,
+            "stamina": 20,
             "effectiveness": 44.0
         },
         "fielding_abilities": {
@@ -25891,7 +25891,7 @@
         "pitching_abilities": {
             "control": 22.1,
             "velocity": 81.0,
-            "stamina": 12.4,
+            "stamina": 20,
             "effectiveness": 56.3
         },
         "fielding_abilities": {
@@ -26073,7 +26073,7 @@
         "pitching_abilities": {
             "control": 37.3,
             "velocity": 93.0,
-            "stamina": 12.2,
+            "stamina": 20,
             "effectiveness": 88.6
         },
         "fielding_abilities": {
@@ -26259,8 +26259,8 @@
         "pitching_abilities": {
             "control": 0.5,
             "velocity": 0.0,
-            "stamina": 3.4,
-            "effectiveness": -20.7
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 17.4,
@@ -26441,7 +26441,7 @@
         "pitching_abilities": {
             "control": 35.6,
             "velocity": 51.0,
-            "stamina": 14.8,
+            "stamina": 20,
             "effectiveness": 62.3
         },
         "fielding_abilities": {
@@ -26488,7 +26488,7 @@
         "pitching_abilities": {
             "control": 15.9,
             "velocity": 100,
-            "stamina": 12.6,
+            "stamina": 20,
             "effectiveness": 58.5
         },
         "fielding_abilities": {
@@ -26535,7 +26535,7 @@
         "pitching_abilities": {
             "control": 38.8,
             "velocity": 42.0,
-            "stamina": 14.0,
+            "stamina": 20,
             "effectiveness": 85.7
         },
         "fielding_abilities": {
@@ -26717,7 +26717,7 @@
         "pitching_abilities": {
             "control": 48.2,
             "velocity": 84.0,
-            "stamina": 16.5,
+            "stamina": 20,
             "effectiveness": 75.0
         },
         "fielding_abilities": {
@@ -26765,7 +26765,7 @@
         "pitching_abilities": {
             "control": 34.6,
             "velocity": 100,
-            "stamina": 14.1,
+            "stamina": 20,
             "effectiveness": 89.0
         },
         "fielding_abilities": {
@@ -26813,7 +26813,7 @@
         "pitching_abilities": {
             "control": 42.9,
             "velocity": 72.0,
-            "stamina": 13.0,
+            "stamina": 20,
             "effectiveness": 86.7
         },
         "fielding_abilities": {
@@ -26906,7 +26906,7 @@
         "pitching_abilities": {
             "control": 46.2,
             "velocity": 100,
-            "stamina": 13.1,
+            "stamina": 20,
             "effectiveness": 89.9
         },
         "fielding_abilities": {
@@ -26954,7 +26954,7 @@
         "pitching_abilities": {
             "control": 30.8,
             "velocity": 98.0,
-            "stamina": 12.7,
+            "stamina": 20,
             "effectiveness": 83.0
         },
         "fielding_abilities": {
@@ -27047,7 +27047,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 68.0,
-            "stamina": 6.0,
+            "stamina": 20,
             "effectiveness": 93.3
         },
         "fielding_abilities": {
@@ -27095,7 +27095,7 @@
         "pitching_abilities": {
             "control": 25.3,
             "velocity": 92.0,
-            "stamina": 12.2,
+            "stamina": 20,
             "effectiveness": 74.5
         },
         "fielding_abilities": {
@@ -27143,7 +27143,7 @@
         "pitching_abilities": {
             "control": 38.2,
             "velocity": 97.0,
-            "stamina": 12.8,
+            "stamina": 20,
             "effectiveness": 87.9
         },
         "fielding_abilities": {
@@ -27239,7 +27239,7 @@
         "pitching_abilities": {
             "control": 48.7,
             "velocity": 73.0,
-            "stamina": 11.8,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -27287,7 +27287,7 @@
         "pitching_abilities": {
             "control": 39.7,
             "velocity": 43.0,
-            "stamina": 15.6,
+            "stamina": 20,
             "effectiveness": 82.9
         },
         "fielding_abilities": {
@@ -27334,7 +27334,7 @@
         "pitching_abilities": {
             "control": 25.5,
             "velocity": 65.0,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 45.5
         },
         "fielding_abilities": {
@@ -27613,7 +27613,7 @@
         "pitching_abilities": {
             "control": 43.5,
             "velocity": 90.0,
-            "stamina": 17.0,
+            "stamina": 20,
             "effectiveness": 85.6
         },
         "fielding_abilities": {
@@ -27708,7 +27708,7 @@
         "pitching_abilities": {
             "control": 41.2,
             "velocity": 90.0,
-            "stamina": 13.0,
+            "stamina": 20,
             "effectiveness": 83.3
         },
         "fielding_abilities": {
@@ -27846,7 +27846,7 @@
         "pitching_abilities": {
             "control": 25.3,
             "velocity": 100,
-            "stamina": 9.8,
+            "stamina": 20,
             "effectiveness": 31.2
         },
         "fielding_abilities": {
@@ -27938,7 +27938,7 @@
         "pitching_abilities": {
             "control": 46.5,
             "velocity": 41.0,
-            "stamina": 18.4,
+            "stamina": 20,
             "effectiveness": 89.1
         },
         "fielding_abilities": {
@@ -28168,7 +28168,7 @@
         "pitching_abilities": {
             "control": 49.0,
             "velocity": 88.0,
-            "stamina": 13.7,
+            "stamina": 20,
             "effectiveness": 89.4
         },
         "fielding_abilities": {
@@ -28309,7 +28309,7 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 90.0,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 79.3
         },
         "fielding_abilities": {
@@ -28541,7 +28541,7 @@
         "pitching_abilities": {
             "control": 30.4,
             "velocity": 100,
-            "stamina": 13.5,
+            "stamina": 20,
             "effectiveness": 62.5
         },
         "fielding_abilities": {
@@ -28588,7 +28588,7 @@
         "pitching_abilities": {
             "control": 38.0,
             "velocity": 99.0,
-            "stamina": 15.9,
+            "stamina": 20,
             "effectiveness": 46.2
         },
         "fielding_abilities": {
@@ -28683,7 +28683,7 @@
         "pitching_abilities": {
             "control": 34.5,
             "velocity": 60.0,
-            "stamina": 17.5,
+            "stamina": 20,
             "effectiveness": 36.3
         },
         "fielding_abilities": {
@@ -28820,7 +28820,7 @@
         "pitching_abilities": {
             "control": 37.9,
             "velocity": 100,
-            "stamina": 13.4,
+            "stamina": 20,
             "effectiveness": 88.0
         },
         "fielding_abilities": {
@@ -28868,7 +28868,7 @@
         "pitching_abilities": {
             "control": 26.4,
             "velocity": 58.0,
-            "stamina": 16.2,
+            "stamina": 20,
             "effectiveness": 79.5
         },
         "fielding_abilities": {
@@ -28962,7 +28962,7 @@
         "pitching_abilities": {
             "control": 48.7,
             "velocity": 100,
-            "stamina": 13.1,
+            "stamina": 20,
             "effectiveness": 92.2
         },
         "fielding_abilities": {
@@ -29010,7 +29010,7 @@
         "pitching_abilities": {
             "control": 14.6,
             "velocity": 70.0,
-            "stamina": 17.8,
+            "stamina": 20,
             "effectiveness": 71.2
         },
         "fielding_abilities": {
@@ -29194,7 +29194,7 @@
         "pitching_abilities": {
             "control": 17.6,
             "velocity": 88.0,
-            "stamina": 13.5,
+            "stamina": 20,
             "effectiveness": 54.1
         },
         "fielding_abilities": {
@@ -29288,7 +29288,7 @@
         "pitching_abilities": {
             "control": 40.1,
             "velocity": 100,
-            "stamina": 13.2,
+            "stamina": 20,
             "effectiveness": 90.6
         },
         "fielding_abilities": {
@@ -29518,7 +29518,7 @@
         "pitching_abilities": {
             "control": 33.3,
             "velocity": 100,
-            "stamina": 13.0,
+            "stamina": 20,
             "effectiveness": 82.1
         },
         "fielding_abilities": {
@@ -29567,7 +29567,7 @@
             "control": 0,
             "velocity": 0.0,
             "stamina": 34.8,
-            "effectiveness": -3.4
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 0.4,
@@ -29841,7 +29841,7 @@
         "pitching_abilities": {
             "control": 35.4,
             "velocity": 86.0,
-            "stamina": 9.3,
+            "stamina": 20,
             "effectiveness": 87.2
         },
         "fielding_abilities": {
@@ -30161,7 +30161,7 @@
         "pitching_abilities": {
             "control": 24.2,
             "velocity": 90.0,
-            "stamina": 16.2,
+            "stamina": 20,
             "effectiveness": 34.8
         },
         "fielding_abilities": {
@@ -30208,7 +30208,7 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 100,
-            "stamina": -2.2,
+            "stamina": 20,
             "effectiveness": 75.3
         },
         "fielding_abilities": {
@@ -30256,7 +30256,7 @@
         "pitching_abilities": {
             "control": 33.5,
             "velocity": 97.0,
-            "stamina": 12.1,
+            "stamina": 20,
             "effectiveness": 84.0
         },
         "fielding_abilities": {
@@ -30671,7 +30671,7 @@
         "pitching_abilities": {
             "control": 29.8,
             "velocity": 98.0,
-            "stamina": 12.6,
+            "stamina": 20,
             "effectiveness": 62.2
         },
         "fielding_abilities": {
@@ -30766,7 +30766,7 @@
         "pitching_abilities": {
             "control": 53.1,
             "velocity": 80.0,
-            "stamina": 13.6,
+            "stamina": 20,
             "effectiveness": 86.9
         },
         "fielding_abilities": {
@@ -30814,7 +30814,7 @@
         "pitching_abilities": {
             "control": 38.7,
             "velocity": 63.0,
-            "stamina": 14.3,
+            "stamina": 20,
             "effectiveness": 84.6
         },
         "fielding_abilities": {
@@ -30861,7 +30861,7 @@
         "pitching_abilities": {
             "control": 31.5,
             "velocity": 97.0,
-            "stamina": 9.6,
+            "stamina": 20,
             "effectiveness": 74.6
         },
         "fielding_abilities": {
@@ -31044,7 +31044,7 @@
         "pitching_abilities": {
             "control": 43.6,
             "velocity": 100,
-            "stamina": 8.1,
+            "stamina": 20,
             "effectiveness": 90.3
         },
         "fielding_abilities": {
@@ -31092,7 +31092,7 @@
         "pitching_abilities": {
             "control": 39.5,
             "velocity": 100,
-            "stamina": 18.6,
+            "stamina": 20,
             "effectiveness": 59.8
         },
         "fielding_abilities": {
@@ -31186,7 +31186,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 3.2,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -31463,7 +31463,7 @@
         "pitching_abilities": {
             "control": 26.3,
             "velocity": 100,
-            "stamina": 12.6,
+            "stamina": 20,
             "effectiveness": 58.8
         },
         "fielding_abilities": {
@@ -31510,7 +31510,7 @@
         "pitching_abilities": {
             "control": 5.0,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 68.3
         },
         "fielding_abilities": {
@@ -31555,7 +31555,7 @@
         "pitching_abilities": {
             "control": 37.3,
             "velocity": 100,
-            "stamina": 12.8,
+            "stamina": 20,
             "effectiveness": 89.2
         },
         "fielding_abilities": {
@@ -31603,7 +31603,7 @@
         "pitching_abilities": {
             "control": 43.1,
             "velocity": 57.0,
-            "stamina": 13.9,
+            "stamina": 20,
             "effectiveness": 85.1
         },
         "fielding_abilities": {
@@ -31698,7 +31698,7 @@
         "pitching_abilities": {
             "control": 29.3,
             "velocity": 100,
-            "stamina": 12.9,
+            "stamina": 20,
             "effectiveness": 58.3
         },
         "fielding_abilities": {
@@ -31883,7 +31883,7 @@
         "pitching_abilities": {
             "control": 28.2,
             "velocity": 51.0,
-            "stamina": 14.7,
+            "stamina": 20,
             "effectiveness": 35.8
         },
         "fielding_abilities": {
@@ -31930,7 +31930,7 @@
         "pitching_abilities": {
             "control": 42.0,
             "velocity": 85.0,
-            "stamina": 12.9,
+            "stamina": 20,
             "effectiveness": 84.2
         },
         "fielding_abilities": {
@@ -32023,7 +32023,7 @@
         "pitching_abilities": {
             "control": 11.3,
             "velocity": 86.0,
-            "stamina": 12.6,
+            "stamina": 20,
             "effectiveness": 45.7
         },
         "fielding_abilities": {
@@ -32070,7 +32070,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 13.2,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -32211,7 +32211,7 @@
         "pitching_abilities": {
             "control": 21.5,
             "velocity": 0.0,
-            "stamina": 7.4,
+            "stamina": 20,
             "effectiveness": 79.3
         },
         "fielding_abilities": {
@@ -32301,8 +32301,8 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 0.0,
-            "stamina": 6.5,
-            "effectiveness": -159.2
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -32395,7 +32395,7 @@
         "pitching_abilities": {
             "control": 37.0,
             "velocity": 91.0,
-            "stamina": 9.3,
+            "stamina": 20,
             "effectiveness": 86.9
         },
         "fielding_abilities": {
@@ -32443,7 +32443,7 @@
         "pitching_abilities": {
             "control": 41.7,
             "velocity": 75.0,
-            "stamina": 14.2,
+            "stamina": 20,
             "effectiveness": 65.2
         },
         "fielding_abilities": {
@@ -32490,7 +32490,7 @@
         "pitching_abilities": {
             "control": 31.1,
             "velocity": 100,
-            "stamina": 13.4,
+            "stamina": 20,
             "effectiveness": 82.4
         },
         "fielding_abilities": {
@@ -32538,7 +32538,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 10.5,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -32678,7 +32678,7 @@
         "pitching_abilities": {
             "control": 3.0,
             "velocity": 90.0,
-            "stamina": 11.7,
+            "stamina": 20,
             "effectiveness": 83.3
         },
         "fielding_abilities": {
@@ -32726,8 +32726,8 @@
         "pitching_abilities": {
             "control": 5.5,
             "velocity": 100,
-            "stamina": 13.4,
-            "effectiveness": -6.2
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -32773,7 +32773,7 @@
         "pitching_abilities": {
             "control": 31.1,
             "velocity": 91.0,
-            "stamina": 14.3,
+            "stamina": 20,
             "effectiveness": 64.6
         },
         "fielding_abilities": {
@@ -32820,7 +32820,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 45.0,
-            "stamina": 18.8,
+            "stamina": 20,
             "effectiveness": 72.4
         },
         "fielding_abilities": {
@@ -32913,7 +32913,7 @@
         "pitching_abilities": {
             "control": 41.1,
             "velocity": 71.0,
-            "stamina": 14.1,
+            "stamina": 20,
             "effectiveness": 62.3
         },
         "fielding_abilities": {
@@ -32960,7 +32960,7 @@
         "pitching_abilities": {
             "control": 29.7,
             "velocity": 73.0,
-            "stamina": 18.2,
+            "stamina": 20,
             "effectiveness": 62.3
         },
         "fielding_abilities": {
@@ -33007,7 +33007,7 @@
         "pitching_abilities": {
             "control": 32.2,
             "velocity": 62.0,
-            "stamina": 16.9,
+            "stamina": 20,
             "effectiveness": 75.3
         },
         "fielding_abilities": {
@@ -33054,7 +33054,7 @@
         "pitching_abilities": {
             "control": 9.4,
             "velocity": 100,
-            "stamina": 12.4,
+            "stamina": 20,
             "effectiveness": 71.6
         },
         "fielding_abilities": {
@@ -33237,7 +33237,7 @@
         "pitching_abilities": {
             "control": 23.4,
             "velocity": 82.0,
-            "stamina": 12.9,
+            "stamina": 20,
             "effectiveness": 73.3
         },
         "fielding_abilities": {
@@ -33330,7 +33330,7 @@
         "pitching_abilities": {
             "control": 42.1,
             "velocity": 76.0,
-            "stamina": 14.9,
+            "stamina": 20,
             "effectiveness": 86.7
         },
         "fielding_abilities": {
@@ -33378,7 +33378,7 @@
         "pitching_abilities": {
             "control": 25.5,
             "velocity": 68.0,
-            "stamina": 13.9,
+            "stamina": 20,
             "effectiveness": 53.0
         },
         "fielding_abilities": {
@@ -33425,7 +33425,7 @@
         "pitching_abilities": {
             "control": 49.2,
             "velocity": 59.0,
-            "stamina": 15.3,
+            "stamina": 20,
             "effectiveness": 68.2
         },
         "fielding_abilities": {
@@ -33517,7 +33517,7 @@
         "pitching_abilities": {
             "control": 45.7,
             "velocity": 61.0,
-            "stamina": 17.2,
+            "stamina": 20,
             "effectiveness": 77.8
         },
         "fielding_abilities": {
@@ -33564,7 +33564,7 @@
         "pitching_abilities": {
             "control": 25.2,
             "velocity": 75.0,
-            "stamina": 12.9,
+            "stamina": 20,
             "effectiveness": 49.8
         },
         "fielding_abilities": {
@@ -33656,7 +33656,7 @@
         "pitching_abilities": {
             "control": 31.8,
             "velocity": 100,
-            "stamina": 13.6,
+            "stamina": 20,
             "effectiveness": 72.1
         },
         "fielding_abilities": {
@@ -33749,7 +33749,7 @@
         "pitching_abilities": {
             "control": 42.7,
             "velocity": 100,
-            "stamina": 14.5,
+            "stamina": 20,
             "effectiveness": 88.0
         },
         "fielding_abilities": {
@@ -33887,7 +33887,7 @@
         "pitching_abilities": {
             "control": 43.0,
             "velocity": 68.0,
-            "stamina": 8.0,
+            "stamina": 20,
             "effectiveness": 44.3
         },
         "fielding_abilities": {
@@ -34028,7 +34028,7 @@
         "pitching_abilities": {
             "control": 37.4,
             "velocity": 100,
-            "stamina": 13.0,
+            "stamina": 20,
             "effectiveness": 72.3
         },
         "fielding_abilities": {
@@ -34076,7 +34076,7 @@
         "pitching_abilities": {
             "control": 17.3,
             "velocity": 81.0,
-            "stamina": 11.9,
+            "stamina": 20,
             "effectiveness": 46.2
         },
         "fielding_abilities": {
@@ -34213,7 +34213,7 @@
         "pitching_abilities": {
             "control": 38.9,
             "velocity": 80.0,
-            "stamina": 11.9,
+            "stamina": 20,
             "effectiveness": 71.1
         },
         "fielding_abilities": {
@@ -34399,7 +34399,7 @@
         "pitching_abilities": {
             "control": 33.9,
             "velocity": 71.0,
-            "stamina": 12.7,
+            "stamina": 20,
             "effectiveness": 74.4
         },
         "fielding_abilities": {
@@ -34447,7 +34447,7 @@
         "pitching_abilities": {
             "control": 21.3,
             "velocity": 97.0,
-            "stamina": 7.2,
+            "stamina": 20,
             "effectiveness": 81.8
         },
         "fielding_abilities": {
@@ -34680,7 +34680,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 3.2,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -34725,7 +34725,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 100,
-            "stamina": 13.4,
+            "stamina": 20,
             "effectiveness": 30.3
         },
         "fielding_abilities": {
@@ -34773,7 +34773,7 @@
         "pitching_abilities": {
             "control": 35.5,
             "velocity": 93.0,
-            "stamina": 13.2,
+            "stamina": 20,
             "effectiveness": 84.4
         },
         "fielding_abilities": {
@@ -35050,7 +35050,7 @@
         "pitching_abilities": {
             "control": 31.1,
             "velocity": 0.0,
-            "stamina": 1.4,
+            "stamina": 20,
             "effectiveness": 82.2
         },
         "fielding_abilities": {
@@ -35097,7 +35097,7 @@
         "pitching_abilities": {
             "control": 38.4,
             "velocity": 68.0,
-            "stamina": 13.1,
+            "stamina": 20,
             "effectiveness": 69.8
         },
         "fielding_abilities": {
@@ -35326,7 +35326,7 @@
         "pitching_abilities": {
             "control": 40.0,
             "velocity": 68.0,
-            "stamina": 16.1,
+            "stamina": 20,
             "effectiveness": 90.3
         },
         "fielding_abilities": {
@@ -35373,7 +35373,7 @@
         "pitching_abilities": {
             "control": 14.4,
             "velocity": 77.0,
-            "stamina": 17.2,
+            "stamina": 20,
             "effectiveness": 39.9
         },
         "fielding_abilities": {
@@ -35697,7 +35697,7 @@
         "pitching_abilities": {
             "control": 35.6,
             "velocity": 54.0,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -35885,7 +35885,7 @@
         "pitching_abilities": {
             "control": 37.5,
             "velocity": 85.0,
-            "stamina": 13.4,
+            "stamina": 20,
             "effectiveness": 84.2
         },
         "fielding_abilities": {
@@ -36074,7 +36074,7 @@
         "pitching_abilities": {
             "control": 42.4,
             "velocity": 90.0,
-            "stamina": 9.4,
+            "stamina": 20,
             "effectiveness": 84.5
         },
         "fielding_abilities": {
@@ -36353,7 +36353,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 5.2,
+            "stamina": 20,
             "effectiveness": 29.7
         },
         "fielding_abilities": {
@@ -36398,7 +36398,7 @@
         "pitching_abilities": {
             "control": 35.1,
             "velocity": 52.0,
-            "stamina": 9.8,
+            "stamina": 20,
             "effectiveness": 65.3
         },
         "fielding_abilities": {
@@ -36678,7 +36678,7 @@
         "pitching_abilities": {
             "control": 40.4,
             "velocity": 80.0,
-            "stamina": 6.6,
+            "stamina": 20,
             "effectiveness": 83.5
         },
         "fielding_abilities": {
@@ -36861,7 +36861,7 @@
         "pitching_abilities": {
             "control": 33.9,
             "velocity": 96.0,
-            "stamina": 17.1,
+            "stamina": 20,
             "effectiveness": 74.3
         },
         "fielding_abilities": {
@@ -37046,7 +37046,7 @@
         "pitching_abilities": {
             "control": 28.7,
             "velocity": 65.0,
-            "stamina": 16.4,
+            "stamina": 20,
             "effectiveness": 83.6
         },
         "fielding_abilities": {
@@ -37228,7 +37228,7 @@
         "pitching_abilities": {
             "control": 24.4,
             "velocity": 80.0,
-            "stamina": 14.4,
+            "stamina": 20,
             "effectiveness": 47.0
         },
         "fielding_abilities": {
@@ -37320,7 +37320,7 @@
         "pitching_abilities": {
             "control": 64.8,
             "velocity": 100,
-            "stamina": 13.1,
+            "stamina": 20,
             "effectiveness": 88.9
         },
         "fielding_abilities": {
@@ -37463,7 +37463,7 @@
         "pitching_abilities": {
             "control": 30.6,
             "velocity": 100,
-            "stamina": 14.4,
+            "stamina": 20,
             "effectiveness": 89.6
         },
         "fielding_abilities": {
@@ -37604,7 +37604,7 @@
         "pitching_abilities": {
             "control": 37.2,
             "velocity": 62.0,
-            "stamina": 14.9,
+            "stamina": 20,
             "effectiveness": 76.4
         },
         "fielding_abilities": {
@@ -37966,7 +37966,7 @@
         "pitching_abilities": {
             "control": 36.7,
             "velocity": 84.0,
-            "stamina": 12.5,
+            "stamina": 20,
             "effectiveness": 78.0
         },
         "fielding_abilities": {
@@ -38059,7 +38059,7 @@
         "pitching_abilities": {
             "control": 34.1,
             "velocity": 99.0,
-            "stamina": 13.1,
+            "stamina": 20,
             "effectiveness": 79.3
         },
         "fielding_abilities": {
@@ -38154,7 +38154,7 @@
         "pitching_abilities": {
             "control": 10.3,
             "velocity": 100,
-            "stamina": 19.7,
+            "stamina": 20,
             "effectiveness": 66.8
         },
         "fielding_abilities": {
@@ -38248,7 +38248,7 @@
         "pitching_abilities": {
             "control": 38.6,
             "velocity": 90.0,
-            "stamina": 12.6,
+            "stamina": 20,
             "effectiveness": 37.6
         },
         "fielding_abilities": {
@@ -38340,7 +38340,7 @@
         "pitching_abilities": {
             "control": 35.5,
             "velocity": 59.0,
-            "stamina": 12.1,
+            "stamina": 20,
             "effectiveness": 54.5
         },
         "fielding_abilities": {
@@ -38434,7 +38434,7 @@
         "pitching_abilities": {
             "control": 42.7,
             "velocity": 78.0,
-            "stamina": 13.2,
+            "stamina": 20,
             "effectiveness": 66.3
         },
         "fielding_abilities": {
@@ -38481,8 +38481,8 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 3.3,
-            "effectiveness": -10.2
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 98.6,
@@ -38890,7 +38890,7 @@
         "pitching_abilities": {
             "control": 39.5,
             "velocity": 30.0,
-            "stamina": 19.7,
+            "stamina": 20,
             "effectiveness": 86.0
         },
         "fielding_abilities": {
@@ -38937,7 +38937,7 @@
         "pitching_abilities": {
             "control": 39.6,
             "velocity": 62.0,
-            "stamina": 10.9,
+            "stamina": 20,
             "effectiveness": 76.7
         },
         "fielding_abilities": {
@@ -38984,7 +38984,7 @@
         "pitching_abilities": {
             "control": 21.6,
             "velocity": 69.0,
-            "stamina": 10.4,
+            "stamina": 20,
             "effectiveness": 44.3
         },
         "fielding_abilities": {
@@ -39260,7 +39260,7 @@
         "pitching_abilities": {
             "control": 29.0,
             "velocity": 0.0,
-            "stamina": 0.5,
+            "stamina": 20,
             "effectiveness": 22.3
         },
         "fielding_abilities": {
@@ -39350,7 +39350,7 @@
         "pitching_abilities": {
             "control": 35.1,
             "velocity": 98.0,
-            "stamina": 14.9,
+            "stamina": 20,
             "effectiveness": 86.7
         },
         "fielding_abilities": {
@@ -39580,7 +39580,7 @@
         "pitching_abilities": {
             "control": 34.7,
             "velocity": 100,
-            "stamina": 13.9,
+            "stamina": 20,
             "effectiveness": 64.9
         },
         "fielding_abilities": {
@@ -39627,7 +39627,7 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 84.0,
-            "stamina": 16.1,
+            "stamina": 20,
             "effectiveness": 30.6
         },
         "fielding_abilities": {
@@ -39721,7 +39721,7 @@
         "pitching_abilities": {
             "control": 3.5,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 75.3
         },
         "fielding_abilities": {
@@ -39768,7 +39768,7 @@
         "pitching_abilities": {
             "control": 41.5,
             "velocity": 97.0,
-            "stamina": 13.0,
+            "stamina": 20,
             "effectiveness": 87.6
         },
         "fielding_abilities": {
@@ -39910,7 +39910,7 @@
             "control": 3.2,
             "velocity": 60.0,
             "stamina": 40.0,
-            "effectiveness": 5.5
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -39956,7 +39956,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -40047,7 +40047,7 @@
             "control": 18.8,
             "velocity": 69.0,
             "stamina": 21.7,
-            "effectiveness": 7.2
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -40183,7 +40183,7 @@
         "pitching_abilities": {
             "control": 23.7,
             "velocity": 84.0,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 56.2
         },
         "fielding_abilities": {
@@ -40230,7 +40230,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 11.0,
+            "stamina": 20,
             "effectiveness": 31.3
         },
         "fielding_abilities": {
@@ -40554,7 +40554,7 @@
         "pitching_abilities": {
             "control": 27.4,
             "velocity": 100,
-            "stamina": 7.6,
+            "stamina": 20,
             "effectiveness": 75.3
         },
         "fielding_abilities": {
@@ -40602,7 +40602,7 @@
         "pitching_abilities": {
             "control": 42.3,
             "velocity": 100,
-            "stamina": 14.8,
+            "stamina": 20,
             "effectiveness": 91.3
         },
         "fielding_abilities": {
@@ -40650,8 +40650,8 @@
         "pitching_abilities": {
             "control": 23.0,
             "velocity": 0.0,
-            "stamina": 11.8,
-            "effectiveness": 8.8
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 11.0,
@@ -40742,7 +40742,7 @@
         "pitching_abilities": {
             "control": 23.5,
             "velocity": 76.0,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 70.2
         },
         "fielding_abilities": {
@@ -40790,7 +40790,7 @@
         "pitching_abilities": {
             "control": 44.9,
             "velocity": 79.0,
-            "stamina": 14.0,
+            "stamina": 20,
             "effectiveness": 67.1
         },
         "fielding_abilities": {
@@ -40837,7 +40837,7 @@
         "pitching_abilities": {
             "control": 49.0,
             "velocity": 78.0,
-            "stamina": 13.8,
+            "stamina": 20,
             "effectiveness": 85.3
         },
         "fielding_abilities": {
@@ -40885,7 +40885,7 @@
         "pitching_abilities": {
             "control": 46.0,
             "velocity": 89.0,
-            "stamina": 8.8,
+            "stamina": 20,
             "effectiveness": 71.9
         },
         "fielding_abilities": {
@@ -40933,7 +40933,7 @@
         "pitching_abilities": {
             "control": 40.1,
             "velocity": 92.0,
-            "stamina": 12.3,
+            "stamina": 20,
             "effectiveness": 82.2
         },
         "fielding_abilities": {
@@ -41026,7 +41026,7 @@
         "pitching_abilities": {
             "control": 1.5,
             "velocity": 90.0,
-            "stamina": 13.4,
+            "stamina": 20,
             "effectiveness": 83.3
         },
         "fielding_abilities": {
@@ -41211,7 +41211,7 @@
         "pitching_abilities": {
             "control": 36.4,
             "velocity": 82.0,
-            "stamina": 10.5,
+            "stamina": 20,
             "effectiveness": 86.6
         },
         "fielding_abilities": {
@@ -41259,7 +41259,7 @@
         "pitching_abilities": {
             "control": 35.1,
             "velocity": 62.0,
-            "stamina": 14.1,
+            "stamina": 20,
             "effectiveness": 57.6
         },
         "fielding_abilities": {
@@ -41306,7 +41306,7 @@
         "pitching_abilities": {
             "control": 37.4,
             "velocity": 91.0,
-            "stamina": 11.5,
+            "stamina": 20,
             "effectiveness": 86.2
         },
         "fielding_abilities": {
@@ -41628,7 +41628,7 @@
         "pitching_abilities": {
             "control": 29.0,
             "velocity": 54.0,
-            "stamina": 12.7,
+            "stamina": 20,
             "effectiveness": 56.9
         },
         "fielding_abilities": {
@@ -41722,7 +41722,7 @@
         "pitching_abilities": {
             "control": 31.0,
             "velocity": 100,
-            "stamina": 13.9,
+            "stamina": 20,
             "effectiveness": 95.2
         },
         "fielding_abilities": {
@@ -41815,7 +41815,7 @@
         "pitching_abilities": {
             "control": 28.0,
             "velocity": 76.0,
-            "stamina": 12.9,
+            "stamina": 20,
             "effectiveness": 57.3
         },
         "fielding_abilities": {
@@ -41862,7 +41862,7 @@
         "pitching_abilities": {
             "control": 38.9,
             "velocity": 100,
-            "stamina": 13.8,
+            "stamina": 20,
             "effectiveness": 88.8
         },
         "fielding_abilities": {
@@ -42000,7 +42000,7 @@
         "pitching_abilities": {
             "control": 42.7,
             "velocity": 73.0,
-            "stamina": 15.8,
+            "stamina": 20,
             "effectiveness": 85.4
         },
         "fielding_abilities": {
@@ -42416,7 +42416,7 @@
         "pitching_abilities": {
             "control": 30.2,
             "velocity": 25.0,
-            "stamina": 14.1,
+            "stamina": 20,
             "effectiveness": 49.2
         },
         "fielding_abilities": {
@@ -42463,7 +42463,7 @@
         "pitching_abilities": {
             "control": 35.1,
             "velocity": 100,
-            "stamina": 13.2,
+            "stamina": 20,
             "effectiveness": 86.6
         },
         "fielding_abilities": {
@@ -42698,7 +42698,7 @@
         "pitching_abilities": {
             "control": 34.4,
             "velocity": 78.0,
-            "stamina": 14.1,
+            "stamina": 20,
             "effectiveness": 74.1
         },
         "fielding_abilities": {
@@ -42746,7 +42746,7 @@
         "pitching_abilities": {
             "control": 38.1,
             "velocity": 100,
-            "stamina": 12.0,
+            "stamina": 20,
             "effectiveness": 71.7
         },
         "fielding_abilities": {
@@ -43021,7 +43021,7 @@
         "pitching_abilities": {
             "control": 38.0,
             "velocity": 100,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 38.8
         },
         "fielding_abilities": {
@@ -43068,7 +43068,7 @@
         "pitching_abilities": {
             "control": 36.1,
             "velocity": 68.0,
-            "stamina": 13.0,
+            "stamina": 20,
             "effectiveness": 70.1
         },
         "fielding_abilities": {
@@ -43115,7 +43115,7 @@
         "pitching_abilities": {
             "control": 35.9,
             "velocity": 100,
-            "stamina": 6.1,
+            "stamina": 20,
             "effectiveness": 75.6
         },
         "fielding_abilities": {
@@ -43211,7 +43211,7 @@
         "pitching_abilities": {
             "control": 31.6,
             "velocity": 97.0,
-            "stamina": 12.9,
+            "stamina": 20,
             "effectiveness": 71.9
         },
         "fielding_abilities": {
@@ -43349,7 +43349,7 @@
         "pitching_abilities": {
             "control": 14.3,
             "velocity": 63.0,
-            "stamina": 16.9,
+            "stamina": 20,
             "effectiveness": 44.2
         },
         "fielding_abilities": {
@@ -43441,7 +43441,7 @@
         "pitching_abilities": {
             "control": 26.3,
             "velocity": 91.0,
-            "stamina": 13.9,
+            "stamina": 20,
             "effectiveness": 76.9
         },
         "fielding_abilities": {
@@ -43579,7 +43579,7 @@
         "pitching_abilities": {
             "control": 48.0,
             "velocity": 60.0,
-            "stamina": 16.0,
+            "stamina": 20,
             "effectiveness": 86.3
         },
         "fielding_abilities": {
@@ -43899,7 +43899,7 @@
         "pitching_abilities": {
             "control": 47.3,
             "velocity": 100,
-            "stamina": 16.6,
+            "stamina": 20,
             "effectiveness": 91.1
         },
         "fielding_abilities": {
@@ -43947,7 +43947,7 @@
         "pitching_abilities": {
             "control": 3.0,
             "velocity": 100,
-            "stamina": 13.4,
+            "stamina": 20,
             "effectiveness": 31.3
         },
         "fielding_abilities": {
@@ -44272,7 +44272,7 @@
         "pitching_abilities": {
             "control": 31.6,
             "velocity": 84.0,
-            "stamina": 6.7,
+            "stamina": 20,
             "effectiveness": 60.5
         },
         "fielding_abilities": {
@@ -44549,7 +44549,7 @@
         "pitching_abilities": {
             "control": 51.1,
             "velocity": 95.0,
-            "stamina": 14.3,
+            "stamina": 20,
             "effectiveness": 79.1
         },
         "fielding_abilities": {
@@ -44783,8 +44783,8 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 54.0,
-            "stamina": 12.0,
-            "effectiveness": -9.7
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -44830,7 +44830,7 @@
         "pitching_abilities": {
             "control": 26.6,
             "velocity": 100,
-            "stamina": 12.8,
+            "stamina": 20,
             "effectiveness": 87.1
         },
         "fielding_abilities": {
@@ -44878,7 +44878,7 @@
         "pitching_abilities": {
             "control": 35.2,
             "velocity": 100,
-            "stamina": 12.7,
+            "stamina": 20,
             "effectiveness": 70.8
         },
         "fielding_abilities": {
@@ -45156,7 +45156,7 @@
         "pitching_abilities": {
             "control": 41.5,
             "velocity": 100,
-            "stamina": 8.3,
+            "stamina": 20,
             "effectiveness": 73.9
         },
         "fielding_abilities": {
@@ -45339,7 +45339,7 @@
         "pitching_abilities": {
             "control": 13.5,
             "velocity": 98.0,
-            "stamina": 17.2,
+            "stamina": 20,
             "effectiveness": 58.4
         },
         "fielding_abilities": {
@@ -45433,7 +45433,7 @@
         "pitching_abilities": {
             "control": 31.9,
             "velocity": 66.0,
-            "stamina": 15.0,
+            "stamina": 20,
             "effectiveness": 86.6
         },
         "fielding_abilities": {
@@ -45802,7 +45802,7 @@
         "pitching_abilities": {
             "control": 41.4,
             "velocity": 90.0,
-            "stamina": 12.2,
+            "stamina": 20,
             "effectiveness": 85.1
         },
         "fielding_abilities": {
@@ -45850,7 +45850,7 @@
         "pitching_abilities": {
             "control": 40.0,
             "velocity": 100,
-            "stamina": 9.2,
+            "stamina": 20,
             "effectiveness": 67.5
         },
         "fielding_abilities": {
@@ -45945,7 +45945,7 @@
         "pitching_abilities": {
             "control": 28.1,
             "velocity": 82.0,
-            "stamina": 13.2,
+            "stamina": 20,
             "effectiveness": 83.8
         },
         "fielding_abilities": {
@@ -46038,7 +46038,7 @@
         "pitching_abilities": {
             "control": 23.5,
             "velocity": 85.0,
-            "stamina": 9.3,
+            "stamina": 20,
             "effectiveness": 83.3
         },
         "fielding_abilities": {
@@ -46086,7 +46086,7 @@
         "pitching_abilities": {
             "control": 5.0,
             "velocity": 68.0,
-            "stamina": 9.8,
+            "stamina": 20,
             "effectiveness": 78.3
         },
         "fielding_abilities": {
@@ -46229,7 +46229,7 @@
         "pitching_abilities": {
             "control": 36.4,
             "velocity": 100,
-            "stamina": 11.8,
+            "stamina": 20,
             "effectiveness": 89.6
         },
         "fielding_abilities": {
@@ -46277,7 +46277,7 @@
         "pitching_abilities": {
             "control": 29.5,
             "velocity": 66.0,
-            "stamina": 18.9,
+            "stamina": 20,
             "effectiveness": 64.7
         },
         "fielding_abilities": {
@@ -46369,7 +46369,7 @@
         "pitching_abilities": {
             "control": 37.1,
             "velocity": 52.0,
-            "stamina": 11.9,
+            "stamina": 20,
             "effectiveness": 70.2
         },
         "fielding_abilities": {
@@ -46506,7 +46506,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": -2.3,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -46641,7 +46641,7 @@
         "pitching_abilities": {
             "control": 25.9,
             "velocity": 64.0,
-            "stamina": 15.2,
+            "stamina": 20,
             "effectiveness": 53.3
         },
         "fielding_abilities": {
@@ -46919,7 +46919,7 @@
         "pitching_abilities": {
             "control": 40.6,
             "velocity": 100,
-            "stamina": 12.4,
+            "stamina": 20,
             "effectiveness": 80.4
         },
         "fielding_abilities": {
@@ -47059,8 +47059,8 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 100,
-            "stamina": 12.0,
-            "effectiveness": -0.8
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -47151,7 +47151,7 @@
         "pitching_abilities": {
             "control": 28.4,
             "velocity": 68.0,
-            "stamina": 9.9,
+            "stamina": 20,
             "effectiveness": 34.7
         },
         "fielding_abilities": {
@@ -47293,7 +47293,7 @@
         "pitching_abilities": {
             "control": 38.1,
             "velocity": 80.0,
-            "stamina": 12.2,
+            "stamina": 20,
             "effectiveness": 72.5
         },
         "fielding_abilities": {
@@ -47386,7 +47386,7 @@
         "pitching_abilities": {
             "control": 34.8,
             "velocity": 61.0,
-            "stamina": 11.9,
+            "stamina": 20,
             "effectiveness": 54.4
         },
         "fielding_abilities": {
@@ -47527,7 +47527,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 90.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 95.3
         },
         "fielding_abilities": {
@@ -47572,7 +47572,7 @@
         "pitching_abilities": {
             "control": 39.2,
             "velocity": 92.0,
-            "stamina": 13.0,
+            "stamina": 20,
             "effectiveness": 84.6
         },
         "fielding_abilities": {
@@ -47712,8 +47712,8 @@
         "pitching_abilities": {
             "control": 16.2,
             "velocity": 21.0,
-            "stamina": 14.1,
-            "effectiveness": 1.9
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 0.8,
@@ -47759,7 +47759,7 @@
         "pitching_abilities": {
             "control": 36.8,
             "velocity": 100,
-            "stamina": 9.5,
+            "stamina": 20,
             "effectiveness": 88.5
         },
         "fielding_abilities": {
@@ -47807,7 +47807,7 @@
         "pitching_abilities": {
             "control": 28.4,
             "velocity": 77.0,
-            "stamina": 12.2,
+            "stamina": 20,
             "effectiveness": 68.3
         },
         "fielding_abilities": {
@@ -47993,7 +47993,7 @@
         "pitching_abilities": {
             "control": 11.9,
             "velocity": 100,
-            "stamina": 12.3,
+            "stamina": 20,
             "effectiveness": 82.8
         },
         "fielding_abilities": {
@@ -48182,7 +48182,7 @@
         "pitching_abilities": {
             "control": 26.1,
             "velocity": 78.0,
-            "stamina": 13.5,
+            "stamina": 20,
             "effectiveness": 60.8
         },
         "fielding_abilities": {
@@ -48274,7 +48274,7 @@
         "pitching_abilities": {
             "control": 35.9,
             "velocity": 100,
-            "stamina": 12.2,
+            "stamina": 20,
             "effectiveness": 92.5
         },
         "fielding_abilities": {
@@ -48367,7 +48367,7 @@
         "pitching_abilities": {
             "control": 35.4,
             "velocity": 91.0,
-            "stamina": 16.4,
+            "stamina": 20,
             "effectiveness": 54.5
         },
         "fielding_abilities": {
@@ -48414,7 +48414,7 @@
         "pitching_abilities": {
             "control": 26.1,
             "velocity": 34.0,
-            "stamina": 8.9,
+            "stamina": 20,
             "effectiveness": 56.5
         },
         "fielding_abilities": {
@@ -48551,7 +48551,7 @@
         "pitching_abilities": {
             "control": 30.8,
             "velocity": 65.0,
-            "stamina": 18.2,
+            "stamina": 20,
             "effectiveness": 60.7
         },
         "fielding_abilities": {
@@ -48688,7 +48688,7 @@
         "pitching_abilities": {
             "control": 35.7,
             "velocity": 90.0,
-            "stamina": 14.8,
+            "stamina": 20,
             "effectiveness": 55.0
         },
         "fielding_abilities": {
@@ -48735,7 +48735,7 @@
         "pitching_abilities": {
             "control": 47.6,
             "velocity": 100,
-            "stamina": 14.8,
+            "stamina": 20,
             "effectiveness": 94.6
         },
         "fielding_abilities": {
@@ -49012,7 +49012,7 @@
         "pitching_abilities": {
             "control": 23.6,
             "velocity": 100,
-            "stamina": 12.8,
+            "stamina": 20,
             "effectiveness": 88.8
         },
         "fielding_abilities": {
@@ -49240,7 +49240,7 @@
         "pitching_abilities": {
             "control": 15.9,
             "velocity": 45.0,
-            "stamina": 16.1,
+            "stamina": 20,
             "effectiveness": 70.3
         },
         "fielding_abilities": {
@@ -49287,7 +49287,7 @@
         "pitching_abilities": {
             "control": 3.5,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 75.3
         },
         "fielding_abilities": {
@@ -49377,7 +49377,7 @@
         "pitching_abilities": {
             "control": 34.1,
             "velocity": 100,
-            "stamina": 15.1,
+            "stamina": 20,
             "effectiveness": 96.1
         },
         "fielding_abilities": {
@@ -49425,7 +49425,7 @@
         "pitching_abilities": {
             "control": 18.2,
             "velocity": 81.0,
-            "stamina": 12.0,
+            "stamina": 20,
             "effectiveness": 40.2
         },
         "fielding_abilities": {
@@ -49517,7 +49517,7 @@
         "pitching_abilities": {
             "control": 28.6,
             "velocity": 85.0,
-            "stamina": 9.8,
+            "stamina": 20,
             "effectiveness": 67.6
         },
         "fielding_abilities": {
@@ -49564,8 +49564,8 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 100,
-            "stamina": 10.7,
-            "effectiveness": -44.2
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -49701,7 +49701,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -49746,7 +49746,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 38.3
         },
         "fielding_abilities": {
@@ -49836,7 +49836,7 @@
         "pitching_abilities": {
             "control": 37.3,
             "velocity": 95.0,
-            "stamina": 16.8,
+            "stamina": 20,
             "effectiveness": 78.2
         },
         "fielding_abilities": {
@@ -49929,7 +49929,7 @@
         "pitching_abilities": {
             "control": 35.5,
             "velocity": 88.0,
-            "stamina": 15.5,
+            "stamina": 20,
             "effectiveness": 78.8
         },
         "fielding_abilities": {
@@ -49977,7 +49977,7 @@
         "pitching_abilities": {
             "control": 37.8,
             "velocity": 100,
-            "stamina": 13.8,
+            "stamina": 20,
             "effectiveness": 89.4
         },
         "fielding_abilities": {
@@ -50025,7 +50025,7 @@
         "pitching_abilities": {
             "control": 50.7,
             "velocity": 95.0,
-            "stamina": 17.3,
+            "stamina": 20,
             "effectiveness": 76.7
         },
         "fielding_abilities": {
@@ -50535,7 +50535,7 @@
         "pitching_abilities": {
             "control": 49.4,
             "velocity": 79.0,
-            "stamina": 13.1,
+            "stamina": 20,
             "effectiveness": 57.3
         },
         "fielding_abilities": {
@@ -50627,7 +50627,7 @@
         "pitching_abilities": {
             "control": 41.4,
             "velocity": 81.0,
-            "stamina": 12.8,
+            "stamina": 20,
             "effectiveness": 85.3
         },
         "fielding_abilities": {
@@ -50675,7 +50675,7 @@
         "pitching_abilities": {
             "control": 38.2,
             "velocity": 91.0,
-            "stamina": 12.4,
+            "stamina": 20,
             "effectiveness": 71.6
         },
         "fielding_abilities": {
@@ -50723,7 +50723,7 @@
         "pitching_abilities": {
             "control": 23.4,
             "velocity": 71.0,
-            "stamina": 16.3,
+            "stamina": 20,
             "effectiveness": 32.0
         },
         "fielding_abilities": {
@@ -50910,7 +50910,7 @@
         "pitching_abilities": {
             "control": 37.2,
             "velocity": 96.0,
-            "stamina": 12.8,
+            "stamina": 20,
             "effectiveness": 85.0
         },
         "fielding_abilities": {
@@ -51005,7 +51005,7 @@
         "pitching_abilities": {
             "control": 55.9,
             "velocity": 65.0,
-            "stamina": 12.6,
+            "stamina": 20,
             "effectiveness": 85.8
         },
         "fielding_abilities": {
@@ -51097,8 +51097,8 @@
         "pitching_abilities": {
             "control": 5.0,
             "velocity": 0.0,
-            "stamina": 3.3,
-            "effectiveness": 13.8
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 96.9,
@@ -51142,7 +51142,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -51232,7 +51232,7 @@
         "pitching_abilities": {
             "control": 40.4,
             "velocity": 86.0,
-            "stamina": 2.6,
+            "stamina": 20,
             "effectiveness": 46.8
         },
         "fielding_abilities": {
@@ -51279,7 +51279,7 @@
         "pitching_abilities": {
             "control": 42.2,
             "velocity": 78.0,
-            "stamina": 12.5,
+            "stamina": 20,
             "effectiveness": 82.9
         },
         "fielding_abilities": {
@@ -51417,7 +51417,7 @@
         "pitching_abilities": {
             "control": 2.5,
             "velocity": 45.0,
-            "stamina": 11.7,
+            "stamina": 20,
             "effectiveness": 45.8
         },
         "fielding_abilities": {
@@ -51692,7 +51692,7 @@
         "pitching_abilities": {
             "control": 29.2,
             "velocity": 84.0,
-            "stamina": 18.1,
+            "stamina": 20,
             "effectiveness": 80.3
         },
         "fielding_abilities": {
@@ -51740,7 +51740,7 @@
         "pitching_abilities": {
             "control": 29.7,
             "velocity": 87.0,
-            "stamina": 15.6,
+            "stamina": 20,
             "effectiveness": 75.1
         },
         "fielding_abilities": {
@@ -51833,7 +51833,7 @@
         "pitching_abilities": {
             "control": 38.6,
             "velocity": 92.0,
-            "stamina": 13.1,
+            "stamina": 20,
             "effectiveness": 78.1
         },
         "fielding_abilities": {
@@ -52115,7 +52115,7 @@
         "pitching_abilities": {
             "control": 32.5,
             "velocity": 74.0,
-            "stamina": 16.4,
+            "stamina": 20,
             "effectiveness": 59.4
         },
         "fielding_abilities": {
@@ -52162,8 +52162,8 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 0.0,
-            "stamina": 9.3,
-            "effectiveness": -12.7
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -52254,7 +52254,7 @@
         "pitching_abilities": {
             "control": 42.9,
             "velocity": 100,
-            "stamina": 18.1,
+            "stamina": 20,
             "effectiveness": 95.6
         },
         "fielding_abilities": {
@@ -52392,7 +52392,7 @@
         "pitching_abilities": {
             "control": 30.0,
             "velocity": 83.0,
-            "stamina": 14.4,
+            "stamina": 20,
             "effectiveness": 85.0
         },
         "fielding_abilities": {
@@ -52535,7 +52535,7 @@
         "pitching_abilities": {
             "control": 32.2,
             "velocity": 100,
-            "stamina": 7.0,
+            "stamina": 20,
             "effectiveness": 73.6
         },
         "fielding_abilities": {
@@ -52630,7 +52630,7 @@
         "pitching_abilities": {
             "control": 51.1,
             "velocity": 100,
-            "stamina": 14.5,
+            "stamina": 20,
             "effectiveness": 89.5
         },
         "fielding_abilities": {
@@ -52768,7 +52768,7 @@
         "pitching_abilities": {
             "control": 41.5,
             "velocity": 87.0,
-            "stamina": 14.6,
+            "stamina": 20,
             "effectiveness": 82.0
         },
         "fielding_abilities": {
@@ -52861,7 +52861,7 @@
         "pitching_abilities": {
             "control": 43.1,
             "velocity": 100,
-            "stamina": 8.6,
+            "stamina": 20,
             "effectiveness": 89.1
         },
         "fielding_abilities": {
@@ -52909,7 +52909,7 @@
         "pitching_abilities": {
             "control": 51.2,
             "velocity": 74.0,
-            "stamina": 12.6,
+            "stamina": 20,
             "effectiveness": 70.1
         },
         "fielding_abilities": {
@@ -52957,7 +52957,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": -2.3,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -53002,7 +53002,7 @@
         "pitching_abilities": {
             "control": 31.5,
             "velocity": 88.0,
-            "stamina": 11.0,
+            "stamina": 20,
             "effectiveness": 78.0
         },
         "fielding_abilities": {
@@ -53050,7 +53050,7 @@
         "pitching_abilities": {
             "control": 18.6,
             "velocity": 50.0,
-            "stamina": 14.7,
+            "stamina": 20,
             "effectiveness": 41.4
         },
         "fielding_abilities": {
@@ -53097,7 +53097,7 @@
         "pitching_abilities": {
             "control": 44.1,
             "velocity": 94.0,
-            "stamina": 13.0,
+            "stamina": 20,
             "effectiveness": 82.1
         },
         "fielding_abilities": {
@@ -53421,7 +53421,7 @@
         "pitching_abilities": {
             "control": 35.4,
             "velocity": 80.0,
-            "stamina": 12.3,
+            "stamina": 20,
             "effectiveness": 85.9
         },
         "fielding_abilities": {
@@ -53702,7 +53702,7 @@
         "pitching_abilities": {
             "control": 31.0,
             "velocity": 100,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 88.3
         },
         "fielding_abilities": {
@@ -53750,7 +53750,7 @@
         "pitching_abilities": {
             "control": 30.0,
             "velocity": 93.0,
-            "stamina": 9.2,
+            "stamina": 20,
             "effectiveness": 83.5
         },
         "fielding_abilities": {
@@ -53935,7 +53935,7 @@
         "pitching_abilities": {
             "control": 27.2,
             "velocity": 64.0,
-            "stamina": 16.6,
+            "stamina": 20,
             "effectiveness": 84.5
         },
         "fielding_abilities": {
@@ -54260,7 +54260,7 @@
         "pitching_abilities": {
             "control": 43.9,
             "velocity": 98.0,
-            "stamina": 2.8,
+            "stamina": 20,
             "effectiveness": 73.2
         },
         "fielding_abilities": {
@@ -54308,7 +54308,7 @@
         "pitching_abilities": {
             "control": 1.5,
             "velocity": 90.0,
-            "stamina": 11.7,
+            "stamina": 20,
             "effectiveness": 35.3
         },
         "fielding_abilities": {
@@ -54535,7 +54535,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 13.3,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -54583,7 +54583,7 @@
         "pitching_abilities": {
             "control": 37.9,
             "velocity": 83.0,
-            "stamina": 17.0,
+            "stamina": 20,
             "effectiveness": 78.1
         },
         "fielding_abilities": {
@@ -54631,7 +54631,7 @@
         "pitching_abilities": {
             "control": 31.3,
             "velocity": 69.0,
-            "stamina": 15.6,
+            "stamina": 20,
             "effectiveness": 69.7
         },
         "fielding_abilities": {
@@ -54770,7 +54770,7 @@
         "pitching_abilities": {
             "control": 24.3,
             "velocity": 89.0,
-            "stamina": 12.1,
+            "stamina": 20,
             "effectiveness": 69.6
         },
         "fielding_abilities": {
@@ -55051,7 +55051,7 @@
         "pitching_abilities": {
             "control": 50.4,
             "velocity": 94.0,
-            "stamina": 15.4,
+            "stamina": 20,
             "effectiveness": 89.6
         },
         "fielding_abilities": {
@@ -55144,7 +55144,7 @@
         "pitching_abilities": {
             "control": 29.5,
             "velocity": 100,
-            "stamina": 12.7,
+            "stamina": 20,
             "effectiveness": 85.8
         },
         "fielding_abilities": {
@@ -55192,7 +55192,7 @@
         "pitching_abilities": {
             "control": 44.8,
             "velocity": 73.0,
-            "stamina": 14.3,
+            "stamina": 20,
             "effectiveness": 67.9
         },
         "fielding_abilities": {
@@ -55239,7 +55239,7 @@
         "pitching_abilities": {
             "control": 47.9,
             "velocity": 100,
-            "stamina": 13.4,
+            "stamina": 20,
             "effectiveness": 94.4
         },
         "fielding_abilities": {
@@ -55287,7 +55287,7 @@
         "pitching_abilities": {
             "control": 36.5,
             "velocity": 0.0,
-            "stamina": 3.2,
+            "stamina": 20,
             "effectiveness": 83.3
         },
         "fielding_abilities": {
@@ -55422,7 +55422,7 @@
         "pitching_abilities": {
             "control": 6.5,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 63.3
         },
         "fielding_abilities": {
@@ -55467,7 +55467,7 @@
         "pitching_abilities": {
             "control": 35.6,
             "velocity": 63.0,
-            "stamina": 12.6,
+            "stamina": 20,
             "effectiveness": 51.4
         },
         "fielding_abilities": {
@@ -55512,7 +55512,7 @@
         "pitching_abilities": {
             "control": 35.6,
             "velocity": 63.0,
-            "stamina": 12.6,
+            "stamina": 20,
             "effectiveness": 51.4
         },
         "fielding_abilities": {
@@ -55607,7 +55607,7 @@
         "pitching_abilities": {
             "control": 33.5,
             "velocity": 86.0,
-            "stamina": 14.7,
+            "stamina": 20,
             "effectiveness": 72.4
         },
         "fielding_abilities": {
@@ -55655,7 +55655,7 @@
         "pitching_abilities": {
             "control": 19.5,
             "velocity": 61.0,
-            "stamina": 12.8,
+            "stamina": 20,
             "effectiveness": 68.1
         },
         "fielding_abilities": {
@@ -55750,7 +55750,7 @@
         "pitching_abilities": {
             "control": 40.6,
             "velocity": 100,
-            "stamina": 13.2,
+            "stamina": 20,
             "effectiveness": 86.4
         },
         "fielding_abilities": {
@@ -55978,7 +55978,7 @@
         "pitching_abilities": {
             "control": 32.6,
             "velocity": 89.0,
-            "stamina": 16.1,
+            "stamina": 20,
             "effectiveness": 49.9
         },
         "fielding_abilities": {
@@ -56210,7 +56210,7 @@
         "pitching_abilities": {
             "control": 29.2,
             "velocity": 100,
-            "stamina": 11.7,
+            "stamina": 20,
             "effectiveness": 70.8
         },
         "fielding_abilities": {
@@ -56348,7 +56348,7 @@
         "pitching_abilities": {
             "control": 29.5,
             "velocity": 90.0,
-            "stamina": 11.5,
+            "stamina": 20,
             "effectiveness": 55.8
         },
         "fielding_abilities": {
@@ -56395,7 +56395,7 @@
         "pitching_abilities": {
             "control": 26.2,
             "velocity": 100,
-            "stamina": 11.8,
+            "stamina": 20,
             "effectiveness": 58.5
         },
         "fielding_abilities": {
@@ -56674,7 +56674,7 @@
         "pitching_abilities": {
             "control": 32.7,
             "velocity": 100,
-            "stamina": 12.3,
+            "stamina": 20,
             "effectiveness": 62.4
         },
         "fielding_abilities": {
@@ -56742,7 +56742,8 @@
             "primary_role": "Hitter",
             "secondary_roles": [],
             "hitting_styles": [
-                "Power Hitter"
+                "Power Hitter",
+                "Designated Hitter"
             ]
         }
     },
@@ -56768,7 +56769,7 @@
         "pitching_abilities": {
             "control": 26.0,
             "velocity": 67.0,
-            "stamina": 13.1,
+            "stamina": 20,
             "effectiveness": 82.8
         },
         "fielding_abilities": {
@@ -56908,7 +56909,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 75.3
         },
         "fielding_abilities": {
@@ -56953,7 +56954,7 @@
         "pitching_abilities": {
             "control": 37.6,
             "velocity": 54.0,
-            "stamina": 4.3,
+            "stamina": 20,
             "effectiveness": 69.3
         },
         "fielding_abilities": {
@@ -57138,7 +57139,7 @@
         "pitching_abilities": {
             "control": 29.6,
             "velocity": 100,
-            "stamina": 13.1,
+            "stamina": 20,
             "effectiveness": 65.8
         },
         "fielding_abilities": {
@@ -57413,7 +57414,7 @@
         "pitching_abilities": {
             "control": 51.4,
             "velocity": 100,
-            "stamina": 12.8,
+            "stamina": 20,
             "effectiveness": 90.8
         },
         "fielding_abilities": {
@@ -57461,7 +57462,7 @@
         "pitching_abilities": {
             "control": 25.9,
             "velocity": 68.0,
-            "stamina": 13.5,
+            "stamina": 20,
             "effectiveness": 59.5
         },
         "fielding_abilities": {
@@ -57508,7 +57509,7 @@
         "pitching_abilities": {
             "control": 47.2,
             "velocity": 79.0,
-            "stamina": 13.7,
+            "stamina": 20,
             "effectiveness": 86.0
         },
         "fielding_abilities": {
@@ -57601,7 +57602,7 @@
         "pitching_abilities": {
             "control": 39.1,
             "velocity": 70.0,
-            "stamina": 13.4,
+            "stamina": 20,
             "effectiveness": 82.2
         },
         "fielding_abilities": {
@@ -57789,7 +57790,7 @@
         "pitching_abilities": {
             "control": 42.4,
             "velocity": 69.0,
-            "stamina": 14.6,
+            "stamina": 20,
             "effectiveness": 84.9
         },
         "fielding_abilities": {
@@ -57836,8 +57837,8 @@
         "pitching_abilities": {
             "control": 26.0,
             "velocity": 0.0,
-            "stamina": 3.3,
-            "effectiveness": 9.3
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 85.2,
@@ -57881,7 +57882,7 @@
         "pitching_abilities": {
             "control": 28.8,
             "velocity": 96.0,
-            "stamina": 19.8,
+            "stamina": 20,
             "effectiveness": 56.8
         },
         "fielding_abilities": {
@@ -57928,7 +57929,7 @@
         "pitching_abilities": {
             "control": 44.1,
             "velocity": 82.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 86.0
         },
         "fielding_abilities": {
@@ -57976,7 +57977,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 100,
-            "stamina": -4.9,
+            "stamina": 20,
             "effectiveness": 100
         },
         "fielding_abilities": {
@@ -58070,7 +58071,7 @@
         "pitching_abilities": {
             "control": 27.9,
             "velocity": 83.0,
-            "stamina": 13.5,
+            "stamina": 20,
             "effectiveness": 84.9
         },
         "fielding_abilities": {
@@ -58118,7 +58119,7 @@
         "pitching_abilities": {
             "control": 47.2,
             "velocity": 69.0,
-            "stamina": 11.6,
+            "stamina": 20,
             "effectiveness": 82.8
         },
         "fielding_abilities": {
@@ -58396,7 +58397,7 @@
         "pitching_abilities": {
             "control": 37.3,
             "velocity": 85.0,
-            "stamina": 12.2,
+            "stamina": 20,
             "effectiveness": 56.3
         },
         "fielding_abilities": {
@@ -58810,7 +58811,7 @@
         "pitching_abilities": {
             "control": 37.8,
             "velocity": 66.0,
-            "stamina": 14.2,
+            "stamina": 20,
             "effectiveness": 66.7
         },
         "fielding_abilities": {
@@ -59127,7 +59128,7 @@
         "pitching_abilities": {
             "control": 38.2,
             "velocity": 100,
-            "stamina": 12.6,
+            "stamina": 20,
             "effectiveness": 72.6
         },
         "fielding_abilities": {
@@ -59267,7 +59268,7 @@
         "pitching_abilities": {
             "control": 30.8,
             "velocity": 0.0,
-            "stamina": 2.5,
+            "stamina": 20,
             "effectiveness": 48.8
         },
         "fielding_abilities": {
@@ -59494,7 +59495,7 @@
         "pitching_abilities": {
             "control": 29.0,
             "velocity": 100,
-            "stamina": 11.7,
+            "stamina": 20,
             "effectiveness": 62.6
         },
         "fielding_abilities": {
@@ -59631,7 +59632,7 @@
         "pitching_abilities": {
             "control": 26.3,
             "velocity": 100,
-            "stamina": 15.5,
+            "stamina": 20,
             "effectiveness": 84.6
         },
         "fielding_abilities": {
@@ -59724,7 +59725,7 @@
         "pitching_abilities": {
             "control": 44.4,
             "velocity": 71.0,
-            "stamina": 13.2,
+            "stamina": 20,
             "effectiveness": 86.8
         },
         "fielding_abilities": {
@@ -59819,7 +59820,7 @@
         "pitching_abilities": {
             "control": 43.1,
             "velocity": 96.0,
-            "stamina": 13.4,
+            "stamina": 20,
             "effectiveness": 77.1
         },
         "fielding_abilities": {
@@ -59914,7 +59915,7 @@
         "pitching_abilities": {
             "control": 41.6,
             "velocity": 93.0,
-            "stamina": 15.5,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -60007,7 +60008,7 @@
         "pitching_abilities": {
             "control": 36.5,
             "velocity": 96.0,
-            "stamina": 16.5,
+            "stamina": 20,
             "effectiveness": 83.2
         },
         "fielding_abilities": {
@@ -60055,7 +60056,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 77.0,
-            "stamina": 11.4,
+            "stamina": 20,
             "effectiveness": 94.2
         },
         "fielding_abilities": {
@@ -60194,7 +60195,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": -2.3,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -60421,7 +60422,7 @@
         "pitching_abilities": {
             "control": 46.3,
             "velocity": 100,
-            "stamina": 12.7,
+            "stamina": 20,
             "effectiveness": 88.0
         },
         "fielding_abilities": {
@@ -60514,7 +60515,7 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 0.0,
-            "stamina": 3.4,
+            "stamina": 20,
             "effectiveness": 33.3
         },
         "fielding_abilities": {
@@ -60694,7 +60695,7 @@
         "pitching_abilities": {
             "control": 3.5,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 75.3
         },
         "fielding_abilities": {
@@ -61014,7 +61015,7 @@
         "pitching_abilities": {
             "control": 50.7,
             "velocity": 100,
-            "stamina": 16.5,
+            "stamina": 20,
             "effectiveness": 93.2
         },
         "fielding_abilities": {
@@ -61109,7 +61110,7 @@
         "pitching_abilities": {
             "control": 12.5,
             "velocity": 88.0,
-            "stamina": 13.5,
+            "stamina": 20,
             "effectiveness": 52.5
         },
         "fielding_abilities": {
@@ -61291,7 +61292,7 @@
         "pitching_abilities": {
             "control": 30.5,
             "velocity": 68.0,
-            "stamina": 11.5,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -61431,7 +61432,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 23.0,
-            "stamina": 13.2,
+            "stamina": 20,
             "effectiveness": 64.3
         },
         "fielding_abilities": {
@@ -61478,7 +61479,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 48.3
         },
         "fielding_abilities": {
@@ -61568,7 +61569,7 @@
         "pitching_abilities": {
             "control": 40.1,
             "velocity": 92.0,
-            "stamina": 13.4,
+            "stamina": 20,
             "effectiveness": 87.5
         },
         "fielding_abilities": {
@@ -61843,7 +61844,7 @@
         "pitching_abilities": {
             "control": 44.9,
             "velocity": 95.0,
-            "stamina": 14.2,
+            "stamina": 20,
             "effectiveness": 88.2
         },
         "fielding_abilities": {
@@ -61983,7 +61984,7 @@
         "pitching_abilities": {
             "control": 31.7,
             "velocity": 100,
-            "stamina": 13.2,
+            "stamina": 20,
             "effectiveness": 86.2
         },
         "fielding_abilities": {
@@ -62031,7 +62032,7 @@
         "pitching_abilities": {
             "control": 43.3,
             "velocity": 66.0,
-            "stamina": 14.3,
+            "stamina": 20,
             "effectiveness": 86.0
         },
         "fielding_abilities": {
@@ -62078,7 +62079,7 @@
         "pitching_abilities": {
             "control": 43.1,
             "velocity": 81.0,
-            "stamina": 13.4,
+            "stamina": 20,
             "effectiveness": 88.7
         },
         "fielding_abilities": {
@@ -62126,7 +62127,7 @@
         "pitching_abilities": {
             "control": 20.0,
             "velocity": 92.0,
-            "stamina": 16.3,
+            "stamina": 20,
             "effectiveness": 58.5
         },
         "fielding_abilities": {
@@ -62308,7 +62309,7 @@
         "pitching_abilities": {
             "control": 31.5,
             "velocity": 62.0,
-            "stamina": 16.9,
+            "stamina": 20,
             "effectiveness": 75.3
         },
         "fielding_abilities": {
@@ -62447,7 +62448,7 @@
         "pitching_abilities": {
             "control": 29.3,
             "velocity": 79.0,
-            "stamina": 14.5,
+            "stamina": 20,
             "effectiveness": 77.3
         },
         "fielding_abilities": {
@@ -62632,7 +62633,7 @@
         "pitching_abilities": {
             "control": 41.2,
             "velocity": 90.0,
-            "stamina": 12.4,
+            "stamina": 20,
             "effectiveness": 73.5
         },
         "fielding_abilities": {
@@ -63048,7 +63049,7 @@
             "control": 0,
             "velocity": 39.0,
             "stamina": 44.2,
-            "effectiveness": 6.0
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -63231,7 +63232,7 @@
         "pitching_abilities": {
             "control": 29.7,
             "velocity": 80.0,
-            "stamina": 15.2,
+            "stamina": 20,
             "effectiveness": 63.9
         },
         "fielding_abilities": {
@@ -63278,7 +63279,7 @@
         "pitching_abilities": {
             "control": 47.5,
             "velocity": 100,
-            "stamina": 8.7,
+            "stamina": 20,
             "effectiveness": 89.9
         },
         "fielding_abilities": {
@@ -63418,7 +63419,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 6.0,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -63600,7 +63601,7 @@
         "pitching_abilities": {
             "control": 27.6,
             "velocity": 62.0,
-            "stamina": 7.9,
+            "stamina": 20,
             "effectiveness": 86.0
         },
         "fielding_abilities": {
@@ -63647,7 +63648,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -63692,7 +63693,7 @@
         "pitching_abilities": {
             "control": 19.0,
             "velocity": 100,
-            "stamina": 16.0,
+            "stamina": 20,
             "effectiveness": 36.8
         },
         "fielding_abilities": {
@@ -63784,7 +63785,7 @@
         "pitching_abilities": {
             "control": 31.0,
             "velocity": 59.0,
-            "stamina": 19.7,
+            "stamina": 20,
             "effectiveness": 82.1
         },
         "fielding_abilities": {
@@ -63971,7 +63972,7 @@
         "pitching_abilities": {
             "control": 41.7,
             "velocity": 100,
-            "stamina": 16.2,
+            "stamina": 20,
             "effectiveness": 86.7
         },
         "fielding_abilities": {
@@ -64019,7 +64020,7 @@
         "pitching_abilities": {
             "control": 31.6,
             "velocity": 92.0,
-            "stamina": 12.8,
+            "stamina": 20,
             "effectiveness": 85.9
         },
         "fielding_abilities": {
@@ -64115,7 +64116,7 @@
         "pitching_abilities": {
             "control": 24.7,
             "velocity": 76.0,
-            "stamina": 13.4,
+            "stamina": 20,
             "effectiveness": 47.8
         },
         "fielding_abilities": {
@@ -64162,7 +64163,7 @@
         "pitching_abilities": {
             "control": 39.4,
             "velocity": 82.0,
-            "stamina": 13.5,
+            "stamina": 20,
             "effectiveness": 85.1
         },
         "fielding_abilities": {
@@ -64392,7 +64393,7 @@
         "pitching_abilities": {
             "control": 30.3,
             "velocity": 98.0,
-            "stamina": 17.2,
+            "stamina": 20,
             "effectiveness": 67.2
         },
         "fielding_abilities": {
@@ -64762,8 +64763,8 @@
         "pitching_abilities": {
             "control": 29.5,
             "velocity": 0.0,
-            "stamina": 13.4,
-            "effectiveness": 15.5
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -64809,7 +64810,7 @@
         "pitching_abilities": {
             "control": 8.5,
             "velocity": 100,
-            "stamina": 14.3,
+            "stamina": 20,
             "effectiveness": 84.9
         },
         "fielding_abilities": {
@@ -65042,7 +65043,7 @@
         "pitching_abilities": {
             "control": 32.0,
             "velocity": 100,
-            "stamina": 3.1,
+            "stamina": 20,
             "effectiveness": 91.8
         },
         "fielding_abilities": {
@@ -65137,7 +65138,7 @@
         "pitching_abilities": {
             "control": 38.5,
             "velocity": 0.0,
-            "stamina": 6.1,
+            "stamina": 20,
             "effectiveness": 71.3
         },
         "fielding_abilities": {
@@ -65278,8 +65279,8 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 90.0,
-            "stamina": 3.3,
-            "effectiveness": -1.2
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 100,
@@ -65419,7 +65420,7 @@
         "pitching_abilities": {
             "control": 41.5,
             "velocity": 98.0,
-            "stamina": 11.5,
+            "stamina": 20,
             "effectiveness": 60.6
         },
         "fielding_abilities": {
@@ -65466,7 +65467,7 @@
         "pitching_abilities": {
             "control": 17.0,
             "velocity": 88.0,
-            "stamina": 12.2,
+            "stamina": 20,
             "effectiveness": 49.7
         },
         "fielding_abilities": {
@@ -65513,7 +65514,7 @@
         "pitching_abilities": {
             "control": 100,
             "velocity": 0.0,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 87.3
         },
         "fielding_abilities": {
@@ -65559,7 +65560,7 @@
             "control": 25.0,
             "velocity": 47.0,
             "stamina": 47.0,
-            "effectiveness": 18.9
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 1.4,
@@ -65605,7 +65606,7 @@
         "pitching_abilities": {
             "control": 37.1,
             "velocity": 71.0,
-            "stamina": 15.8,
+            "stamina": 20,
             "effectiveness": 73.6
         },
         "fielding_abilities": {
@@ -65701,7 +65702,7 @@
         "pitching_abilities": {
             "control": 28.4,
             "velocity": 65.0,
-            "stamina": 14.9,
+            "stamina": 20,
             "effectiveness": 37.3
         },
         "fielding_abilities": {
@@ -65793,7 +65794,7 @@
         "pitching_abilities": {
             "control": 43.7,
             "velocity": 73.0,
-            "stamina": 16.1,
+            "stamina": 20,
             "effectiveness": 49.0
         },
         "fielding_abilities": {
@@ -65932,7 +65933,7 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 0.0,
-            "stamina": -2.2,
+            "stamina": 20,
             "effectiveness": 51.3
         },
         "fielding_abilities": {
@@ -66579,8 +66580,8 @@
         "pitching_abilities": {
             "control": 0,
             "velocity": 0.0,
-            "stamina": 3.5,
-            "effectiveness": 6.3
+            "stamina": 20,
+            "effectiveness": 20
         },
         "fielding_abilities": {
             "defense": 98.2,
@@ -66624,7 +66625,7 @@
         "pitching_abilities": {
             "control": 34.6,
             "velocity": 100,
-            "stamina": 3.3,
+            "stamina": 20,
             "effectiveness": 90.0
         },
         "fielding_abilities": {
@@ -66852,7 +66853,7 @@
         "pitching_abilities": {
             "control": 32.4,
             "velocity": 86.0,
-            "stamina": 12.6,
+            "stamina": 20,
             "effectiveness": 83.0
         },
         "fielding_abilities": {
@@ -66900,7 +66901,7 @@
         "pitching_abilities": {
             "control": 31.9,
             "velocity": 100,
-            "stamina": 12.4,
+            "stamina": 20,
             "effectiveness": 68.9
         },
         "fielding_abilities": {
@@ -66992,7 +66993,7 @@
         "pitching_abilities": {
             "control": 51.5,
             "velocity": 59.0,
-            "stamina": 7.0,
+            "stamina": 20,
             "effectiveness": 89.4
         },
         "fielding_abilities": {
@@ -67084,7 +67085,7 @@
         "pitching_abilities": {
             "control": 39.2,
             "velocity": 95.0,
-            "stamina": 16.7,
+            "stamina": 20,
             "effectiveness": 90.2
         },
         "fielding_abilities": {
@@ -67132,7 +67133,7 @@
         "pitching_abilities": {
             "control": 36.7,
             "velocity": 82.0,
-            "stamina": 12.4,
+            "stamina": 20,
             "effectiveness": 79.1
         },
         "fielding_abilities": {
@@ -67180,7 +67181,7 @@
         "pitching_abilities": {
             "control": 25.0,
             "velocity": 100,
-            "stamina": 18.8,
+            "stamina": 20,
             "effectiveness": 74.1
         },
         "fielding_abilities": {
@@ -67228,7 +67229,7 @@
         "pitching_abilities": {
             "control": 33.8,
             "velocity": 100,
-            "stamina": 16.3,
+            "stamina": 20,
             "effectiveness": 69.9
         },
         "fielding_abilities": {
@@ -67275,7 +67276,7 @@
         "pitching_abilities": {
             "control": 31.4,
             "velocity": 61.0,
-            "stamina": 14.8,
+            "stamina": 20,
             "effectiveness": 53.9
         },
         "fielding_abilities": {
@@ -67367,7 +67368,7 @@
         "pitching_abilities": {
             "control": 35.5,
             "velocity": 56.0,
-            "stamina": 12.2,
+            "stamina": 20,
             "effectiveness": 56.9
         },
         "fielding_abilities": {
