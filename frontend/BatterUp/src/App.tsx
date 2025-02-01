@@ -5,6 +5,7 @@ import LoginScreen from "./pages/LoginScreen";
 import AdminPanel from "./pages/AdminPanel";
 import ProtectedRoute from "./ProtectedRoute";
 import PlayerTable from "./PlayerTable";
+import Card from "./Card";
 
 const App: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const App: React.FC = () => {
         element={
           <ProtectedRoute>
             <PlayerTable />
+            <Card />
           </ProtectedRoute>
         }
       />
