@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../AuthContext"; // Import useAuth to get user info
+import { useNavigate } from "react-router-dom"; // Redirect user on login click
 import "../index.css";
 
 function App() {
   const [image, setImage] = useState("src/assets/MLB.png");
   const { user, logout } = useAuth(); // Get logged-in user and logout function
   const [dropdownOpen, setDropdownOpen] = useState(false); // Manage dropdown state
+  const navigate = useNavigate(); // Use for navigation
 
   console.log("Current User:", user);
 
@@ -38,6 +40,39 @@ function App() {
           width: "100%",
         }}
         className="flex justify-center items-center">
+        {/* User Profile Section - Now in the Top Left */}
+        <div className="absolute top-0 left-0 m-6">
+          <button
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+            className="flex flex-row items-center bg-custom-red rounded-lg p-4 shadow-lg shadow-slate-800 cursor-pointer">
+            <img src="src/assets/pfp.png" className="w-12" />
+            <h3 className="ml-3 text-lg font-bold text-white">
+              {user ? user.displayName || user.email : "Guest"}
+            </h3>
+          </button>
+
+          {/* Dropdown Menu - Show Login or Logout */}
+          {dropdownOpen && (
+            <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg p-2">
+              {user ? (
+                // If logged in, show Logout
+                <button
+                  onClick={logout}
+                  className="block px-4 py-2 text-black hover:bg-gray-200 w-full text-left">
+                  Logout
+                </button>
+              ) : (
+                // If not logged in, show Login
+                <button
+                  onClick={() => navigate("/login")}
+                  className="block px-4 py-2 text-black hover:bg-gray-200 w-full text-left">
+                  Login
+                </button>
+              )}
+            </div>
+          )}
+        </div>
+
         {/* Top Right Icons */}
         <div className="flex items-center absolute top-0 right-0 bg-custom-red rounded-lg p-4 m-8 shadow-lg shadow-slate-800">
           <button className="relative">
@@ -46,29 +81,6 @@ function App() {
           <button className="relative">
             <img src="src/assets/gearfill.png" className="w-12" />
           </button>
-        </div>
-
-        {/* User Profile Section */}
-        <div className="relative">
-          <button
-            onClick={() => setDropdownOpen(!dropdownOpen)}
-            className="flex flex-row items-center absolute top-0 left-0 bg-custom-red rounded-lg p-5 mt-6 ml-8 mr-8 mb-8 space-x-4 shadow-lg shadow-slate-800 cursor-pointer">
-            <img src="src/assets/pfp.png" className="w-20" />
-            <h3 className="text-3xl font-bold">
-              {user ? user.displayName || user.email : "Guest"}
-            </h3>
-          </button>
-
-          {/* Dropdown Menu for Logout */}
-          {dropdownOpen && user && (
-            <div className="absolute top-20 left-8 bg-white shadow-lg rounded-lg p-2">
-              <button
-                onClick={logout}
-                className="block px-4 py-2 text-black hover:bg-gray-200 w-full text-left">
-                Logout
-              </button>
-            </div>
-          )}
         </div>
 
         {/* Card Collection & Missions */}

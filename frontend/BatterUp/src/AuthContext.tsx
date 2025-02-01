@@ -65,12 +65,22 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   // Automatic Token Refresh
   useEffect(() => {
-    const unsubscribe = onIdTokenChanged(auth, async (currentUser) => {
+    const storedToken = localStorage.getItem("authToken");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+
       if (currentUser) {
-        const newToken = await currentUser.getIdToken(true);
-        setToken(newToken);
-        localStorage.setItem("authToken", newToken);
-        console.log("🔄 Token Refreshed:", newToken); // ✅ Log Refreshed Token
+        const idToken = await currentUser.getIdToken();
+        setToken(idToken);
+        localStorage.setItem("authToken", idToken);
+      } else {
+        setToken(null);
+        localStorage.removeItem("authToken");
       }
     });
 
