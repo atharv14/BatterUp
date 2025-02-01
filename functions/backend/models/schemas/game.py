@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Literal, Optional, Union
 from datetime import datetime
 from .base import GameStatus, PitchingStyle, HittingStyle
 from .user import Deck
@@ -102,13 +102,13 @@ class GameHistory(BaseModel):
     action: Action
     result: PlayResult
 
-class GameView(BaseModel):
-    game_id: str
-    state: GameState
-    history: List[GameHistory] = []
+# class GameView(BaseModel):
+#     game_id: str
+#     state: GameState
+#     history: List[GameHistory] = []
 
-    class Config:
-        arbitrary_types_allowed = True
+#     class Config:
+#         arbitrary_types_allowed = True
 
 class GameCreate(BaseModel):
     user_id: str
@@ -117,3 +117,28 @@ class GameCreate(BaseModel):
 class GameJoin(BaseModel):
     user_id: str
     deck: Deck
+
+class GameEvent(BaseModel):
+    event_type: Literal["game_created", "player_joined"]
+    timestamp: datetime
+    player_id: Optional[str] = None
+    event_data: Dict = Field(default_factory=dict)
+
+class PlayAction(BaseModel):
+    inning: int
+    is_top_inning: bool
+    batting_team: str
+    pitching_team: str
+    action: Dict
+    result: Dict
+    timestamp: datetime
+    play_data: Dict = Field(default_factory=dict)
+
+class HistoryEntry(BaseModel):
+    entry_type: Literal["event", "play"]
+    data: Union[GameEvent, PlayAction]
+
+class GameView(BaseModel):
+    game_id: str
+    state: GameState
+    history: List[HistoryEntry]

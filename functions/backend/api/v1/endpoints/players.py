@@ -46,15 +46,15 @@ async def get_players(
         query = db.collection('players')
 
         # Don't query the metadata document
-        query = query.where('player_id', '!=', 'metadata')
+        query = query.where(filter=FieldFilter('player_id', '!=', 'metadata'))
 
         # Apply filters if provided
         if role:
-            query = query.where('role_info.primary_role', '==', role)
+            query = query.where(filter=FieldFilter('role_info.primary_role', '==', role))
         if team:
-            query = query.where('basic_info.team', '==', team)
+            query = query.where(filter=FieldFilter('basic_info.team', '==', team))
         if position:
-            query = query.where('basic_info.primary_position', '==', position)
+            query = query.where(filter=FieldFilter('basic_info.primary_position', '==', position))
 
         # Execute query
         docs = query.stream()

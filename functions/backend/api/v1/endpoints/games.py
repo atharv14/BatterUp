@@ -1,8 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends, status
-from typing import List, Optional
 from models.schemas.game import (
-    BaseState, GameCreate, GameJoin, GameState, GameView,
-    GameHistory, PlayResult, TeamLineup, TeamState
+    BaseState, GameCreate, GameEvent, GameJoin, GameState, GameView, PlayAction,
+    PlayResult, TeamLineup, TeamState
 )
 from models.schemas.base import GameStatus, PitchingStyle, HittingStyle
 from core.firebase_auth import get_current_user
@@ -77,10 +76,13 @@ async def create_game(
         # Initialize game history collection
         history_ref = db.collection('games').document(
             game_id).collection('history')
-        history_ref.document('game_start').set({
-            "timestamp": current_time,
+        history_ref.document().set({
             "event": "game_created",
-            "creator_id": game_data.user_id
+            "timestamp": current_time,
+            "player_id": game_data.user_id,
+            "event_data": {
+                "creator_id": game_data.user_id
+            }
         })
 
         return GameView(
@@ -175,9 +177,12 @@ async def join_game(
         # Record join event in history
         history_ref = game_ref.collection('history')
         history_ref.document().set({
-            "timestamp": current_time,
             "event": "player_joined",
-            "player_id": join_data.user_id
+            "timestamp": current_time,
+            "player_id": join_data.user_id,
+            "event_data": {
+                "joiner_id": join_data.user_id
+            }
         })
 
         return GameView(
@@ -501,13 +506,15 @@ async def update_game_state(game_state: dict, result: PlayResult) -> dict:
 
         if game_state["outs"] >= 3:
             # Half-inning is over
-            TOTAL_OUTS += game_state["outs"]    # game_state["total_outs"] += game_state["outs"]
+            # game_state["total_outs"] += game_state["outs"]
+            TOTAL_OUTS += game_state["outs"]
             game_state["outs"] = 0
             game_state["is_top_inning"] = not game_state["is_top_inning"]
             game_state["bases"] = BaseState().dict()
 
             # Increment inning after every 6 outs (full inning)
-            if TOTAL_OUTS % 6 == 0:      # if game_state["total_outs"] % 6 == 0:
+            # if game_state["total_outs"] % 6 == 0:
+            if TOTAL_OUTS % 6 == 0:
                 game_state["inning"] += 1
 
             # Update pitching team for next half-inning
@@ -551,6 +558,7 @@ async def get_game(
 ):
     """Get current game state and history"""
     try:
+        # Get game document
         game_ref = db.collection('games').document(game_id)
         game = game_ref.get()
 
@@ -572,17 +580,58 @@ async def get_game(
 
         # Get game history
         history = []
-        history_refs = game_ref.collection(
-            'history').order_by('timestamp').stream()
-        for hist in history_refs:
-            history.append(hist.to_dict())
+        history_refs = (
+            game_ref.collection('history')
+            .order_by('timestamp')
+            .stream()
+        )
 
-        return {
+        for hist in history_refs:
+            play_data = hist.to_dict()
+
+            # Determine if this is a game event or play action
+            if 'event' in play_data:
+                # This is a game event
+                history.append({
+                    "entry_type": "event",
+                    "data": GameEvent(
+                        event_type=play_data['event'],
+                        timestamp=play_data['timestamp'],
+                        player_id=play_data.get('player_id'),
+                        event_data=play_data
+                    )
+                })
+            elif 'play_result' in play_data:
+                # This is a play action
+                history.append({
+                    "entry_type": "play",
+                    "data": PlayAction(
+                        inning=play_data['inning'],
+                        is_top_inning=play_data['is_top_inning'],
+                        batting_team=play_data['batting_team'],
+                        pitching_team=play_data['pitching_team'],
+                        action={
+                            "type": play_data.get('action_type'),
+                            "player_id": play_data.get('player_id'),
+                            "style": play_data.get('selected_style')
+                        },
+                        result=play_data['play_result'],
+                        timestamp=play_data['timestamp'],
+                        play_data=play_data
+                    )
+                })
+
+        # Compile current game view
+        game_view = {
             "game_id": game_id,
             "state": GameState(**game_state),
             "history": history
         }
 
+        return game_view
+
+    except HTTPException as he:
+        raise he
     except Exception as e:
         raise HTTPException(
             status_code=500,
