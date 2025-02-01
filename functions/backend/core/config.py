@@ -16,6 +16,7 @@ class Settings(BaseSettings):
     BACKEND_CORS_ORIGINS: List[str] = [
         "http://localhost:3000",  # React default port
         "http://localhost:8000",  # FastAPI docs
+        "http://localhost:5173",  # NETHENOOB PORT
     ]
 
     DEVELOPMENT_MODE: bool = True

@@ -1,6 +1,6 @@
 export const apiRequest = async (
     endpoint: string,
-    method: string = "GET",
+    method: string,
     body: any = null,
     token: string // Pass the token explicitly
   ) => {
