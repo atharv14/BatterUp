@@ -1,9 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from core.config import settings
-from api.v1.endpoints import players
-from api.v1.endpoints import games
-from api.v1.endpoints import users
+from api.v1.endpoints import auth, players, games, users
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -41,6 +39,11 @@ app.include_router(
     tags=["users"]
 )
 
+app.include_router(
+    auth.router,
+    prefix=f"{settings.API_V1_STR}/auth",
+    tags=["auth"]
+)
 
 @app.get("/")
 async def root():

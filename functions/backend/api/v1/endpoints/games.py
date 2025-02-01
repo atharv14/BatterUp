@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, Depends, status
 from typing import List, Optional
 from models.schemas.game import (
     BaseState, GameCreate, GameJoin, GameState, GameView,
-    Action, GameHistory, PlayResult, TeamLineup, TeamState
+    GameHistory, PlayResult, TeamLineup, TeamState
 )
 from models.schemas.base import GameStatus, PitchingStyle, HittingStyle
 from core.firebase_auth import get_current_user
