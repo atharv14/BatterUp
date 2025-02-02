@@ -6,6 +6,7 @@ import AdminPanel from "./pages/AdminPanel";
 import ProtectedRoute from "./ProtectedRoute";
 import PlayerTable from "./PlayerTable";
 import Card from "./Card";
+import CreateDeck from "./pages/CreateDeck";
 
 const App: React.FC = () => {
   return (
@@ -21,6 +22,14 @@ const App: React.FC = () => {
           <ProtectedRoute>
             <PlayerTable />
             <Card />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/create-deck"
+        element={
+          <ProtectedRoute>
+            <CreateDeck />
           </ProtectedRoute>
         }
       />
