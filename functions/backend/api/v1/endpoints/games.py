@@ -724,3 +724,53 @@ async def get_game_history(
             status_code=500,
             detail=f"Error retrieving game history: {str(e)}"
         )
+    
+import google.generativeai as genai
+import os
+
+genai.configure(api_key=os.environ["GEMINI_KEY"])
+
+@router.get("/{game_id}/commentary")
+async def get_game_commentary(
+    game_id: str,
+    game_action: str,
+):
+    """Get complete history of a game and new commentary on the latest action"""
+    try:
+        # Get game history
+        history_ref = db.collection('game_commentary').document(game_id)
+        history = history_ref.get()
+
+        previous_commentaries = []
+        if history.exists:
+            previous_commentaries = history.to_dict().get("commentaries", [])
+        else:
+            # Try getting in-progress game history
+            plays = (
+                db.collection('games')
+                .document(game_id)
+                .collection('history')
+                .order_by('timestamp')
+                .stream()
+            )
+            previous_commentaries = [play.to_dict() for play in plays]
+
+        model = genai.GenerativeModel("gemini-1.5-flash")
+        prompt = f"Previous commentaries: {previous_commentaries}. New action: {game_action}"
+        response = model.generate_content(prompt)
+        new_commentary = response.text
+
+        updated_commentaries = previous_commentaries + [new_commentary]
+        history_ref.set({"commentaries": updated_commentaries}, merge=True)
+
+        return {
+            "game_id": game_id,
+            "status": GameStatus.COMPLETED if history.exists else GameStatus.IN_PROGRESS,
+            "commentaries": updated_commentaries
+        }
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error retrieving game history: {str(e)}"
+        )
