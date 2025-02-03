@@ -4,9 +4,8 @@ import HomeScreen from "./pages/HomeScreen";
 import LoginScreen from "./pages/LoginScreen";
 import AdminPanel from "./pages/AdminPanel";
 import ProtectedRoute from "./ProtectedRoute";
-import PlayerTable from "./PlayerTable";
-import Card from "./Card";
 import CreateDeck from "./pages/CreateDeck";
+import Matchmaking from "./pages/Matchmaking";
 
 const App: React.FC = () => {
   return (
@@ -17,11 +16,10 @@ const App: React.FC = () => {
 
       {/* Protected Route for Logged-in Users */}
       <Route
-        path="/dashboard"
+        path="/matchmaking"
         element={
           <ProtectedRoute>
-            <PlayerTable />
-            <Card />
+            <Matchmaking />
           </ProtectedRoute>
         }
       />

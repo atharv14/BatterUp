@@ -15,6 +15,10 @@ function App() {
     navigate("/create-deck");
   };
 
+  const handleMatchmakingClick = () => {
+    navigate("/matchmaking");
+  };
+
   const Click = () => {
     setImage(
       image === "src/assets/MLB.png"
@@ -125,7 +129,7 @@ function App() {
 
         {/* Bottom Right Baseball Icon */}
         <div className="absolute bottom-0 right-0 mr-10">
-          <button>
+          <button onClick={handleMatchmakingClick}>
             <img src="src/assets/baseball.png" className="mb-16 w-56" />
           </button>
         </div>
