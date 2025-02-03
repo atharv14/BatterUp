@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../AuthContext";
+import Card from "../Card";
 
 const CreateDeck: React.FC = () => {
   const [players, setPlayers] = useState<any[]>([]);
@@ -9,6 +10,7 @@ const CreateDeck: React.FC = () => {
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [selectedPlayers, setSelectedPlayers] = useState<any[]>([]);
+  const [previewPlayer, setPreviewPlayer] = useState<any | null>(null);
   const playersPerPage = 15;
   const { user, token } = useAuth();
 
@@ -79,6 +81,10 @@ const CreateDeck: React.FC = () => {
 
   const handlePreviousPage = () => {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 0));
+  };
+
+  const handlePreviewPlayer = (player: any) => {
+    setPreviewPlayer(player); // Function to set preview player
   };
 
   const handleSelectPlayer = (player: any) => {
@@ -263,7 +269,11 @@ const CreateDeck: React.FC = () => {
           </thead>
           <tbody>
             {paginatedPlayers.map((player: any) => (
-              <tr key={player.player_id} style={rowStyle}>
+              <tr
+                key={player.player_id}
+                style={rowStyle}
+                onClick={() => handlePreviewPlayer(player)}
+                className="cursor-pointer">
                 <td style={cellStyle}>{player.player_id}</td>
                 <td style={cellStyle}>{player.basic_info.name}</td>
                 <td style={cellStyle}>{player.role_info.primary_role}</td>
@@ -446,6 +456,11 @@ const CreateDeck: React.FC = () => {
           Submit Deck
         </button>
       </div>
+      {previewPlayer && (
+        <div className="fixed bottom-0 right-0 m-4">
+          <Card player={previewPlayer} /> {/* Render Card component */}
+        </div>
+      )}
     </div>
   );
 };
