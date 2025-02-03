@@ -1,3 +1,4 @@
+from enum import Enum
 from pydantic import BaseModel, Field
 from typing import Dict, List, Literal, Optional, Union
 from datetime import datetime
@@ -142,3 +143,37 @@ class GameView(BaseModel):
     game_id: str
     state: GameState
     history: List[HistoryEntry]
+
+class CommentaryResponse(BaseModel):
+    game_id: str
+    status: GameStatus
+    commentaries: List[str] = Field(default_factory=list)  # List of all commentaries
+    latest_commentary: str
+    play_data: Optional[Dict] = None
+
+
+class AtBatState(BaseModel):
+    balls: int = 0
+    strikes: int = 0
+    batter_id: str
+    pitcher_id: str
+    is_complete: bool = False
+    result: Optional[str] = None
+
+class PitchOutcome(str, Enum):
+    BALL = "ball"
+    STRIKE = "strike"
+    IN_PLAY = "in_play"
+
+class PlayState(BaseModel):
+    current_at_bat: Optional[AtBatState] = None
+    last_pitch_style: Optional[str] = None
+    last_hit_style: Optional[str] = None
+    last_pitch_outcome: Optional[PitchOutcome] = None
+    bases_before_play: Dict[str, Optional[str]] = Field(
+        default_factory=lambda: {"first": None, "second": None, "third": None}
+    )
+
+class EnhancedGameState(GameState):
+    play_state: PlayState = Field(default_factory=PlayState)
+    at_bat_history: List[AtBatState] = Field(default_factory=list)

@@ -1,18 +1,30 @@
-from fastapi import APIRouter, HTTPException, Depends, status
-from models.schemas.game import (
-    BaseState, GameCreate, GameEvent, GameJoin, GameState, GameView, PlayAction,
-    PlayResult, TeamLineup, TeamState
-)
-from models.schemas.base import GameStatus, PitchingStyle, HittingStyle
-from core.firebase_auth import get_current_user
-from models.schemas.user import Deck
-from services.base_running import BaseRunningService
-from services.firebase import db
+from typing import List
 from datetime import datetime, timedelta
 import uuid
-
+from firebase_admin import firestore
+# from google.cloud.firestore_v1.base_query import FieldFilter, BaseQueryOption, Direction
+from pydantic import BaseModel
+from fastapi import APIRouter, HTTPException, Depends, status
+import google.generativeai as genai
+from google.cloud.firestore import FieldFilter
+from models.schemas.game import (
+    AtBatState, BaseState, CommentaryResponse, GameCreate, GameEvent, GameJoin, GameState, GameView, PitchOutcome, PlayAction,
+    PlayResult, PlayState, TeamLineup, TeamState
+)
+from models.schemas.user import Deck
+from models.schemas.base import GameStatus, PitchingStyle, HittingStyle
+from services.game_service import BaseRunnerService, GameService
+from services.at_bat_service import AtBatService
+from services.commentary_service import commentary_service
+from services.base_running import BaseRunningService
+from services.firebase import db
 from services.history_service import HistoryService
 from services.lineup_manager import LineupManager
+from core.firebase_auth import get_current_user
+from core.config import settings
+from services.player_service import get_player_data
+
+genai.configure(api_key=settings.GEMINI_KEY)
 
 router = APIRouter()
 
@@ -73,6 +85,13 @@ async def create_game(
         # Store in Firestore
         db.collection('games').document(game_id).set(game_state)
 
+        history_ref = db.collection('games').document(
+            game_id).collection('commentary_history')
+        history_ref.document().set({
+            "full_commentary": [],
+            "created_at": current_time
+        })
+
         # Initialize game history collection
         history_ref = db.collection('games').document(
             game_id).collection('history')
@@ -84,6 +103,7 @@ async def create_game(
                 "creator_id": game_data.user_id
             }
         })
+
 
         return GameView(
             game_id=game_id,
@@ -277,10 +297,89 @@ async def make_pitch(
         game_state["action_deadline"] = current_time + timedelta(seconds=30)
         game_state["updated_at"] = current_time
 
+        # Fetch play history
+        history_query = (
+            game_ref.collection('history')
+            .order_by('timestamp', direction=firestore.Query.DESCENDING)
+            .limit(3)
+            .stream()
+        )
+        play_history = [hist.to_dict() for hist in history_query]
+
+        # Fetch pitcher details
+        try:
+            async with httpx.AsyncClient() as client:
+                pitcher_response = await client.get(f"{settings.BASE_API_URL}{settings.API_V1_STR}{current_user['uid']}")
+                pitcher_data = pitcher_response.json()
+                pitcher_name = pitcher_data['basic_info']['name']
+        except Exception:
+            pitcher_name = "Unknown Pitcher"
+
+        # Generate commentary
+        game_context = {
+            "inning": game_state["inning"],
+            "is_top_inning": game_state["is_top_inning"],
+            "score": {
+                "team1": game_state["team1"]["score"],
+                "team2": game_state["team2"]["score"]
+            },
+            "outs": game_state["outs"],
+            "pitcher_name": pitcher_name
+        }
+        action_details = {
+            "pitch_style": pitch_style
+        }
+
+        # Fetch existing commentary history
+        commentary_history_ref = game_ref.collection('commentary_history').document('main')
+        commentary_history = commentary_history_ref.get()
+        
+        if not commentary_history.exists:
+            # Initialize if not exists
+            full_commentary = []
+        else:
+            full_commentary = commentary_history.to_dict().get('full_commentary', [])
+
+        commentary = await commentary_service.generate_ai_commentary(
+            "pitch", 
+            action_details, 
+            game_context,
+            play_history
+        )
+
+        # Record pitch action in game history
+        history_ref = game_ref.collection('history').document()
+        history_ref.set({
+            "action_type": "pitch",
+            "timestamp": current_time.isoformat(),
+            "player_id": current_user['uid'],
+            "pitch_style": pitch_style,
+            "inning": game_state["inning"],
+            "is_top_inning": game_state["is_top_inning"],
+            "commentary": commentary
+        })
+
         # Save state
         game_ref.update(game_state)
+        
+        # Append new commentary
+        full_commentary.append({
+            "timestamp": current_time.isoformat(),
+            "commentary": commentary,
+            "action_type": "pitch",
+            "details": action_details
+        })
 
-        return GameState(**game_state)
+        # Update commentary history
+        commentary_history_ref.set({
+            "full_commentary": full_commentary
+        })
+
+        return {
+            "game_state": GameState(**game_state),
+            "commentary": commentary,
+            "full_commentary": full_commentary
+        }
 
     except Exception as e:
         raise HTTPException(
@@ -288,6 +387,98 @@ async def make_pitch(
             detail=f"Error processing pitch: {str(e)}"
         )
 
+# @router.post("/{game_id}/pitch")
+# async def make_pitch(
+#     game_id: str,
+#     pitch_style: PitchingStyle,
+#     current_user: dict = Depends(get_current_user)
+# ):
+#     """Make a pitch with enhanced count system"""
+#     try:
+#         game_ref = db.collection('games').document(game_id)
+#         game = game_ref.get()
+
+#         if not game.exists:
+#             raise HTTPException(status_code=404, detail="Game not found")
+
+#         game_state = game.to_dict()
+        
+#         # Verify game status and user's turn
+#         if game_state["status"] != GameStatus.IN_PROGRESS:
+#             raise HTTPException(status_code=400, detail="Game is not in progress")
+            
+#         pitching_team = game_state["team2"] if game_state["is_top_inning"] else game_state["team1"]
+#         if current_user['uid'] != pitching_team["user_id"]:
+#             raise HTTPException(status_code=400, detail="Not your turn to pitch")
+
+#         # Get current pitcher's abilities
+#         current_pitcher = pitching_team["lineup"]["available_pitchers"][
+#             pitching_team["lineup"]["current_pitcher_index"]
+#         ]
+#         pitcher_data = await get_player_data(current_pitcher)
+        
+#         # Get or create current at-bat state
+#         if not game_state.get('play_state'):
+#             game_state['play_state'] = PlayState().dict()
+            
+#         if not game_state['play_state'].get('current_at_bat'):
+#             batting_team = game_state["team1"] if game_state["is_top_inning"] else game_state["team2"]
+#             current_batter = batting_team["lineup"]["batting_order"][
+#                 batting_team["lineup"]["current_batter_index"]
+#             ]
+#             game_state['play_state']['current_at_bat'] = AtBatState(
+#                 batter_id=current_batter,
+#                 pitcher_id=current_pitcher
+#             ).dict()
+
+#         # Resolve pitch
+#         pitch_outcome = AtBatService.resolve_pitch(
+#             pitch_style,
+#             pitcher_data['pitching_abilities']
+#         )
+        
+#         # Update count and check resolution
+#         at_bat = AtBatState(**game_state['play_state']['current_at_bat'])
+#         at_bat, is_resolved, result = AtBatService.update_count(at_bat, pitch_outcome)
+        
+#         if is_resolved:
+#             if result == "walk":
+#                 game_state = AtBatService.handle_walk(
+#                     game_state,
+#                     at_bat.batter_id
+#                 )
+#                 game_state['outs'] += 1
+#             elif result == "strikeout":
+#                 game_state['outs'] += 1
+
+#             # Reset at-bat state
+#             game_state['play_state']['current_at_bat'] = None
+            
+#             # Check if half-inning is over
+#             if game_state['outs'] >= 3:
+#                 game_state = GameService.handle_inning_change(game_state)
+#         else:
+#             # Update at-bat state for next pitch/bat
+#             game_state['play_state']['current_at_bat'] = at_bat.dict()
+#             game_state['play_state']['last_pitch_style'] = pitch_style
+#             game_state['play_state']['last_pitch_outcome'] = pitch_outcome
+
+#         # Update game state
+#         game_state["updated_at"] = datetime.utcnow().isoformat()
+#         game_ref.update(game_state)
+
+#         return {
+#             "game_state": game_state,
+#             "pitch_outcome": pitch_outcome,
+#             "at_bat_state": at_bat.dict() if not is_resolved else None,
+#             "resolution": result if is_resolved else None
+#         }
+
+#     except Exception as e:
+#         raise HTTPException(
+#             status_code=500,
+#             detail=f"Error processing pitch: {str(e)}"
+#         )
 
 @router.post("/{game_id}/change-pitcher")
 async def change_pitcher(
@@ -402,12 +593,89 @@ async def make_bat(
         # Update game state
         updated_state = await update_game_state(game_state, result)
 
+        # Fetch batter details
+        try:
+            async with httpx.AsyncClient() as client:
+                batter_response = await client.get(f"{settings.BASE_API_URL}/api/v1/players/{current_batter}")
+                batter_data = batter_response.json()
+                batter_name = batter_data['basic_info']['name']
+        except Exception:
+            batter_name = "Unknown Batter"
+
+        # Fetch play history
+        history_query = (
+            game_ref.collection('history')
+            .order_by('timestamp', direction=firestore.Query.DESCENDING)
+            .limit(3)
+            .stream()
+        )
+        play_history = [hist.to_dict() for hist in history_query]
+
+        # Generate commentary
+        game_context = {
+            "inning": updated_state["inning"],
+            "is_top_inning": updated_state["is_top_inning"],
+            "score": {
+                "team1": updated_state["team1"]["score"],
+                "team2": updated_state["team2"]["score"]
+            },
+            "outs": updated_state["outs"],
+            "batter_name": batter_name
+        }
+
+        # Fetch existing commentary history
+        commentary_history_ref = game_ref.collection('commentary_history').document('main')
+        commentary_history = commentary_history_ref.get()
+        
+        if not commentary_history.exists:
+            # Initialize if not exists
+            full_commentary = []
+        else:
+            full_commentary = commentary_history.to_dict().get('full_commentary', [])
+
+
+        commentary = await commentary_service.generate_ai_commentary(
+            "bat",
+            result.dict(), 
+            game_context,
+            play_history
+        )
+
+        # Record bat action in game history
+        current_time = datetime.utcnow()
+        history_ref = game_ref.collection('history').document()
+        history_ref.set({
+            "action_type": "bat",
+            "timestamp": current_time.isoformat(),
+            "player_id": current_user['uid'],
+            "hit_style": hit_style,
+            "inning": updated_state["inning"],
+            "is_top_inning": updated_state["is_top_inning"],
+            "play_result": result.dict(),
+            "commentary": commentary
+        })
+
         # Update in Firestore
         game_ref.update(updated_state)
 
+        # Append new commentary
+        full_commentary.append({
+            "timestamp": current_time.isoformat(),
+            "commentary": commentary,
+            "action_type": "bat",
+            "details": result.dict()
+        })
+
+        # Update commentary history
+        commentary_history_ref.set({
+            "full_commentary": full_commentary
+        })
+
         return {
             "game_state": updated_state,
-            "result": result
+            "result": result,
+            "commentary": commentary,
+            "full_commentary": full_commentary
         }
 
     except Exception as e:
@@ -416,6 +684,103 @@ async def make_bat(
             detail=f"Error processing bat: {str(e)}"
         )
 
+
+# @router.post("/{game_id}/bat")
+# async def make_bat(
+#     game_id: str,
+#     hit_style: HittingStyle,
+#     current_user: dict = Depends(get_current_user)
+# ):
+#     """Handle batting with enhanced stat-based outcomes"""
+#     try:
+#         game_ref = db.collection('games').document(game_id)
+#         game = game_ref.get()
+
+#         if not game.exists:
+#             raise HTTPException(status_code=404, detail="Game not found")
+
+#         game_state = game.to_dict()
+
+#         # Validate game status
+#         if game_state["status"] != GameStatus.IN_PROGRESS:
+#             raise HTTPException(
+#                 status_code=400,
+#                 detail="Game is not in progress"
+#             )
+
+#         # Verify it's batter's turn and right user
+#         batting_team = game_state["team1"] if game_state["is_top_inning"] else game_state["team2"]
+#         if current_user['uid'] != batting_team["user_id"]:
+#             raise HTTPException(
+#                 status_code=400,
+#                 detail="Not your turn to bat"
+#             )
+
+#         # Get current batter
+#         current_batter = batting_team["lineup"]["batting_order"][
+#             batting_team["lineup"]["current_batter_index"]
+#         ]
+
+#         # Process the at-bat
+#         result = await GameService.process_at_bat(game_state, current_batter, hit_style)
+
+#         # Handle outcome
+#         if result.outcome != "out":
+#             # Update bases and score
+#             batting_team['score'] += result.batting_team_runs
+#             batting_team['hits'] += 1
+            
+#             # Update bases from advancements
+#             game_state['bases'] = {
+#                 base: runner.player_id if runner else None
+#                 for base, runner in zip(['first', 'second', 'third'], result.advancements)
+#             } if result.advancements else {}
+#         else:
+#             # Handle out
+#             game_state['outs'] += 1
+
+#         # Check for inning change
+#         if game_state['outs'] >= 3:
+#             game_state = GameService.handle_inning_change(game_state)
+#         else:
+#             # Advance to next batter
+#             batting_team["lineup"]["current_batter_index"] = (
+#                 batting_team["lineup"]["current_batter_index"] + 1
+#             ) % len(batting_team["lineup"]["batting_order"])
+
+#         # Reset last action
+#         game_state["last_action"] = None
+
+#         # Update timestamp
+#         game_state["updated_at"] = datetime.utcnow().isoformat()
+
+#         # Update game state in database
+#         game_ref.update(game_state)
+
+#         # Prepare response
+#         next_batter = None
+#         if game_state["status"] != GameStatus.COMPLETED:
+#             next_batting_team = game_state["team1"] if game_state["is_top_inning"] else game_state["team2"]
+#             next_batter = next_batting_team["lineup"]["batting_order"][
+#                 next_batting_team["lineup"]["current_batter_index"]
+#             ]
+
+#         return {
+#             "game_state": game_state,
+#             "play_result": {
+#                 "outcome": result.outcome,
+#                 "description": result.description,
+#                 "runs_scored": result.runs_scored,
+#                 "advancements": result.advancements
+#             },
+#             "next_batter": next_batter
+#         }
+
+#     except Exception as e:
+#         raise HTTPException(
+#             status_code=500,
+#             detail=f"Error processing bat: {str(e)}"
+#         )
 
 def process_at_bat(game_state: dict, batter_id: str, hit_style: HittingStyle) -> PlayResult:
     """Process a batting attempt and return the result"""
@@ -650,10 +1015,7 @@ async def forfeit_game(
         game = game_ref.get()
 
         if not game.exists:
-            raise HTTPException(
-                status_code=404,
-                detail="Game not found"
-            )
+            raise HTTPException(status_code=404, detail="Game not found")
 
         game_state = game.to_dict()
 
@@ -670,16 +1032,37 @@ async def forfeit_game(
                 detail="Not authorized to forfeit this game"
             )
 
+        # Record which team forfeited
+        forfeiting_team = "team1" if current_user['uid'] == game_state["team1"]["user_id"] else "team2"
+        winning_team = "team2" if forfeiting_team == "team1" else "team1"
+
+        current_time = datetime.utcnow()
+
+        # Record forfeit in history
+        history_ref = game_ref.collection('history').document()
+        history_ref.set({
+            "event": "forfeit",
+            "timestamp": current_time.isoformat(),
+            "forfeiting_team": forfeiting_team,
+            "forfeiting_user_id": current_user['uid']
+        })
+
         # Update game state
-        game_state["status"] = GameStatus.COMPLETED
-        game_state["updated_at"] = datetime.utcnow()
-        game_state["winner"] = game_state["team2"]["user_id"] if current_user[
-            'uid'] == game_state["team1"]["user_id"] else game_state["team1"]["user_id"]
+        game_state.update({
+            "status": GameStatus.COMPLETED,
+            "winner": game_state[winning_team]["user_id"],
+            "forfeit_info": {
+                "forfeiting_team": forfeiting_team,
+                "forfeiting_user_id": current_user['uid'],
+                "timestamp": current_time.isoformat()
+            },
+            "updated_at": current_time.isoformat()
+        })
 
         # Save state
         game_ref.update(game_state)
 
-        return GameState(**game_state)
+        return game_state
 
     except Exception as e:
         raise HTTPException(
@@ -723,4 +1106,55 @@ async def get_game_history(
         raise HTTPException(
             status_code=500,
             detail=f"Error retrieving game history: {str(e)}"
+        )
+
+
+@router.get("/{game_id}/commentary", response_model=CommentaryResponse)
+async def get_game_commentary(
+    game_id: str,
+    current_user: dict = Depends(get_current_user)
+):
+    """Get game commentary based on game history"""
+    try:
+        # Verify game exists and user is authorized
+        game_ref = db.collection('games').document(game_id)
+        game = game_ref.get()
+
+        if not game.exists:
+            raise HTTPException(status_code=404, detail="Game not found")
+
+        game_state = game.to_dict()
+
+        # Verify user authorization
+        if (current_user['uid'] != game_state["team1"]["user_id"] and 
+            (not game_state["team2"] or current_user['uid'] != game_state["team2"]["user_id"])):
+            raise HTTPException(status_code=403, detail="Not authorized")
+
+        # Fetch commentary history
+        commentary_history_ref = game_ref.collection('commentary_history').document('main')
+        commentary_history = commentary_history_ref.get()
+
+        if not commentary_history.exists:
+            return CommentaryResponse(
+                game_id=game_id,
+                status=game_state["status"],
+                commentaries=[],
+                latest_commentary="No commentary available.",
+                play_data=None
+            )
+
+        full_commentary = commentary_history.to_dict().get('full_commentary', [])
+
+        return CommentaryResponse(
+            game_id=game_id,
+            status=game_state["status"],
+            commentaries=[entry['commentary'] for entry in full_commentary],
+            latest_commentary=full_commentary[-1]['commentary'] if full_commentary else "No commentary available.",
+            play_data=full_commentary[-1] if full_commentary else None
+        )
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error generating commentary: {str(e)}"
         )
