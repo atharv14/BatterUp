@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
 import './GameComponent.css'
 
@@ -54,6 +54,10 @@ interface CommentaryHistory {
 const baseUrl = "http://localhost:8000/api/v1";
 
 const GameComponent: React.FC = () => {
+
+    // Add navigation hook
+    const navigate = useNavigate();
+    
     // Hooks and state
     const { gameId } = useParams<{ gameId: string }>();
     const { user, token } = useAuth();
@@ -70,21 +74,22 @@ const GameComponent: React.FC = () => {
     // Fetch game state and commentaries
     const fetchGameData = useCallback(async () => {
         try {
-            const gameResponse = await axios.get<{
-                state: GameState;
-                commentary_history?: CommentaryHistory;
-            }>(`${baseUrl}/games/${gameId}`, {
+            const gameResponse = await axios.get(`${baseUrl}/games/${gameId}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+    
+            setGameState(gameResponse.data.state);
+    
+            // Fetch commentary separately
+            const commentaryResponse = await axios.get(`${baseUrl}/games/${gameId}/commentary`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
-            setGameState(gameResponse.data.state);
-
-            // Handle commentary history
-            if (gameResponse.data.commentary_history) {
-                const { text_commentaries, audio_urls } = gameResponse.data.commentary_history;
-                const mergedCommentaries = text_commentaries.map((commentary: string, index: number) => ({
+            // Handle commentary from dedicated endpoint
+            if (commentaryResponse.data.commentaries && commentaryResponse.data.audio_commentaries) {
+                const mergedCommentaries = commentaryResponse.data.commentaries.map((commentary, index) => ({
                     commentary,
-                    audio_url: audio_urls[index]
+                    audio_url: commentaryResponse.data.audio_commentaries[index] || undefined
                 }));
 
                 setCommentaries(mergedCommentaries);
@@ -211,6 +216,44 @@ const GameComponent: React.FC = () => {
         }
     }, [commentaries, isAudioPlaying]);
 
+    // Forfeit game function
+    const forfeitGame = useCallback(async () => {
+        try {
+            // Confirm forfeit action
+            const confirmForfeit = window.confirm(
+                "Are you sure you want to forfeit the game? This action cannot be undone."
+            );
+
+            if (!confirmForfeit) return;
+
+            const response = await axios.post(
+                `${baseUrl}/games/${gameId}/forfeit`,
+                {},
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                }
+            );
+
+            // Show forfeit result
+            alert(`Game forfeited. ${response.data.winner ? 'Opponent wins!' : 'Game ended.'}`);
+
+            // Redirect to a suitable page after forfeit
+            navigate('/matchmaking'); // or wherever you want to redirect
+        } catch (error) {
+            console.error('Error forfeiting game:', error);
+            
+            // Handle specific error scenarios
+            if (axios.isAxiosError(error)) {
+                alert(error.response?.data?.detail || 'Failed to forfeit game');
+            } else {
+                alert('An unexpected error occurred');
+            }
+        }
+    }, [gameId, token, navigate]);
+
     // Audio event listeners
     useEffect(() => {
         const audioElement = audioRef.current;
@@ -298,6 +341,19 @@ const GameComponent: React.FC = () => {
 
     return (
         <div className="game-container">
+
+            {/* Forfeit Game Section */}
+            {gameState && canPerformAction() && (
+                <div className="forfeit-section">
+                    <button 
+                        className="forfeit-button"
+                        onClick={forfeitGame}
+                    >
+                        Forfeit Game
+                    </button>
+                </div>
+            )}
+            
             {/* Hidden audio element */}
             <audio ref={audioRef} />
 

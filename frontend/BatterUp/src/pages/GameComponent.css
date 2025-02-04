@@ -50,3 +50,22 @@ button:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
 }
+
+.forfeit-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.forfeit-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.forfeit-button:hover {
+    background-color: #c82333;
+}
