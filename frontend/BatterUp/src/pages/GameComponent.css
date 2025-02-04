@@ -69,3 +69,25 @@ button:disabled {
 .forfeit-button:hover {
     background-color: #c82333;
 }
+
+.game-pitcher-hold {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.game-batsman-hold {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.game-deck-show {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10px;
+}
