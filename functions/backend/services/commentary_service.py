@@ -1,5 +1,6 @@
 from typing import Dict, Optional, List
 import random
+import httpx
 import google.generativeai as genai
 from core.config import settings
 
@@ -15,6 +16,16 @@ class CommentaryService:
                 self.model = None
         else:
             self.model = None
+
+    async def fetch_player_name(self, player_id: str) -> str:
+        """Fetch player name from API"""
+        try:
+            async with httpx.AsyncClient() as client:
+                response = await client.get(f"{settings.BASE_API_URL}{settings.API_V1_STR}/players/{player_id}")
+                player_data = response.json()
+                return player_data['basic_info']['name']
+        except Exception:
+            return "Unknown Player"
 
     def generate_template_commentary(
         self,
@@ -108,7 +119,7 @@ class CommentaryService:
         history_context = ""
         if play_history:
             history_context = "Recent Game History:\n"
-            for play in play_history[-3:]:  # Last 3 plays
+            for play in play_history:  # Last 3 plays
                 if 'commentary' in play:
                     history_context += f"- {play['commentary']}\n"
 
@@ -116,16 +127,25 @@ class CommentaryService:
         As a baseball commentator, provide an exciting, concise commentary:
         
         Game Situation:
-        - Inning: {game_context['inning']} ({'Top' if game_context['is_top_inning'] else 'Bottom'})
+        - Inning: {game_context['inning']} ({'Top: team1 batting and team2 pitching' if game_context['is_top_inning'] else 'Bottom: team2 batting and team1 pitching'})
         - Score: {game_context['score']['team1']}-{game_context['score']['team2']}
         - Outs: {game_context['outs']}
         
+        Player: {game_context.get('player_name', 'Unknown Player')}
         Action Type: {action_type}
         Action Details: {action_details}
-        
+
+        Information on Action Details when Action Type = pitch:
+        There are three types of action details: 
+        1. Fastballs - includes: Four-seam, Two-seam, Cutter, Splitter, and Forkball
+        2. Breaking balls - includes: Curveball, Slider, Slurve, and Screwball
+        3. Changeups - include: Changeup, Palmball, Circle Changeup
+        Commentator should use one of the details when speaking about specific action type according to the action details
+
         {history_context}
         
         Provide a short, energetic commentary that takes into account the game's recent history.
+        Use the player names for outcomes like: home runs, outs.
         """
 
 # Initialize the service

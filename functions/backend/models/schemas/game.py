@@ -56,12 +56,21 @@ class Action(BaseModel):
     action_type: str  # "pitch" or "bat"
     selected_style: Union[PitchingStyle, HittingStyle]
 
+class HitType(str, Enum):
+    SINGLE = "single"
+    DOUBLE = "double"
+    TRIPLE = "triple"
+    HOME_RUN = "home_run"
+    OUT = "out"
+
 class PlayResult(BaseModel):
     outcome: str  # "single", "double", "triple", "home_run", "out"
     description: str
     advancements: List[RunnerAdvancement] = []
     runs_scored: int = 0
     batting_team_runs: int = 0
+    hits: int = 0
+    hit_type: Optional[HitType] = None
     fielding_team_errors: int = 0
 
 class TeamLineup(BaseModel):
