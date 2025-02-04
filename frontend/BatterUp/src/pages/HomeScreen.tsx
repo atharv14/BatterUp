@@ -11,6 +11,14 @@ function App() {
 
   console.log("Current User:", user);
 
+  const handleCardCollectionClick = () => {
+    navigate("/create-deck");
+  };
+
+  const handleMatchmakingClick = () => {
+    navigate("/matchmaking");
+  };
+
   const Click = () => {
     setImage(
       image === "src/assets/MLB.png"
@@ -86,7 +94,7 @@ function App() {
         {/* Card Collection & Missions */}
         <div className="flex flex-col items-center align-middle absolute top-1/3 left-0 ml-8">
           <div className="bg-custom-blue border-solid border-white border-4 p-7 mb-4 rounded-lg shadow-lg shadow-slate-800">
-            <button>
+            <button onClick={handleCardCollectionClick}>
               <h1 className="text-3xl text-red-700 font-bold">
                 Card Collection
               </h1>
@@ -121,7 +129,7 @@ function App() {
 
         {/* Bottom Right Baseball Icon */}
         <div className="absolute bottom-0 right-0 mr-10">
-          <button>
+          <button onClick={handleMatchmakingClick}>
             <img src="src/assets/baseball.png" className="mb-16 w-56" />
           </button>
         </div>

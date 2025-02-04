@@ -38,7 +38,7 @@ async def get_players(
     role: Optional[str] = Query(None, description="Filter by role"),
     team: Optional[str] = Query(None, description="Filter by team"),
     position: Optional[str] = Query(None, description="Filter by position"),
-    limit: int = Query(10, ge=1, le=100),
+    limit: int = Query(10, ge=1, le=1454),
     offset: int = Query(0, ge=0)
 ):
     """Get players with filters"""

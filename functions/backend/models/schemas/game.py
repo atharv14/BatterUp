@@ -1,3 +1,4 @@
+from enum import Enum
 from pydantic import BaseModel, Field
 from typing import Dict, List, Literal, Optional, Union
 from datetime import datetime
@@ -55,12 +56,21 @@ class Action(BaseModel):
     action_type: str  # "pitch" or "bat"
     selected_style: Union[PitchingStyle, HittingStyle]
 
+class HitType(str, Enum):
+    SINGLE = "single"
+    DOUBLE = "double"
+    TRIPLE = "triple"
+    HOME_RUN = "home_run"
+    OUT = "out"
+
 class PlayResult(BaseModel):
     outcome: str  # "single", "double", "triple", "home_run", "out"
     description: str
     advancements: List[RunnerAdvancement] = []
     runs_scored: int = 0
     batting_team_runs: int = 0
+    hits: int = 0
+    hit_type: Optional[HitType] = None
     fielding_team_errors: int = 0
 
 class TeamLineup(BaseModel):
@@ -142,3 +152,39 @@ class GameView(BaseModel):
     game_id: str
     state: GameState
     history: List[HistoryEntry]
+
+class CommentaryResponse(BaseModel):
+    game_id: str
+    status: GameStatus
+    commentaries: List[str] = []  # List of all commentaries
+    audio_commentaries: Optional[List[str]] = None
+    latest_commentary: str
+    latest_audio_commentary: Optional[str] = None
+    play_data: Optional[Dict] = None
+
+
+class AtBatState(BaseModel):
+    balls: int = 0
+    strikes: int = 0
+    batter_id: str
+    pitcher_id: str
+    is_complete: bool = False
+    result: Optional[str] = None
+
+class PitchOutcome(str, Enum):
+    BALL = "ball"
+    STRIKE = "strike"
+    IN_PLAY = "in_play"
+
+class PlayState(BaseModel):
+    current_at_bat: Optional[AtBatState] = None
+    last_pitch_style: Optional[str] = None
+    last_hit_style: Optional[str] = None
+    last_pitch_outcome: Optional[PitchOutcome] = None
+    bases_before_play: Dict[str, Optional[str]] = Field(
+        default_factory=lambda: {"first": None, "second": None, "third": None}
+    )
+
+class EnhancedGameState(GameState):
+    play_state: PlayState = Field(default_factory=PlayState)
+    at_bat_history: List[AtBatState] = Field(default_factory=list)

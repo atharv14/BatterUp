@@ -1,60 +1,114 @@
-const Card: React.FC = () => {
-    return (
-    <div className="bg-black p-8 rounded-lg shadow-lg text-center">
-        <div className="border-white border-2 bg-black p-8 rounded-lg">
-            <div className="border-b-2 border-white p-2">
-                <img src="src/assets/dude.jpg" className="w-48 h-48 rounded-full border-white border-2 mr-10 ml-16 mb-6"></img>
-            </div>
-            <div className="flex flex-col p-6 gap-1">
-                <h1 className="text-3xl text-white">Player Name</h1>
-                <h2 className="text-2xl text-white">Team Name</h2>
-                <h2 className="text-xl text-white">Position Name</h2>
-            </div>
+import React from "react";
+import cardBackground from "./assets/backgroundcard.png";
 
-            <div className="text-left">
-                <h1 className="text-2xl text-white mb-3">Batting</h1>
-                <div className="flex flex-row items-center space-x-4">
-                    <h1 className="text-white text-xl">Contact</h1>
-                    <svg width="200" height="2" className="text-white" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="0" y1="1" x2="200" y2="1" stroke="#E5E7EB" strokeWidth="2" />
-                    </svg>
-                    <h1 className="text-white text-xl">85</h1>
-                </div>
-                <div className="flex flex-row items-center space-x-4">
-                    <h1 className="text-white text-xl mr-4">Power</h1>
-                    <svg width="200" height="2" className="text-white" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="0" y1="1" x2="200" y2="1" stroke="#E5E7EB" strokeWidth="2" />
-                    </svg>
-                    <h1 className="text-white text-xl">90</h1>
-                </div>
-                <div className="flex flex-row items-center space-x-4">
-                    <h1 className="text-white text-xl mr-4">Speed</h1>
-                    <svg width="200" height="2" className="text-white" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="0" y1="1" x2="200" y2="1" stroke="#E5E7EB" strokeWidth="2" />
-                    </svg>
-                    <h1 className="text-white text-xl">89</h1>
-                </div>
-
-                <h1 className="text-2xl text-white mt-8 mb-3">Fielding</h1>
-                <div className="flex flex-row items-center space-x-4">
-                    <h1 className="text-white text-xl mr-4">Range</h1>
-                    <svg width="200" height="2" className="text-white" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="0" y1="1" x2="200" y2="1" stroke="#E5E7EB" strokeWidth="2" />
-                    </svg>
-                    <h1 className="text-white text-xl">78</h1>
-                </div>
-                <div className="flex flex-row items-center space-x-3">
-                    <h1 className="text-white text-xl">Accuracy</h1>
-                    <svg width="200" height="2" className="text-white" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="0" y1="1" x2="200" y2="1" stroke="#E5E7EB" strokeWidth="2" />
-                    </svg>
-                    <h1 className="text-white text-xl ml-1">93</h1>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    );
+interface Player {
+  player_id: number;
+  basic_info: {
+    name: string;
+    team: string;
+    primary_position: string;
+    headshot_url: string;
   };
-  
-  export default Card;
+  role_info: {
+    primary_role: string;
+  };
+  batting_abilities: {
+    contact: number;
+    power: number;
+    discipline: number;
+    speed: number;
+  };
+  pitching_abilities: {
+    control: number;
+    velocity: number;
+    stamina: number;
+    effectiveness: number;
+  };
+  fielding_abilities: {
+    defense: number;
+    range: number;
+    reliability: number;
+  };
+}
+
+interface CardProps {
+  player: Player;
+}
+
+const statAbbreviations: { [key: string]: string } = {
+  contact: "CON",
+  power: "POW",
+  discipline: "DIS",
+  speed: "SPD",
+  control: "CTL",
+  velocity: "VEL",
+  stamina: "STA",
+  effectiveness: "EFF",
+  defense: "DEF",
+  range: "RNG",
+  reliability: "REL",
+};
+
+const Card: React.FC<CardProps> = ({ player }) => {
+  const getRelevantStats = () => {
+    const role = player.role_info.primary_role.toLowerCase();
+    let primaryStats: { [key: string]: number } = {};
+    let secondaryStats: { [key: string]: number } = {};
+
+    if (role === "pitcher") {
+      primaryStats = player.pitching_abilities;
+      secondaryStats = {
+        ...player.batting_abilities,
+        ...player.fielding_abilities,
+      };
+    } else {
+      primaryStats = player.batting_abilities;
+      secondaryStats = {
+        ...player.pitching_abilities,
+        ...player.fielding_abilities,
+      };
+    }
+
+    const sortedSecondaryStats = Object.entries(secondaryStats)
+      .sort(([, a], [, b]) => b - a)
+      .slice(0, 2);
+
+    return { primaryStats, sortedSecondaryStats };
+  };
+
+  const { primaryStats, sortedSecondaryStats } = getRelevantStats();
+
+  return (
+    <div
+      className="relative w-80 h-120 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center"
+      style={{
+        backgroundImage: `url(${cardBackground})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}>
+      <img
+        src={player.basic_info.headshot_url}
+        alt={player.basic_info.name}
+        className="w-32 h-32 rounded-full border-2 border-black mt-1" // Adjusted margin-top
+      />
+      <h2 className="text-2xl font-bold text-black mt-2">
+        {player.basic_info.name}
+      </h2>
+      <p className="text-lg text-gray-800 mt-1">{player.basic_info.team}</p>
+      <div className="grid grid-cols-2 gap-2 text-black text-lg font-bold mt-2">
+        {Object.entries(primaryStats).map(([key, value]) => (
+          <p key={key}>
+            {value} {statAbbreviations[key] || key.toUpperCase()}
+          </p>
+        ))}
+        {sortedSecondaryStats.map(([key, value]) => (
+          <p key={key}>
+            {value} {statAbbreviations[key] || key.toUpperCase()}
+          </p>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Card;
