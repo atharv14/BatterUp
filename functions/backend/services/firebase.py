@@ -11,7 +11,7 @@ def init_firebase():
         cred = credentials.Certificate(settings.FIREBASE_CREDENTIALS_PATH)
         firebase_admin.initialize_app(cred, {
             # 🔹 Ensure this matches your bucket name
-            "storageBucket": "batterup-mlb-hack.firebasestorage.app"
+            "storageBucket": settings.FIREBASE_STORAGE_BUCKET
         })
 
         # Initialize Firebase Storage bucket (Global Variable)

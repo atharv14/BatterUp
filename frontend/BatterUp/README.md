@@ -1,50 +1,75 @@
-# React + TypeScript + Vite
+# BatterUp MLB Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based frontend for a baseball card game that provides an interactive MLB gameplay experience.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This frontend application provides:
+- Interactive baseball gameplay interface
+- Real-time game state visualization
+- Deck building and management
+- Player statistics and card viewing
+- Authentication and user management
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Framework**: React
+- **Authentication**: Firebase Auth
+- **State Management**: React Context
+- **Styling**: CSS
 
-- Configure the top-level `parserOptions` property like this:
+## Features
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Authentication
+- Firebase Authentication integration
+- Protected routes
+- User profile management
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Deck Building
+- Interactive deck builder
+- Player card visualization
+- Deck validation
+- Position requirements:
+  - 1 Catcher
+  - 5 Pitchers
+  - 4 Infielders
+  - 3 Outfielders
+  - 4 Hitters
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Gameplay Interface
+- Real-time game state display
+- Baseball field visualization
+- Interactive pitch selection
+- Batting interface
+- Base runner visualization
+- Score tracking
+- Inning management
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Player Cards
+- Player statistics display
+- Card abilities visualization
+- Player images and information
+
+## Game Flow
+
+1. Game Creation/Joining
+   - Create new game
+   - Join existing game
+   - Deck selection
+
+2. Gameplay
+   - Pitcher turn
+     - Pitch style selection
+     - Animation
+   - Batter turn
+     - Hit style selection
+     - Outcome animation
+   - Base running visualization
+   - Score updates
+
+3. Game Completion
+   - Final score display
+   - Statistics summary
+   - Return to lobby
+
+4. Forfeit Game
