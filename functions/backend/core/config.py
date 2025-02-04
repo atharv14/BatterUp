@@ -12,6 +12,8 @@ class Settings(BaseSettings):
 
     # Firebase settings
     FIREBASE_CREDENTIALS_PATH: str = os.getenv("FIREBASE_CREDENTIALS_PATH", "")
+    FIREBASE_STORAGE_BUCKET: str = os.getenv("FIREBASE_STORAGE_BUCKET", "")
+    GOOGLE_APPLICATION_CREDENTIALS: str = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "")
     GEMINI_KEY: str = os.getenv("GEMINI_KEY", "")
 
     # CORS settings

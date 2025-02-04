@@ -156,8 +156,10 @@ class GameView(BaseModel):
 class CommentaryResponse(BaseModel):
     game_id: str
     status: GameStatus
-    commentaries: List[str] = Field(default_factory=list)  # List of all commentaries
+    commentaries: List[str] = []  # List of all commentaries
+    audio_commentaries: Optional[List[str]] = None
     latest_commentary: str
+    latest_audio_commentary: Optional[str] = None
     play_data: Optional[Dict] = None
 
 

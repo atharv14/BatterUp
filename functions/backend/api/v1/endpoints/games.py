@@ -13,6 +13,8 @@ from models.schemas.game import (
 )
 from models.schemas.user import Deck
 from models.schemas.base import GameStatus, PitchingStyle, HittingStyle
+from services.audio_storage_service import AudioStorageService
+from services.text_to_speech_service import audio_commentary_service
 from services.game_service import GameService
 from services.at_bat_service import AtBatService
 from services.commentary_service import commentary_service
@@ -90,6 +92,7 @@ async def create_game(
             game_id).collection('commentary_history')
         history_ref.document().set({
             "full_commentary": [],
+            "full_audio_url": [],
             "created_at": current_time
         })
 
@@ -282,9 +285,7 @@ async def make_pitch(
                 status_code=400,
                 detail="Not your turn to pitch"
             )
-        print(
-            "Hellow WOrld -> inside try -> game status checked -> near getting pitcher_id")
-        print("k")
+
         # Get current pitching from lineup
         current_pitcher = current_pitching_team_id["lineup"]["available_pitchers"][
             current_pitching_team_id["lineup"]["current_pitcher_index"]]
@@ -300,7 +301,7 @@ async def make_pitch(
 
         # Update game state
         game_state["last_action"] = action
-        game_state["action_deadline"] = current_time + timedelta(seconds=30)
+        game_state["action_deadline"] = current_time + timedelta(seconds=100)
         game_state["updated_at"] = current_time
 
         # Fetch play history
@@ -329,22 +330,24 @@ async def make_pitch(
             "pitch_style": pitch_style
         }
 
-        # Fetch existing commentary history
-        commentary_history_ref = game_ref.collection(
-            'commentary_history').document('main')
-        commentary_history = commentary_history_ref.get()
-
-        if not commentary_history.exists:
-            # Initialize if not exists
-            full_commentary = []
-        else:
-            full_commentary = commentary_history.to_dict().get('full_commentary', [])
-
         commentary = await commentary_service.generate_ai_commentary(
             "pitch",
             action_details,
             game_context,
             play_history
+        )
+
+        # Save state
+        game_ref.update(game_state)
+
+        # Generate audio commentary
+        audio_commentary = audio_commentary_service.generate_audio_commentary(
+            commentary)
+
+        # Upload audio to storage
+        audio_url = await AudioStorageService.upload_audio_commentary(
+            game_id,
+            audio_commentary
         )
 
         # Record pitch action in game history
@@ -356,28 +359,41 @@ async def make_pitch(
             "pitch_style": pitch_style,
             "inning": game_state["inning"],
             "is_top_inning": game_state["is_top_inning"],
-            "commentary": commentary
+            "commentary": commentary,
+            "audio_url": audio_url
         })
 
-        # Save state
-        game_ref.update(game_state)
+        # Fetch existing commentary history
+        commentary_history_ref = game_ref.collection('commentary_history').document('main')
+        commentary_history = commentary_history_ref.get()
+        
+        if not commentary_history.exists:
+            full_commentary = []
+        else:
+            full_commentary = commentary_history.to_dict().get('full_commentary', [])
 
         # Append new commentary
         full_commentary.append({
             "timestamp": current_time.isoformat(),
             "commentary": commentary,
+            "audio_url": audio_url,
             "action_type": "pitch",
             "details": action_details
         })
 
+        # Truncate commentary history if needed
+        if len(full_commentary) > 50:
+            full_commentary = full_commentary[-50:]
+
         # Update commentary history
         commentary_history_ref.set({
-            "full_commentary": full_commentary
+            "full_commentary": full_commentary,
         })
 
         return {
             "game_state": GameState(**game_state),
             "commentary": commentary,
+            "audio_url": audio_url,
             "full_commentary": full_commentary
         }
 
@@ -587,7 +603,7 @@ async def make_bat(
         # Get current batter from lineup
         current_batter = batting_team["lineup"]["batting_order"][batting_team["lineup"]
                                                                  ["current_batter_index"]]
-        
+
         # Fetch batter details
         batter_name = await commentary_service.fetch_player_name(current_batter)
 
@@ -601,7 +617,6 @@ async def make_bat(
         history_query = (
             game_ref.collection('history')
             .order_by('timestamp', direction=firestore.Query.DESCENDING)
-            .limit(3)
             .stream()
         )
         play_history = [hist.to_dict() for hist in history_query]
@@ -618,22 +633,24 @@ async def make_bat(
             "player_name": batter_name,
         }
 
-        # Fetch existing commentary history
-        commentary_history_ref = game_ref.collection(
-            'commentary_history').document('main')
-        commentary_history = commentary_history_ref.get()
-
-        if not commentary_history.exists:
-            # Initialize if not exists
-            full_commentary = []
-        else:
-            full_commentary = commentary_history.to_dict().get('full_commentary', [])
-
         commentary = await commentary_service.generate_ai_commentary(
             "bat",
             result.dict(),
             game_context,
             play_history
+        )
+
+        # Update in Firestore
+        game_ref.update(updated_state)
+
+        # Generate audio commentary
+        audio_commentary = audio_commentary_service.generate_audio_commentary(
+            commentary)
+
+        # Upload audio to storage
+        audio_url = await AudioStorageService.upload_audio_commentary(
+            game_id,
+            audio_commentary
         )
 
         # Record bat action in game history
@@ -650,26 +667,40 @@ async def make_bat(
             "commentary": commentary
         })
 
-        # Update in Firestore
-        game_ref.update(updated_state)
+        # Fetch existing commentary history
+        commentary_history_ref = game_ref.collection(
+            'commentary_history').document('main')
+        commentary_history = commentary_history_ref.get()
+
+        if not commentary_history.exists:
+            # Initialize if not exists
+            full_commentary = []
+        else:
+            full_commentary = commentary_history.to_dict().get('full_commentary', [])
 
         # Append new commentary
         full_commentary.append({
             "timestamp": current_time.isoformat(),
             "commentary": commentary,
+            "audio_url": audio_url,
             "action_type": "bat",
             "details": result.dict()
         })
 
+        # Truncate commentary history if needed
+        if len(full_commentary) > 50:
+            full_commentary = full_commentary[-50:]
+
         # Update commentary history
         commentary_history_ref.set({
-            "full_commentary": full_commentary
+            "full_commentary": full_commentary,
         })
 
         return {
             "game_state": updated_state,
             "result": result,
             "commentary": commentary,
+            "audio_url": audio_url,
             "full_commentary": full_commentary
         }
 
@@ -947,16 +978,20 @@ async def get_game(
 
             # Determine if this is a game event or play action
             if 'event' in play_data:
-                # This is a game event
-                history.append({
-                    "entry_type": "event",
-                    "data": GameEvent(
-                        event_type=play_data.get('event', ''),
-                        timestamp=play_data.get('timestamp', ''),
-                        player_id=play_data.get('player_id', ''),
-                        event_data=play_data
-                    )
-                })
+                # Sanitize event type to match allowed values
+                event_type = play_data.get('event', '')
+                if event_type not in ['game_created', 'player_joined', 'forfeit']:
+                    event_type = 'forfeit'  # Default to forfeit if not matching
+                    # This is a game event
+                    history.append({
+                        "entry_type": "event",
+                        "data": GameEvent(
+                            event_type=play_data.get('event', ''),
+                            timestamp=play_data.get('timestamp', ''),
+                            player_id=play_data.get('player_id', ''),
+                            event_data=play_data
+                        )
+                    })
             elif 'play_result' in play_data or 'action_type' in play_data:
                 # This is a play action
                 # Determine batting and pitching teams based on game state
@@ -990,7 +1025,15 @@ async def get_game(
                 'commentary_history').document('main')
             commentary_doc = commentary_ref.get()
             if commentary_doc.exists:
-                commentary_history = commentary_doc.to_dict().get('full_commentary', [])
+                commentary_data = commentary_doc.to_dict()
+                full_commentary = commentary_data.get('full_commentary', [])
+
+                # Convert to format with audio URLs
+                commentary_history = {
+                    'text_commentaries': [entry.get('commentary') for entry in full_commentary],
+                    'audio_urls': [entry.get('audio_url') for entry in full_commentary]
+                }
+
         except Exception:
             # If commentary history doesn't exist or can't be retrieved, ignore
             pass
@@ -1072,6 +1115,12 @@ async def forfeit_game(
         # Save state
         game_ref.update(game_state)
 
+        # Optional: Clean up audio commentaries for this game
+        try:
+            await AudioStorageService.cleanup_old_audio_files(game_id)
+        except Exception as cleanup_error:
+            print(f"Error cleaning up audio files: {cleanup_error}")
+
         return game_state
 
     except Exception as e:
@@ -1150,17 +1199,27 @@ async def get_game_commentary(
                 game_id=game_id,
                 status=game_state["status"],
                 commentaries=[],
+                audio_commentaries=[],
                 latest_commentary="No commentary available.",
+                latest_audio_commentary=None,
                 play_data=None
             )
 
         full_commentary = commentary_history.to_dict().get('full_commentary', [])
 
+        # Extract non-None audio URLs
+        audio_urls = [
+            entry.get('audio_url') or '' 
+            for entry in full_commentary
+        ]
+
         return CommentaryResponse(
             game_id=game_id,
             status=game_state["status"],
             commentaries=[entry['commentary'] for entry in full_commentary],
-            latest_commentary=full_commentary[-1]['commentary'] if full_commentary else "No commentary available.",
+            audio_commentaries=audio_urls,
+            latest_commentary=full_commentary[-1].get('commentary', '') if full_commentary else "No commentary available.",
+            latest_audio_commentary=full_commentary[-1].get('audio_url') or None if full_commentary else None,
             play_data=full_commentary[-1] if full_commentary else None
         )
 

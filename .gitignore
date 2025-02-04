@@ -5,6 +5,7 @@ functions/backend/*$py.class
 functions/backend_env/
 /functions/.env
 functions/firestore-database/firebase-service-account-key.json
+functions/firestore-database/application_default_credentials.json
 node_modules/
 MLB StatsAPI - Lookup Values.pdf
 config.js

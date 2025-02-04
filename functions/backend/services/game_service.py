@@ -9,7 +9,7 @@ from services.player_service import get_player_data
 
 class GameService:
     """
-    Service to handle inning change
+    Service to update game change
     """
     @staticmethod
     def calculate_hits_and_score(outcome: str) -> Dict[str, int]:
@@ -109,7 +109,7 @@ class GameService:
         # Set up next action
         game_state["last_action"] = None
         game_state["action_deadline"] = (
-            current_time + timedelta(seconds=5)).isoformat()
+            current_time + timedelta(seconds=30)).isoformat()
 
         # Update batting order
         batting_team["lineup"]["current_batter_index"] = (
